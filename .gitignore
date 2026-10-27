@@ -1,0 +1,42 @@
+# Local configuration and generated credentials
+.env*
+!.env.example
+!.env.local.example
+.local/
+secrets/
+backups/
+access.json
+realm.json
+*credentials*.json
+*.p12
+*.pfx
+*.pem
+*.key
+*.mobileprovision
+*.keystore
+*.jks
+# Builds and editor state
+.build/
+.build-cache/
+.cache/
+build/
+DerivedData/
+work/
+__pycache__/
+*.pyc
+*.test
+*.ipa
+*.zip
+.DS_Store
+xcuserdata/
+*.xcuserstate
+Config/Local.xcconfig
+local.properties
+.gradle/
+.idea/
+# Local instructions
+AGENTS.md
+agents.md
+
+/podhod
+/coverage.out

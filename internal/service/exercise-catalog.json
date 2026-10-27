@@ -1,0 +1,3042 @@
+{
+  "version": "2026-10-26.3",
+  "muscles": [
+    {
+      "id": "chest",
+      "name": "Грудь"
+    },
+    {
+      "id": "lats",
+      "name": "Широчайшие"
+    },
+    {
+      "id": "upper_back",
+      "name": "Верх спины"
+    },
+    {
+      "id": "lower_back",
+      "name": "Разгибатели спины"
+    },
+    {
+      "id": "front_delts",
+      "name": "Передние дельты"
+    },
+    {
+      "id": "side_delts",
+      "name": "Средние дельты"
+    },
+    {
+      "id": "rear_delts",
+      "name": "Задние дельты"
+    },
+    {
+      "id": "biceps",
+      "name": "Сгибатели локтя"
+    },
+    {
+      "id": "triceps",
+      "name": "Трицепс"
+    },
+    {
+      "id": "forearms",
+      "name": "Предплечья"
+    },
+    {
+      "id": "quadriceps",
+      "name": "Квадрицепс"
+    },
+    {
+      "id": "hamstrings",
+      "name": "Задняя поверхность бедра"
+    },
+    {
+      "id": "glutes",
+      "name": "Ягодицы"
+    },
+    {
+      "id": "calves",
+      "name": "Икры"
+    },
+    {
+      "id": "abs",
+      "name": "Пресс"
+    },
+    {
+      "id": "obliques",
+      "name": "Косые мышцы живота"
+    },
+    {
+      "id": "adductors",
+      "name": "Приводящие бедра"
+    },
+    {
+      "id": "neck",
+      "name": "Шея"
+    }
+  ],
+  "equipment": [
+    {
+      "id": "barbell",
+      "name": "Штанга"
+    },
+    {
+      "id": "dumbbell",
+      "name": "Гантели"
+    },
+    {
+      "id": "cable",
+      "name": "Блочный тренажёр"
+    },
+    {
+      "id": "machine",
+      "name": "Тренажёр"
+    },
+    {
+      "id": "smith",
+      "name": "Машина Смита"
+    },
+    {
+      "id": "bodyweight",
+      "name": "Собственный вес"
+    },
+    {
+      "id": "pullup_bar",
+      "name": "Турник"
+    },
+    {
+      "id": "dip_bars",
+      "name": "Брусья"
+    },
+    {
+      "id": "bench",
+      "name": "Скамья"
+    },
+    {
+      "id": "incline_bench",
+      "name": "Наклонная скамья"
+    },
+    {
+      "id": "ez_bar",
+      "name": "EZ-гриф"
+    }
+  ],
+  "exercises": [
+    {
+      "exercise": {
+        "name": "Жим штанги лёжа",
+        "muscle": "Грудь",
+        "illustration": "bench",
+        "cue": "Лопатки сведены. Стопы устойчиво на полу. Контролируй опускание штанги.",
+        "id": "00000000-0000-4000-8000-000000000001"
+      },
+      "aliases": [
+        "Bench Press",
+        "Жим штанги лёжа",
+        "wger:73"
+      ],
+      "primaryMuscles": [
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "front_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "barbell",
+        "bench"
+      ],
+      "instructions": [
+        "Ляг на скамью, сведи лопатки и поставь стопы устойчиво на пол.",
+        "Опускай штангу к груди плавно, сохраняя запястья над предплечьями.",
+        "Выжми штангу вверх без отскока от груди; используй страховку или ограничители.",
+        "В роликах источника показан вариант в машине Смита с направляющими; в программе может быть жим со свободной штангой."
+      ],
+      "videos": [
+        {
+          "id": "21",
+          "url": "https://wger.de/media/exercise-video/73/2bdb390c-312c-4497-a722-5eed2c823e5a.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/73/2bdb390c-312c-4497-a722-5eed2c823e5a.MOV"
+        },
+        {
+          "id": "22",
+          "url": "https://wger.de/media/exercise-video/73/255b3509-e454-48a6-bf66-c7ca482be21a.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/73/255b3509-e454-48a6-bf66-c7ca482be21a.MOV"
+        },
+        {
+          "id": "23",
+          "url": "https://wger.de/media/exercise-video/73/cfb72002-898f-443a-a124-a0bce8a2e6ad.MP4",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/73/cfb72002-898f-443a-a124-a0bce8a2e6ad.MP4"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/73/view/",
+      "attribution": {
+        "author": "sistab2",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/73/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Приседания со штангой",
+        "muscle": "Ноги",
+        "illustration": "squat",
+        "cue": "Сохраняй опору на всю стопу. Колени направляй по линии носков.",
+        "id": "00000000-0000-4000-8000-000000000002"
+      },
+      "aliases": [],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [
+        "adductors"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "instructions": [
+        "Расположи штангу на верхней части спины и встань устойчиво с опорой на всю стопу.",
+        "Приседай в доступную глубину, сохраняя направление коленей по носкам и устойчивое положение спины.",
+        "Поднимайся без сведения коленей; используй стойку с ограничителями или страховку."
+      ],
+      "videos": [],
+      "sourceURL": "",
+      "attribution": {
+        "author": "Подход",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": ""
+      }
+    },
+    {
+      "exercise": {
+        "name": "Тяга верхнего блока",
+        "muscle": "Спина",
+        "illustration": "pulldown",
+        "cue": "Опускай плечи и веди локти вниз. Не раскачивай корпус.",
+        "id": "00000000-0000-4000-8000-000000000003"
+      },
+      "aliases": [
+        "Вертикальная тяга"
+      ],
+      "primaryMuscles": [
+        "lats"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "upper_back"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Сядь к верхнему блоку и зафиксируй бёдра под упорами.",
+        "Тяни рукоять к верхней части груди, направляя локти вниз без сильного отклонения корпуса.",
+        "Плавно выпрями руки и верни плечи вверх в комфортную амплитуду.",
+        "Внешний ролик показывает тягу верхнего блока широким прямым хватом к груди."
+      ],
+      "videos": [
+        {
+          "id": "external-latpulldown",
+          "url": "https://www.youtube.com/watch?v=lueEJGjTuPQ",
+          "author": "Bodybuilding.com",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.youtube.com/watch?v=lueEJGjTuPQ",
+          "sourceURL": "https://www.youtube.com/watch?v=lueEJGjTuPQ",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "",
+      "attribution": {
+        "author": "Подход",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": ""
+      }
+    },
+    {
+      "exercise": {
+        "name": "Румынская тяга",
+        "muscle": "Ноги",
+        "illustration": "deadlift",
+        "cue": "Отводи таз назад. Держи вес близко к ногам, а спину — нейтрально.",
+        "id": "00000000-0000-4000-8000-000000000004"
+      },
+      "aliases": [
+        "Romanian Deadlift",
+        "Румынская тяга со штангой",
+        "wger:507"
+      ],
+      "primaryMuscles": [
+        "hamstrings",
+        "glutes"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "barbell"
+      ],
+      "instructions": [
+        "Встань со штангой у бёдер и слегка согни колени.",
+        "Отводи таз назад, веди гриф близко к ногам и опускайся до доступного наклона без округления спины.",
+        "Вернись в стойку за счёт разгибания таза; вверху не отклоняй корпус назад."
+      ],
+      "videos": [
+        {
+          "id": "2",
+          "url": "https://wger.de/media/exercise-video/507/307e7276-a14d-4ea0-b579-f5b0dbc6f5af.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/507/307e7276-a14d-4ea0-b579-f5b0dbc6f5af.MOV"
+        },
+        {
+          "id": "3",
+          "url": "https://wger.de/media/exercise-video/507/6b6054b5-9236-4a63-8392-6ea7a9010ca6.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/507/6b6054b5-9236-4a63-8392-6ea7a9010ca6.MOV"
+        },
+        {
+          "id": "4",
+          "url": "https://wger.de/media/exercise-video/507/e96295da-58b8-4b6f-921e-4cb1af3c6cfc.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/507/e96295da-58b8-4b6f-921e-4cb1af3c6cfc.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/507/view/",
+      "attribution": {
+        "author": "pjwirth",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/507/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Жим гантелей сидя",
+        "muscle": "Плечи",
+        "illustration": "press",
+        "cue": "Держи корпус устойчиво. Поднимай гантели без рывков.",
+        "id": "00000000-0000-4000-8000-000000000005"
+      },
+      "aliases": [
+        "Shoulder Press, Dumbbells",
+        "Жим гантелей сидя",
+        "wger:567",
+        "Жим гантелей вверх"
+      ],
+      "primaryMuscles": [
+        "front_delts"
+      ],
+      "secondaryMuscles": [
+        "side_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "instructions": [
+        "Сядь на скамью с почти вертикальной спинкой и подними гантели к плечам.",
+        "Выжми гантели вверх без толчка ногами и сильного прогиба в пояснице.",
+        "Подконтрольно опусти гантели, сохраняя удобное положение локтей.",
+        "Видеопример показывает жим гантелей сидя с опорой спины."
+      ],
+      "videos": [
+        {
+          "id": "12",
+          "url": "https://wger.de/media/exercise-video/567/64f33c19-1d96-4b7c-af17-6c6a4941c614.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/567/64f33c19-1d96-4b7c-af17-6c6a4941c614.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/567/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/567/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Горизонтальная тяга",
+        "muscle": "Спина",
+        "illustration": "row",
+        "cue": "Тяни рукоять к поясу. Не отклоняй корпус назад ради повторения.",
+        "id": "00000000-0000-4000-8000-000000000006"
+      },
+      "aliases": [
+        "Rowing seated, narrow grip",
+        "Горизонтальная тяга узким хватом",
+        "wger:512"
+      ],
+      "primaryMuscles": [
+        "lats"
+      ],
+      "secondaryMuscles": [
+        "upper_back",
+        "biceps",
+        "rear_delts"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Сядь устойчиво, поставь стопы на упоры и возьми рукоять нейтральным хватом.",
+        "Веди локти назад близко к корпусу, подтягивая рукоять к поясу без раскачивания.",
+        "Плавно выпрями руки и верни лопатки вперёд, сохраняя положение поясницы."
+      ],
+      "videos": [
+        {
+          "id": "1",
+          "url": "https://wger.de/media/exercise-video/512/fff4c294-93f0-4926-b3a2-bf59ad4afaa5.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/512/fff4c294-93f0-4926-b3a2-bf59ad4afaa5.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/512/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/512/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Сгибания с гантелями",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Держи локти у корпуса. Поднимай и опускай гантели подконтрольно.",
+        "id": "00000000-0000-4000-8000-000000000007"
+      },
+      "aliases": [
+        "Biceps Curls With Dumbbell",
+        "Сгибания рук с гантелями",
+        "wger:92"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Встань с гантелями по бокам и удерживай плечи неподвижно.",
+        "Согни локти, поднимая гантели без рывка и раскачивания.",
+        "Медленно опускай вес; сохраняй удобное положение запястий."
+      ],
+      "videos": [
+        {
+          "id": "48",
+          "url": "https://wger.de/media/exercise-video/92/8bfb917c-3d0d-49b9-8073-5d7e01c1b894.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/92/8bfb917c-3d0d-49b9-8073-5d7e01c1b894.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/92/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/92/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Разгибания на блоке",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Зафиксируй локти у корпуса. Разгибай руки без раскачивания.",
+        "id": "00000000-0000-4000-8000-000000000008"
+      },
+      "aliases": [
+        "Triceps Extensions on Cable",
+        "Разгибания рук на верхнем блоке",
+        "wger:659",
+        "Разгибание трицепса на верхнем блоке"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Возьми рукоять верхнего блока и расположи локти около корпуса.",
+        "Разогни руки вниз, сохраняя плечи неподвижно.",
+        "Подконтрольно верни рукоять вверх без раскачивания и переноса веса телом."
+      ],
+      "videos": [
+        {
+          "id": "55",
+          "url": "https://wger.de/media/exercise-video/659/1f2eb3b6-3185-429f-8330-26dc88f39aff.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/659/1f2eb3b6-3185-429f-8330-26dc88f39aff.MOV"
+        },
+        {
+          "id": "56",
+          "url": "https://wger.de/media/exercise-video/659/be0b1bec-7d82-4a1d-85d6-84efa633ef3c.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/659/be0b1bec-7d82-4a1d-85d6-84efa633ef3c.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/659/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/659/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Жим ногами",
+        "muscle": "Ноги",
+        "illustration": "legpress",
+        "cue": "Сохраняй таз прижатым к спинке. Не выпрямляй колени рывком.",
+        "id": "00000000-0000-4000-8000-000000000009"
+      },
+      "aliases": [
+        "Leg Press",
+        "Жим ногами",
+        "wger:371"
+      ],
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "glutes"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Прижми спину и таз к спинке, поставь стопы устойчиво на платформу.",
+        "Сгибай ноги до комфортной глубины без подкручивания таза.",
+        "Выжми платформу вверх, сохраняя направление коленей по носкам."
+      ],
+      "videos": [
+        {
+          "id": "44",
+          "url": "https://wger.de/media/exercise-video/371/6aae16b4-01b9-4eb4-935c-3250f84d2c59.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/371/6aae16b4-01b9-4eb4-935c-3250f84d2c59.MOV"
+        },
+        {
+          "id": "46",
+          "url": "https://wger.de/media/exercise-video/371/db382bd9-f633-47cd-8b02-c52db835e41d.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/371/db382bd9-f633-47cd-8b02-c52db835e41d.MOV"
+        },
+        {
+          "id": "45",
+          "url": "https://wger.de/media/exercise-video/371/32601896-b84a-49bf-ae8a-b27a8f57ab21.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/371/32601896-b84a-49bf-ae8a-b27a8f57ab21.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/371/view/",
+      "attribution": {
+        "author": "BFad07",
+        "license": "CC0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/371/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Выпады с гантелями",
+        "muscle": "Ноги",
+        "illustration": "lunge",
+        "cue": "Держи равновесие и устойчивую стопу. Опускайся в комфортной амплитуде.",
+        "id": "00000000-0000-4000-8000-000000000010"
+      },
+      "aliases": [
+        "Dumbbell Lunges Standing",
+        "Выпады с гантелями на месте",
+        "wger:205"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Встань с гантелями по бокам и сделай удобный шаг в выпад.",
+        "Опускайся до комфортной глубины, удерживая переднюю стопу на полу.",
+        "Поднимись без толчка корпусом; выполни запланированные повторения обеими ногами."
+      ],
+      "videos": [
+        {
+          "id": "31",
+          "url": "https://wger.de/media/exercise-video/205/c167ac34-ddbc-4e1b-8edf-1192e9d00e22.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/205/c167ac34-ddbc-4e1b-8edf-1192e9d00e22.MOV"
+        },
+        {
+          "id": "32",
+          "url": "https://wger.de/media/exercise-video/205/4cd5dc48-897f-4e0c-8c5a-639a4098ceb1.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/205/4cd5dc48-897f-4e0c-8c5a-639a4098ceb1.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/205/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/205/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Разведения гантелей",
+        "muscle": "Плечи",
+        "illustration": "fly",
+        "cue": "Слегка согни локти. Поднимай руки без рывков и пожимания плечами.",
+        "id": "00000000-0000-4000-8000-000000000011"
+      },
+      "aliases": [
+        "Lateral Raises",
+        "Разведения гантелей в стороны",
+        "wger:348",
+        "Махи на средние дельты"
+      ],
+      "primaryMuscles": [
+        "side_delts"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Встань устойчиво с гантелями по бокам и слегка согни локти.",
+        "Поднимай руки в стороны до комфортного уровня, направляя движение локтями.",
+        "Опускай гантели под контролем, без рывка корпусом и пожимания плечами."
+      ],
+      "videos": [
+        {
+          "id": "6",
+          "url": "https://wger.de/media/exercise-video/348/de69928a-8a35-4096-821c-1f46de5e0e03.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/348/de69928a-8a35-4096-821c-1f46de5e0e03.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/348/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/348/"
+      }
+    },
+    {
+      "exercise": {
+        "name": "Подтягивания",
+        "muscle": "Спина",
+        "illustration": "pullup",
+        "cue": "Начинай движение лопатками. Подтягивайся без раскачивания.",
+        "id": "00000000-0000-4000-8000-000000000012"
+      },
+      "aliases": [
+        "Pull-ups",
+        "Подтягивания",
+        "wger:475"
+      ],
+      "primaryMuscles": [
+        "lats"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "upper_back",
+        "rear_delts"
+      ],
+      "equipment": [
+        "bodyweight",
+        "pullup_bar"
+      ],
+      "instructions": [
+        "Возьмись за перекладину удобным хватом и начни из контролируемого виса.",
+        "Подтягивайся, направляя локти вниз без раскачивания и рывка ногами.",
+        "Опускайся плавно до удобного положения плеч."
+      ],
+      "videos": [
+        {
+          "id": "71",
+          "url": "https://wger.de/media/exercise-video/475/83067ffe-ccb9-4e22-8507-5131b211ce74.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/475/83067ffe-ccb9-4e22-8507-5131b211ce74.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/475/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/475/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "dcc6e237-a8bb-4eca-bbc5-7fb852636f6a",
+        "name": "Выпады с гантелями в ходьбе",
+        "muscle": "Ноги",
+        "illustration": "lunge",
+        "cue": "Шагни в выпад и опустись, сохраняя устойчивое положение таза и колена."
+      },
+      "aliases": [
+        "Dumbbell Lunges Walking",
+        "Выпады с гантелями в ходьбе",
+        "wger:206"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Возьми гантели и выбери свободный участок для последовательных шагов.",
+        "Шагни в выпад и опустись, сохраняя устойчивое положение таза и колена.",
+        "Оттолкнись передней ногой и переходи к следующему шагу без раскачивания."
+      ],
+      "videos": [
+        {
+          "id": "33",
+          "url": "https://wger.de/media/exercise-video/206/47a65c45-6fd1-4181-b71a-3a6c882e516b.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/206/47a65c45-6fd1-4181-b71a-3a6c882e516b.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/206/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/206/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "072a9fa8-1028-47b3-b958-d8052c6b8661",
+        "name": "Выпады со штангой в ходьбе",
+        "muscle": "Ноги",
+        "illustration": "lunge",
+        "cue": "Выполняй последовательные выпады, ставя стопу полностью на пол."
+      },
+      "aliases": [
+        "Barbell Lunges Walking",
+        "Выпады со штангой в ходьбе",
+        "wger:802"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "barbell"
+      ],
+      "instructions": [
+        "Устойчиво размести штангу на спине и подготовь свободное место для шагов.",
+        "Выполняй последовательные выпады, ставя стопу полностью на пол.",
+        "Поднимайся контролируемо и сохраняй равновесие при переносе веса на следующую ногу."
+      ],
+      "videos": [
+        {
+          "id": "34",
+          "url": "https://wger.de/media/exercise-video/802/85d1d7f8-c3c5-47e8-9b26-56896919e6e7.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/802/85d1d7f8-c3c5-47e8-9b26-56896919e6e7.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/802/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/802/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "04e7d7e4-f8d2-406d-97df-3df3bceec22c",
+        "name": "Выпады со штангой на месте",
+        "muscle": "Ноги",
+        "illustration": "lunge",
+        "cue": "Опускай таз вниз, сохраняя опору передней стопы и направление колена по носку."
+      },
+      "aliases": [
+        "Barbell Lunges Standing",
+        "Выпады со штангой на месте",
+        "wger:46"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "barbell"
+      ],
+      "instructions": [
+        "Устойчиво расположи штангу на верхней части спины и сделай шаг в выпад.",
+        "Опускай таз вниз, сохраняя опору передней стопы и направление колена по носку.",
+        "Поднимись за счёт передней ноги без потери равновесия и повтори другой стороной."
+      ],
+      "videos": [
+        {
+          "id": "30",
+          "url": "https://wger.de/media/exercise-video/46/d45df7af-586b-42d0-bc56-d1e028812f12.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/46/d45df7af-586b-42d0-bc56-d1e028812f12.MOV"
+        },
+        {
+          "id": "29",
+          "url": "https://wger.de/media/exercise-video/46/200d9889-322f-476a-a47b-f15a1a97934a.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/46/200d9889-322f-476a-a47b-f15a1a97934a.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/46/view/",
+      "attribution": {
+        "author": "Mikko Ruohola",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/46/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "18104387-4567-4c1e-8d03-db0b274646dd",
+        "name": "Гакк-приседания в тренажёре",
+        "muscle": "Ноги",
+        "illustration": "squat",
+        "cue": "Опускай платформу в присед с опорой на всю стопу и коленями по линии носков."
+      },
+      "aliases": [
+        "Leg Press on Hackenschmidt Machine",
+        "Гакк-приседания в тренажёре",
+        "wger:375"
+      ],
+      "primaryMuscles": [
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "glutes",
+        "adductors"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Прижми спину к опоре, расположи плечи под упорами и поставь стопы на платформу.",
+        "Опускай платформу в присед с опорой на всю стопу и коленями по линии носков.",
+        "Выжми платформу вверх без отрыва таза и рывка в коленях."
+      ],
+      "videos": [
+        {
+          "id": "40",
+          "url": "https://wger.de/media/exercise-video/375/effa7a81-dbdd-4014-83ee-ddf0fd835301.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/375/effa7a81-dbdd-4014-83ee-ddf0fd835301.MOV"
+        },
+        {
+          "id": "41",
+          "url": "https://wger.de/media/exercise-video/375/d08a943d-c765-42b5-9ece-b80d90f2aefe.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/375/d08a943d-c765-42b5-9ece-b80d90f2aefe.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/375/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/375/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "28321cf3-70e6-48a4-ade1-d11382180cb3",
+        "name": "Жим гантелей лёжа",
+        "muscle": "Грудь",
+        "illustration": "bench",
+        "cue": "Опускай гантели по сторонам груди, не разводя локти в неудобное положение."
+      },
+      "aliases": [
+        "Benchpress Dumbbells",
+        "Жим гантелей лёжа",
+        "wger:75"
+      ],
+      "primaryMuscles": [
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "front_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "instructions": [
+        "Ляг на горизонтальную скамью с устойчивой опорой стоп и гантелями над грудью.",
+        "Опускай гантели по сторонам груди, не разводя локти в неудобное положение.",
+        "Выжми гантели вверх и вернись в исходное положение под контролем."
+      ],
+      "videos": [
+        {
+          "id": "17",
+          "url": "https://wger.de/media/exercise-video/75/080c799b-8afd-4130-8d72-9cef0cd79f54.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/75/080c799b-8afd-4130-8d72-9cef0cd79f54.MOV"
+        },
+        {
+          "id": "20",
+          "url": "https://wger.de/media/exercise-video/75/c9cbd391-1e22-4014-8794-04630c80665f.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/75/c9cbd391-1e22-4014-8794-04630c80665f.MOV"
+        },
+        {
+          "id": "18",
+          "url": "https://wger.de/media/exercise-video/75/a8263fe5-3015-41e3-9781-2d255adcea63.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/75/a8263fe5-3015-41e3-9781-2d255adcea63.MOV"
+        },
+        {
+          "id": "19",
+          "url": "https://wger.de/media/exercise-video/75/9d803f97-0a48-4483-8f1c-ee5b19d6021e.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/75/9d803f97-0a48-4483-8f1c-ee5b19d6021e.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/75/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/75/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "57e17672-52b9-43cf-8d0d-4b3f06a0c0d0",
+        "name": "Жим гантелей на наклонной скамье",
+        "muscle": "Грудь",
+        "illustration": "bench",
+        "cue": "Выжми гантели вверх, удерживая лопатки и стопы устойчиво."
+      },
+      "aliases": [
+        "Incline Bench Press - Dumbbell",
+        "Жим гантелей на наклонной скамье",
+        "wger:537"
+      ],
+      "primaryMuscles": [
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "front_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "dumbbell",
+        "incline_bench"
+      ],
+      "instructions": [
+        "Сядь на наклонную скамью и расположи гантели по сторонам верхней части груди.",
+        "Выжми гантели вверх, удерживая лопатки и стопы устойчиво.",
+        "Плавно верни вес вниз в удобную глубину без чрезмерного разведения локтей."
+      ],
+      "videos": [
+        {
+          "id": "24",
+          "url": "https://wger.de/media/exercise-video/537/b9c937e9-daeb-42a9-be8e-7a77e368478c.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/537/b9c937e9-daeb-42a9-be8e-7a77e368478c.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/537/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/537/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "661287d4-d1dc-485c-896b-73f90b000536",
+        "name": "Жим ногами с широкой постановкой",
+        "muscle": "Ноги",
+        "illustration": "legpress",
+        "cue": "Опускай платформу до глубины, на которой таз остаётся прижатым к спинке."
+      },
+      "aliases": [
+        "Leg Presses (wide)",
+        "Жим ногами с широкой постановкой",
+        "wger:374"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [
+        "adductors"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Сядь в тренажёр и поставь стопы шире обычного, направив носки и колени согласованно.",
+        "Опускай платформу до глубины, на которой таз остаётся прижатым к спинке.",
+        "Выжимай вес всей стопой, не сводя колени и не разгибая их рывком."
+      ],
+      "videos": [
+        {
+          "id": "43",
+          "url": "https://wger.de/media/exercise-video/374/5336822a-7803-45b3-a880-f2bbf37a28f2.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/374/5336822a-7803-45b3-a880-f2bbf37a28f2.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/374/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/374/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "5912d7ed-6a0e-4b4c-b30a-fc9f3f890fc1",
+        "name": "Жим плечами в тренажёре",
+        "muscle": "Плечи",
+        "illustration": "press",
+        "cue": "Выжимай рукояти вверх, сохраняя устойчивое положение корпуса."
+      },
+      "aliases": [
+        "Shoulder Press, on Machine",
+        "Жим плечами в тренажёре",
+        "wger:543"
+      ],
+      "primaryMuscles": [
+        "front_delts"
+      ],
+      "secondaryMuscles": [
+        "side_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Настрой сиденье так, чтобы рукояти находились примерно на уровне плеч, и обопрись спиной.",
+        "Выжимай рукояти вверх, сохраняя устойчивое положение корпуса.",
+        "Плавно опускай вес до удобной глубины без отрыва таза от сиденья."
+      ],
+      "videos": [
+        {
+          "id": "11",
+          "url": "https://wger.de/media/exercise-video/543/dbfd396b-1aab-4a64-a50b-2c31ff0a2cf7.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/543/dbfd396b-1aab-4a64-a50b-2c31ff0a2cf7.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/543/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/543/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "275fb49f-975c-4d6e-9d63-2c86ed740f40",
+        "name": "Жим штанги на наклонной скамье",
+        "muscle": "Грудь",
+        "illustration": "bench",
+        "cue": "Сними штангу и опускай её к верхней части груди, удерживая предплечья под грифом."
+      },
+      "aliases": [
+        "Incline Bench Press - Barbell",
+        "Жим штанги на наклонной скамье",
+        "wger:538"
+      ],
+      "primaryMuscles": [
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "front_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "barbell",
+        "incline_bench"
+      ],
+      "instructions": [
+        "Расположись на наклонной скамье, прижми стопы к полу и сведи лопатки.",
+        "Сними штангу и опускай её к верхней части груди, удерживая предплечья под грифом.",
+        "Выжми вес вверх без отскока от груди и потери опоры."
+      ],
+      "videos": [
+        {
+          "id": "16",
+          "url": "https://wger.de/media/exercise-video/538/4349a6f6-4cee-4c09-828b-c5e7fc2c1ff1.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/538/4349a6f6-4cee-4c09-828b-c5e7fc2c1ff1.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/538/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/538/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "04365177-e078-489b-983a-8ac61b7346f1",
+        "name": "Молотковые сгибания на блоке",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Сгибай локти, сохраняя их около корпуса и не отклоняясь назад."
+      },
+      "aliases": [
+        "Hammercurls on Cable",
+        "Молотковые сгибания на блоке",
+        "wger:275"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Закрепи канат на нижнем блоке и возьми его нейтральным хватом.",
+        "Сгибай локти, сохраняя их около корпуса и не отклоняясь назад.",
+        "Подконтрольно разгибай руки, не бросая вес."
+      ],
+      "videos": [
+        {
+          "id": "47",
+          "url": "https://wger.de/media/exercise-video/275/af1fff93-eb58-4ba7-97a4-b38ee67853b4.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/275/af1fff93-eb58-4ba7-97a4-b38ee67853b4.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/275/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/275/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "c0d9fe98-f4fe-49f3-8037-05e1984e7d2d",
+        "name": "Молотковые сгибания с гантелями",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Сгибай локти, сохраняя нейтральный хват и неподвижные плечи."
+      },
+      "aliases": [
+        "Hammer Curls",
+        "Молотковые сгибания с гантелями",
+        "wger:272",
+        "Молотковые сгибания"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Встань с гантелями, повернув ладони к корпусу.",
+        "Сгибай локти, сохраняя нейтральный хват и неподвижные плечи.",
+        "Плавно опускай гантели без раскачивания корпуса."
+      ],
+      "videos": [
+        {
+          "id": "51",
+          "url": "https://wger.de/media/exercise-video/272/df069052-2173-4f24-855f-a0eebe729f24.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/272/df069052-2173-4f24-855f-a0eebe729f24.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/272/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/272/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "57263316-6f34-4539-952b-b07e09bac3ba",
+        "name": "Отведение руки в сторону на блоке",
+        "muscle": "Плечи",
+        "illustration": "fly",
+        "cue": "Сохраняя небольшой сгиб локтя, отводи руку в сторону примерно до уровня плеча."
+      },
+      "aliases": [
+        "Lateral Rows on Cable, One Armed",
+        "Отведение руки в сторону на блоке",
+        "wger:349"
+      ],
+      "primaryMuscles": [
+        "side_delts"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Встань боком к нижнему блоку и возьми рукоять дальней рукой перед корпусом.",
+        "Сохраняя небольшой сгиб локтя, отводи руку в сторону примерно до уровня плеча.",
+        "Медленно опускай рукоять; не помогай корпусом и не поднимай плечо к уху."
+      ],
+      "videos": [
+        {
+          "id": "5",
+          "url": "https://wger.de/media/exercise-video/349/9896d82e-d8b6-48af-bdd5-b8545dc523e9.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/349/9896d82e-d8b6-48af-bdd5-b8545dc523e9.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/349/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/349/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "09dd3e3c-e53a-4e2c-a2e3-645d334f53e2",
+        "name": "Отжимания на брусьях",
+        "muscle": "Трицепс",
+        "illustration": "press",
+        "cue": "Согни локти и опускайся в доступную глубину без провала плеч вперёд."
+      },
+      "aliases": [
+        "Dips",
+        "Отжимания на брусьях",
+        "wger:194"
+      ],
+      "primaryMuscles": [
+        "triceps",
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "front_delts"
+      ],
+      "equipment": [
+        "bodyweight",
+        "dip_bars"
+      ],
+      "instructions": [
+        "Прими устойчивый упор на брусьях и опусти плечи от ушей.",
+        "Согни локти и опускайся в доступную глубину без провала плеч вперёд.",
+        "Отожмись вверх плавно, сохраняя контроль и без раскачивания ногами."
+      ],
+      "videos": [
+        {
+          "id": "66",
+          "url": "https://wger.de/media/exercise-video/194/dd9a663f-d8ba-4621-823b-13788ccb66bc.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/194/dd9a663f-d8ba-4621-823b-13788ccb66bc.MOV"
+        },
+        {
+          "id": "64",
+          "url": "https://wger.de/media/exercise-video/194/d039ec90-474d-47a9-a3ad-bf0b00828c82.MP4",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/194/d039ec90-474d-47a9-a3ad-bf0b00828c82.MP4"
+        },
+        {
+          "id": "65",
+          "url": "https://wger.de/media/exercise-video/194/7a6987aa-138d-41e4-8842-5c3e3d970bd9.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/194/7a6987aa-138d-41e4-8842-5c3e3d970bd9.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/194/view/",
+      "attribution": {
+        "author": "BFad07",
+        "license": "CC0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/194/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "7f834f07-fa7b-46b6-8ffa-45930b0602db",
+        "name": "Подтягивания в гравитроне",
+        "muscle": "Спина",
+        "illustration": "pullup",
+        "cue": "Тяни локти вниз к корпусу, поднимаясь без рывка."
+      },
+      "aliases": [
+        "Pull Ups on Machine",
+        "Подтягивания в гравитроне",
+        "wger:477"
+      ],
+      "primaryMuscles": [
+        "lats"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "upper_back",
+        "rear_delts"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Настрой противовес, возьмись за рукояти и устойчиво расположись на опоре тренажёра.",
+        "Тяни локти вниз к корпусу, поднимаясь без рывка.",
+        "Подконтрольно опускайся, сохраняя движение плеч и лопаток в удобной амплитуде."
+      ],
+      "videos": [
+        {
+          "id": "70",
+          "url": "https://wger.de/media/exercise-video/477/2e23bb52-2782-40c8-bf88-fa2d2e2a9a0d.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/477/2e23bb52-2782-40c8-bf88-fa2d2e2a9a0d.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/477/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/477/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "6e46833d-fd83-4c1a-90af-eb3f3a917199",
+        "name": "Подъём на носки сидя",
+        "muscle": "Икры",
+        "illustration": "legpress",
+        "cue": "Поднимай пятки, двигаясь в голеностопе, и задержись в верхней точке."
+      },
+      "aliases": [
+        "Sitting Calf Raises",
+        "Подъём на носки сидя",
+        "wger:590"
+      ],
+      "primaryMuscles": [
+        "calves"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Сядь в тренажёр, поставь переднюю часть стоп на платформу и расположи упор над коленями.",
+        "Поднимай пятки, двигаясь в голеностопе, и задержись в верхней точке.",
+        "Опускай пятки плавно, без пружинящего отскока из нижней позиции."
+      ],
+      "videos": [
+        {
+          "id": "13",
+          "url": "https://wger.de/media/exercise-video/590/a325ae2e-686b-4a1f-aff2-ba37fa3fa157.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/590/a325ae2e-686b-4a1f-aff2-ba37fa3fa157.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/590/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/590/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "7ce443b6-eb84-4f65-b05f-461c1cc8bcc0",
+        "name": "Подъём на носки стоя",
+        "muscle": "Икры",
+        "illustration": "legpress",
+        "cue": "Поднимись на носки, сохраняя мягкие колени и ровное положение корпуса."
+      },
+      "aliases": [
+        "Standing Calf Raises",
+        "Подъём на носки стоя",
+        "wger:622"
+      ],
+      "primaryMuscles": [
+        "calves"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Поставь переднюю часть стоп на платформу и устойчиво расположись под упорами тренажёра.",
+        "Поднимись на носки, сохраняя мягкие колени и ровное положение корпуса.",
+        "Подконтрольно опускай пятки в комфортную амплитуду, не раскачиваясь."
+      ],
+      "videos": [
+        {
+          "id": "15",
+          "url": "https://wger.de/media/exercise-video/622/461171e5-2b16-407d-bf27-27aeef43f105.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/622/461171e5-2b16-407d-bf27-27aeef43f105.MOV"
+        },
+        {
+          "id": "14",
+          "url": "https://wger.de/media/exercise-video/622/35b7b625-77fd-4c09-8c57-3ad0f2f23175.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/622/35b7b625-77fd-4c09-8c57-3ad0f2f23175.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/622/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/622/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "316aca47-6f5b-40b7-b04f-f69e68387354",
+        "name": "Приседания в машине Смита",
+        "muscle": "Ноги",
+        "illustration": "squat",
+        "cue": "Приседай по траектории направляющих, удерживая опору на всю стопу."
+      },
+      "aliases": [
+        "Squats on Multipress",
+        "Приседания в машине Смита",
+        "wger:341"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [
+        "adductors"
+      ],
+      "equipment": [
+        "smith"
+      ],
+      "instructions": [
+        "Расположи гриф на верхней части спины и выбери устойчивую постановку стоп.",
+        "Приседай по траектории направляющих, удерживая опору на всю стопу.",
+        "Поднимайся без сведения коленей и потери устойчивого положения корпуса."
+      ],
+      "videos": [
+        {
+          "id": "42",
+          "url": "https://wger.de/media/exercise-video/341/0cbfeace-dda9-4166-8424-f51358e88a4f.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/341/0cbfeace-dda9-4166-8424-f51358e88a4f.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/341/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/341/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "6f79b381-98a4-40d5-8a45-3bb0558be6fe",
+        "name": "Разведения гантелей в наклоне",
+        "muscle": "Плечи",
+        "illustration": "fly",
+        "cue": "С небольшим сгибом локтей разводи руки в стороны, не превращая движение в тягу к поясу."
+      },
+      "aliases": [
+        "Bent-over Lateral Raises",
+        "Разведения гантелей в наклоне",
+        "wger:82"
+      ],
+      "primaryMuscles": [
+        "rear_delts"
+      ],
+      "secondaryMuscles": [
+        "upper_back"
+      ],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Наклони корпус с устойчивой нейтральной спиной; при необходимости используй опору грудью на скамью.",
+        "С небольшим сгибом локтей разводи руки в стороны, не превращая движение в тягу к поясу.",
+        "Плавно верни гантели вниз, сохраняя положение корпуса."
+      ],
+      "videos": [
+        {
+          "id": "7",
+          "url": "https://wger.de/media/exercise-video/82/28b53647-27e7-47cf-8852-2ee666c8b628.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/82/28b53647-27e7-47cf-8852-2ee666c8b628.MOV"
+        },
+        {
+          "id": "9",
+          "url": "https://wger.de/media/exercise-video/82/437d79db-ac8f-49e2-8780-0365f94ee01c.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/82/437d79db-ac8f-49e2-8780-0365f94ee01c.MOV"
+        },
+        {
+          "id": "8",
+          "url": "https://wger.de/media/exercise-video/82/ebf1e6d2-df48-44b8-a791-97f77e801bf3.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/82/ebf1e6d2-df48-44b8-a791-97f77e801bf3.MOV"
+        },
+        {
+          "id": "10",
+          "url": "https://wger.de/media/exercise-video/82/7cfe6d04-5e59-4d0b-937b-b8f4ee10602d.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/82/7cfe6d04-5e59-4d0b-937b-b8f4ee10602d.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/82/view/",
+      "attribution": {
+        "author": "apeschel",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/82/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "f8d69dd4-3c35-49c7-8cbe-f0132eca4c52",
+        "name": "Разгибание одной руки на верхнем блоке",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Разогни локоть вниз, не двигая плечом."
+      },
+      "aliases": [
+        "One Arm Triceps Extensions on Cable",
+        "Разгибание одной руки на верхнем блоке",
+        "wger:803"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Возьми рукоять верхнего блока одной рукой и зафиксируй локоть около корпуса.",
+        "Разогни локоть вниз, не двигая плечом.",
+        "Верни рукоять медленно и затем повтори другой рукой."
+      ],
+      "videos": [
+        {
+          "id": "58",
+          "url": "https://wger.de/media/exercise-video/803/99e0001f-217a-4b11-823c-014d24a5415e.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/803/99e0001f-217a-4b11-823c-014d24a5415e.MOV"
+        },
+        {
+          "id": "59",
+          "url": "https://wger.de/media/exercise-video/803/589d24e5-aaee-455d-93fd-f0f01da5d9c6.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/803/589d24e5-aaee-455d-93fd-f0f01da5d9c6.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/803/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/803/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "d8bddb58-91b0-4d7b-8ec1-cd742584b607",
+        "name": "Разгибание рук с гантелью из-за головы",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Сгибай локти, опуская гантель за голову без чрезмерного разведения плеч."
+      },
+      "aliases": [
+        "Dumbbell Triceps Extension",
+        "Разгибание рук с гантелью из-за головы",
+        "wger:211"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Удерживай гантель над головой в устойчивом положении корпуса.",
+        "Сгибай локти, опуская гантель за голову без чрезмерного разведения плеч.",
+        "Разогни локти и верни гантель вверх, не помогая поясницей."
+      ],
+      "videos": [
+        {
+          "id": "57",
+          "url": "https://wger.de/media/exercise-video/211/85f6eb25-a76c-409e-9af9-497794ac0dfb.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/211/85f6eb25-a76c-409e-9af9-497794ac0dfb.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/211/view/",
+      "attribution": {
+        "author": "tuninx",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/211/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "5915fabe-c941-4dac-b196-bc4e8c7ce57b",
+        "name": "Разгибание руки с гантелью в наклоне",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Разогни локоть назад, сохраняя плечо неподвижным."
+      },
+      "aliases": [
+        "Tricep Dumbbell Kickback",
+        "Разгибание руки с гантелью в наклоне",
+        "wger:655"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell"
+      ],
+      "instructions": [
+        "Наклони корпус с опорой и расположи плечо рабочей руки около корпуса.",
+        "Разогни локоть назад, сохраняя плечо неподвижным.",
+        "Медленно согни руку обратно, не раскачивая гантель."
+      ],
+      "videos": [
+        {
+          "id": "76",
+          "url": "https://wger.de/media/exercise-video/655/2d88a05b-bde3-4026-bfbf-524c11068dc5.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/655/2d88a05b-bde3-4026-bfbf-524c11068dc5.MOV"
+        },
+        {
+          "id": "77",
+          "url": "https://wger.de/media/exercise-video/655/f1354a78-539c-4f22-a78f-b1f43f920740.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/655/f1354a78-539c-4f22-a78f-b1f43f920740.MOV"
+        },
+        {
+          "id": "75",
+          "url": "https://wger.de/media/exercise-video/655/69e8c1e5-55b2-4da6-8166-092c24b16735.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/655/69e8c1e5-55b2-4da6-8166-092c24b16735.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/655/view/",
+      "attribution": {
+        "author": "http://www.bodybuilding.com/",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/655/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "53906cd1-61f1-4d56-ac60-e4fcc5824861",
+        "name": "Сведение ног в тренажёре",
+        "muscle": "Ноги",
+        "illustration": "legpress",
+        "cue": "Своди ноги без рывка и без помощи корпусом."
+      },
+      "aliases": [
+        "Seated Hip Adduction",
+        "Сведение ног в тренажёре",
+        "wger:12"
+      ],
+      "primaryMuscles": [
+        "adductors"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Сядь в тренажёр, прижми спину и расположи бёдра у внутренних упоров.",
+        "Своди ноги без рывка и без помощи корпусом.",
+        "Плавно разводи упоры обратно в комфортную амплитуду."
+      ],
+      "videos": [
+        {
+          "id": "74",
+          "url": "https://wger.de/media/exercise-video/12/5148c579-5df2-4618-9a7b-a2e29ac4dd7d.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/12/5148c579-5df2-4618-9a7b-a2e29ac4dd7d.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/12/view/",
+      "attribution": {
+        "author": "flori",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/12/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "3bc8b411-a28d-4e1c-a6d1-769e18fe9881",
+        "name": "Сгибание ног лёжа",
+        "muscle": "Ноги",
+        "illustration": "legpress",
+        "cue": "Сгибай ноги, подтягивая валик к ягодицам без подъёма таза."
+      },
+      "aliases": [
+        "Leg Curls (laying)",
+        "Сгибание ног лёжа",
+        "wger:365",
+        "Сгибание ног"
+      ],
+      "primaryMuscles": [
+        "hamstrings"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Ляг в тренажёр, совмести колени с осью вращения и расположи валик над пятками.",
+        "Сгибай ноги, подтягивая валик к ягодицам без подъёма таза.",
+        "Медленно разгибай ноги, сохраняя контроль веса."
+      ],
+      "videos": [
+        {
+          "id": "35",
+          "url": "https://wger.de/media/exercise-video/365/becaf013-5044-40d0-bae9-7ed60c973737.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/365/becaf013-5044-40d0-bae9-7ed60c973737.MOV"
+        },
+        {
+          "id": "36",
+          "url": "https://wger.de/media/exercise-video/365/1106bd7a-72cd-45b5-853f-5c9912b936ef.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/365/1106bd7a-72cd-45b5-853f-5c9912b936ef.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/365/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/365/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "440a5184-de58-4a86-a7ba-76ddeafaa855",
+        "name": "Сгибание ног сидя",
+        "muscle": "Ноги",
+        "illustration": "legpress",
+        "cue": "Сгибай ноги вниз и назад, сохраняя бёдра под упором."
+      },
+      "aliases": [
+        "Leg Curls (sitting)",
+        "Сгибание ног сидя",
+        "wger:366"
+      ],
+      "primaryMuscles": [
+        "hamstrings"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Настрой спинку, бедренный упор и валик так, чтобы колени совпали с осью тренажёра.",
+        "Сгибай ноги вниз и назад, сохраняя бёдра под упором.",
+        "Возвращай вес плавно, не отрывая таз от сиденья."
+      ],
+      "videos": [
+        {
+          "id": "37",
+          "url": "https://wger.de/media/exercise-video/366/43df4b79-d4c3-4fbf-bcb5-e0d825b84120.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/366/43df4b79-d4c3-4fbf-bcb5-e0d825b84120.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/366/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/366/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "49189e88-40b6-4c0d-a784-0cc3abbb8e75",
+        "name": "Сгибание ноги стоя",
+        "muscle": "Ноги",
+        "illustration": "legpress",
+        "cue": "Сгибай рабочую ногу, подтягивая пятку назад без движения тазом."
+      },
+      "aliases": [
+        "Leg Curls (standing)",
+        "Сгибание ноги стоя",
+        "wger:367"
+      ],
+      "primaryMuscles": [
+        "hamstrings"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Установи валик у нижней части голени и устойчиво обопрись на тренажёр.",
+        "Сгибай рабочую ногу, подтягивая пятку назад без движения тазом.",
+        "Опускай вес плавно и затем выполни другую сторону."
+      ],
+      "videos": [
+        {
+          "id": "39",
+          "url": "https://wger.de/media/exercise-video/367/e8113ae4-a0b4-42a2-8eaa-3263de64622e.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/367/e8113ae4-a0b4-42a2-8eaa-3263de64622e.MOV"
+        },
+        {
+          "id": "38",
+          "url": "https://wger.de/media/exercise-video/367/6c24960c-20ab-4ef9-90f8-cf53e630ccec.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/367/6c24960c-20ab-4ef9-90f8-cf53e630ccec.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/367/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/367/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "c85e6137-2577-4e28-82c2-427407d534eb",
+        "name": "Сгибание одной руки на скамье Скотта",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Сгибай локоть, сохраняя контакт плеча с упором."
+      },
+      "aliases": [
+        "Single-arm Preacher Curl",
+        "Сгибание одной руки на скамье Скотта",
+        "wger:584"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "instructions": [
+        "Уложи плечо рабочей руки на наклонный упор и возьми гантель хватом снизу.",
+        "Сгибай локоть, сохраняя контакт плеча с упором.",
+        "Опускай гантель плавно, не проваливаясь в нижнюю точку."
+      ],
+      "videos": [
+        {
+          "id": "52",
+          "url": "https://wger.de/media/exercise-video/584/109e8d5d-62a4-40ad-8813-2ccef5bc751f.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/584/109e8d5d-62a4-40ad-8813-2ccef5bc751f.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/584/view/",
+      "attribution": {
+        "author": "tuckerm",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/584/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "bcb7020c-8678-496d-8f4d-aad0e233a5bd",
+        "name": "Сгибания рук на нижнем блоке",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Согни локти, подтягивая рукоять вверх без движения плечами."
+      },
+      "aliases": [
+        "Biceps Curl With Cable",
+        "Сгибания рук на нижнем блоке",
+        "wger:95"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Возьми рукоять нижнего блока хватом снизу и зафиксируй положение корпуса.",
+        "Согни локти, подтягивая рукоять вверх без движения плечами.",
+        "Медленно верни рукоять вниз, удерживая локти около корпуса."
+      ],
+      "videos": [
+        {
+          "id": "50",
+          "url": "https://wger.de/media/exercise-video/95/ab770931-47d3-44fd-aef0-ac7a64c3b794.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/95/ab770931-47d3-44fd-aef0-ac7a64c3b794.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/95/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/95/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "7b99a081-6b1a-4aa5-b86a-5a935d083a35",
+        "name": "Сгибания рук со штангой",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Сгибай локти, не уводя плечи далеко вперёд и не подбрасывая гриф корпусом."
+      },
+      "aliases": [
+        "Biceps Curls With Barbell",
+        "Сгибания рук со штангой",
+        "wger:91"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "instructions": [
+        "Возьми штангу удобным хватом снизу и встань устойчиво.",
+        "Сгибай локти, не уводя плечи далеко вперёд и не подбрасывая гриф корпусом.",
+        "Опускай штангу плавно, сохраняя контроль предплечий."
+      ],
+      "videos": [
+        {
+          "id": "49",
+          "url": "https://wger.de/media/exercise-video/91/483f4bff-e108-41f1-8e7b-0caf24952552.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/91/483f4bff-e108-41f1-8e7b-0caf24952552.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/91/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/91/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "dd52fb99-9426-4a78-b446-20a8e3e4ec47",
+        "name": "Сгибания с EZ-грифом на скамье Скотта",
+        "muscle": "Бицепс",
+        "illustration": "curl",
+        "cue": "Подними гриф сгибанием локтей без отрыва плеч от опоры."
+      },
+      "aliases": [
+        "Preacher Curls",
+        "Сгибания с EZ-грифом на скамье Скотта",
+        "wger:465",
+        "Бицепс на скамье Скотта"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "forearms"
+      ],
+      "equipment": [
+        "ez_bar",
+        "bench"
+      ],
+      "instructions": [
+        "Настрой сиденье и расположи плечи на упоре, взяв EZ-гриф удобным хватом.",
+        "Подними гриф сгибанием локтей без отрыва плеч от опоры.",
+        "Плавно опускай вес, сохраняя контроль в нижнем положении.",
+        "Видеопример показан с EZ-грифом; для гантели или тренажёра положение хвата и опоры отличается."
+      ],
+      "videos": [
+        {
+          "id": "54",
+          "url": "https://wger.de/media/exercise-video/465/5d2339a4-815f-46ba-aa19-8a763cfdeba0.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/465/5d2339a4-815f-46ba-aa19-8a763cfdeba0.MOV"
+        },
+        {
+          "id": "53",
+          "url": "https://wger.de/media/exercise-video/465/b64ca95b-c677-4f3b-bb50-f75edc81aa74.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/465/b64ca95b-c677-4f3b-bb50-f75edc81aa74.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/465/view/",
+      "attribution": {
+        "author": "cgoob883",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/465/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "d7a418d4-d0cb-4f85-8a7c-1e9d97152cbd",
+        "name": "Тяга каната к лицу",
+        "muscle": "Плечи",
+        "illustration": "row",
+        "cue": "Тяни канат к лицу, разводя концы и направляя локти в стороны."
+      },
+      "aliases": [
+        "Facepull",
+        "Тяга каната к лицу",
+        "wger:222"
+      ],
+      "primaryMuscles": [
+        "rear_delts"
+      ],
+      "secondaryMuscles": [
+        "upper_back"
+      ],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Закрепи канат примерно на уровне лица и встань устойчиво перед блоком.",
+        "Тяни канат к лицу, разводя концы и направляя локти в стороны.",
+        "Плавно выпрями руки, не отклоняя корпус назад ради движения веса."
+      ],
+      "videos": [
+        {
+          "id": "79",
+          "url": "https://wger.de/media/exercise-video/222/eea93fcc-6a3c-4783-8f70-0234c791a001.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/222/eea93fcc-6a3c-4783-8f70-0234c791a001.MOV"
+        },
+        {
+          "id": "78",
+          "url": "https://wger.de/media/exercise-video/222/245a824b-cd39-45f2-b251-2c0b7efead0d.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/222/245a824b-cd39-45f2-b251-2c0b7efead0d.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/222/view/",
+      "attribution": {
+        "author": "abeworld",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/222/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "95a7e546-e8f8-4521-a76b-983d94161b25",
+        "name": "Французский жим с EZ-грифом лёжа",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Плавно согни локти, опуская гриф к области за лбом в удобной амплитуде."
+      },
+      "aliases": [
+        "Skullcrusher SZ-bar",
+        "Французский жим с EZ-грифом лёжа",
+        "wger:246"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "ez_bar",
+        "bench"
+      ],
+      "instructions": [
+        "Ляг на скамью и удерживай EZ-гриф над плечами.",
+        "Плавно согни локти, опуская гриф к области за лбом в удобной амплитуде.",
+        "Разогни локти без рывка, сохраняя неподвижное положение плеч."
+      ],
+      "videos": [
+        {
+          "id": "63",
+          "url": "https://wger.de/media/exercise-video/246/2a194d11-ff5d-4bdf-849e-1c441cf7b0b1.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/246/2a194d11-ff5d-4bdf-849e-1c441cf7b0b1.MOV"
+        },
+        {
+          "id": "61",
+          "url": "https://wger.de/media/exercise-video/246/75eb8c88-922e-45c5-8be3-ac073f62b63f.MP4",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/246/75eb8c88-922e-45c5-8be3-ac073f62b63f.MP4"
+        },
+        {
+          "id": "62",
+          "url": "https://wger.de/media/exercise-video/246/40ca562f-b46b-45c8-81fa-1ea8d544b1b8.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/246/40ca562f-b46b-45c8-81fa-1ea8d544b1b8.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/246/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/246/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "893c07ea-2e24-49b6-92e4-d0033eedec62",
+        "name": "Французский жим с гантелями лёжа",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Сгибай локти, направляя гантели по сторонам головы и сохраняя устойчивые плечи."
+      },
+      "aliases": [
+        "Skullcrusher Dumbbells",
+        "Французский жим с гантелями лёжа",
+        "wger:245"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "instructions": [
+        "Ляг на скамью и удерживай гантели над плечами удобным хватом.",
+        "Сгибай локти, направляя гантели по сторонам головы и сохраняя устойчивые плечи.",
+        "Разогни руки без рывка и не меняй положение корпуса."
+      ],
+      "videos": [
+        {
+          "id": "60",
+          "url": "https://wger.de/media/exercise-video/245/c253303e-9160-4f1f-b4fe-daf1e6c8661d.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/245/c253303e-9160-4f1f-b4fe-daf1e6c8661d.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/245/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/245/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "d677de4c-5bd9-412a-91f1-857116a666a2",
+        "name": "Фронтальные приседания со штангой",
+        "muscle": "Ноги",
+        "illustration": "squat",
+        "cue": "Приседай с опорой на всю стопу; колени двигай по направлению носков."
+      },
+      "aliases": [
+        "Front Squats",
+        "Фронтальные приседания со штангой",
+        "wger:257"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "glutes"
+      ],
+      "secondaryMuscles": [
+        "adductors"
+      ],
+      "equipment": [
+        "barbell"
+      ],
+      "instructions": [
+        "Расположи штангу на передней части плеч и подними локти, выбрав удобный хват.",
+        "Приседай с опорой на всю стопу; колени двигай по направлению носков.",
+        "Поднимайся с сохранением положения корпуса и штанги на плечах."
+      ],
+      "videos": [
+        {
+          "id": "27",
+          "url": "https://wger.de/media/exercise-video/257/93145935-29db-4e52-9d2d-174b1c30c098.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/257/93145935-29db-4e52-9d2d-174b1c30c098.MOV"
+        },
+        {
+          "id": "28",
+          "url": "https://wger.de/media/exercise-video/257/520b98d4-c767-47dd-83e6-850189217925.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/257/520b98d4-c767-47dd-83e6-850189217925.MOV"
+        },
+        {
+          "id": "26",
+          "url": "https://wger.de/media/exercise-video/257/f8f01bf8-0908-4915-a8f5-cc7bcfefff8c.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/257/f8f01bf8-0908-4915-a8f5-cc7bcfefff8c.MOV"
+        },
+        {
+          "id": "25",
+          "url": "https://wger.de/media/exercise-video/257/ad8ac7d9-b04d-415f-ae0e-837942ce2840.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/257/ad8ac7d9-b04d-415f-ae0e-837942ce2840.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/257/view/",
+      "attribution": {
+        "author": "sistab2",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/257/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "f956977e-cc05-4db2-a387-ba6140b1ef34",
+        "name": "Шраги",
+        "muscle": "Спина",
+        "illustration": "row",
+        "cue": "Поднимай плечи вверх без вращения и наклона головы."
+      },
+      "aliases": [
+        "Shoulder Shrug",
+        "Шраги",
+        "wger:570"
+      ],
+      "primaryMuscles": [
+        "upper_back"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "instructions": [
+        "Встань ровно и держи руки свободно опущенными по бокам.",
+        "Поднимай плечи вверх без вращения и наклона головы.",
+        "Опускай плечи плавно; сопротивление выбирай по варианту упражнения и своему плану."
+      ],
+      "videos": [
+        {
+          "id": "69",
+          "url": "https://wger.de/media/exercise-video/570/bd1f14a3-9d2b-4ec0-b6b9-e82d739f7e60.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/570/bd1f14a3-9d2b-4ec0-b6b9-e82d739f7e60.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/570/view/",
+      "attribution": {
+        "author": "BFad07",
+        "license": "CC0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/570/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "6199b3c7-3ccb-47fa-89bb-ef7fef12c0e3",
+        "name": "Шраги в машине Смита",
+        "muscle": "Спина",
+        "illustration": "row",
+        "cue": "Подними плечи вверх без сгибания локтей и вращения плечами."
+      },
+      "aliases": [
+        "Shrugs on Multipress",
+        "Шраги в машине Смита",
+        "wger:575"
+      ],
+      "primaryMuscles": [
+        "upper_back"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "smith"
+      ],
+      "instructions": [
+        "Возьми гриф машины Смита и встань устойчиво с прямыми руками.",
+        "Подними плечи вверх без сгибания локтей и вращения плечами.",
+        "Плавно опусти плечи, не помогая движением корпуса."
+      ],
+      "videos": [
+        {
+          "id": "68",
+          "url": "https://wger.de/media/exercise-video/575/a7d99f2b-86fc-433a-8ab1-83144c802296.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/575/a7d99f2b-86fc-433a-8ab1-83144c802296.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/575/view/",
+      "attribution": {
+        "author": "wger.de",
+        "license": "CC-BY-SA 3",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/575/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "19a289c0-33af-4055-bb34-3570c2975d3d",
+        "name": "Ягодичный мост со штангой на скамье",
+        "muscle": "Ягодицы",
+        "illustration": "deadlift",
+        "cue": "Подними таз разгибанием бёдер, сохраняя рёбра и таз в устойчивом положении."
+      },
+      "aliases": [
+        "Hip Thrust",
+        "Ягодичный мост со штангой на скамье",
+        "wger:294"
+      ],
+      "primaryMuscles": [
+        "glutes"
+      ],
+      "secondaryMuscles": [
+        "hamstrings"
+      ],
+      "equipment": [
+        "barbell",
+        "bench"
+      ],
+      "instructions": [
+        "Расположи верх спины на устойчивой скамье, поставь стопы на пол и размести гриф на тазу через мягкую накладку.",
+        "Подними таз разгибанием бёдер, сохраняя рёбра и таз в устойчивом положении.",
+        "Опускай таз плавно; в верхней точке не переразгибай поясницу."
+      ],
+      "videos": [
+        {
+          "id": "72",
+          "url": "https://wger.de/media/exercise-video/294/45bacf4b-1bb6-4d47-8bd1-9f00eddd4019.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/294/45bacf4b-1bb6-4d47-8bd1-9f00eddd4019.MOV"
+        },
+        {
+          "id": "73",
+          "url": "https://wger.de/media/exercise-video/294/7d6862eb-8848-4f5d-a288-764b0d113108.MOV",
+          "author": "Goulart",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceURL": "https://wger.de/media/exercise-video/294/7d6862eb-8848-4f5d-a288-764b0d113108.MOV"
+        }
+      ],
+      "sourceURL": "https://wger.de/en/exercise/294/view/",
+      "attribution": {
+        "author": "Bret Contreras",
+        "license": "CC-BY-SA 4",
+        "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+        "sourceURL": "https://wger.de/api/v2/exerciseinfo/294/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000001",
+        "name": "Обратная бабочка",
+        "muscle": "Задние дельты",
+        "illustration": "fly",
+        "cue": "Сохраняя небольшой сгиб локтей, разводи руки назад без рывка и подъёма плеч."
+      },
+      "aliases": [],
+      "primaryMuscles": [
+        "rear_delts"
+      ],
+      "secondaryMuscles": [
+        "upper_back"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Настрой сиденье так, чтобы рукояти находились примерно на уровне плеч, и упрись грудью в подушку.",
+        "Сохраняя небольшой сгиб локтей, разводи руки назад без рывка и подъёма плеч.",
+        "Плавно верни рукояти вперёд, сохраняя контакт корпуса с опорой."
+      ],
+      "videos": [
+        {
+          "id": "external-reversepecdeck",
+          "url": "https://www.youtube.com/watch?v=3RLqAh8-9Pg",
+          "author": "James Harrison",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.youtube.com/watch?v=3RLqAh8-9Pg",
+          "sourceURL": "https://www.youtube.com/watch?v=3RLqAh8-9Pg",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.youtube.com/watch?v=3RLqAh8-9Pg",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.youtube.com/watch?v=3RLqAh8-9Pg"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000002",
+        "name": "Разгибание запястий с гантелями",
+        "muscle": "Предплечья",
+        "illustration": "curl",
+        "cue": "Поднимай кисти разгибанием запястий, удерживая предплечья неподвижно."
+      },
+      "aliases": [
+        "Разгибание запястий"
+      ],
+      "primaryMuscles": [
+        "forearms"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "instructions": [
+        "Сядь и положи предплечья на опору ладонями вниз; кисти должны выходить за край.",
+        "Поднимай кисти разгибанием запястий, удерживая предплечья неподвижно.",
+        "Опускай гантели плавно в удобной амплитуде. Ролик показывает вариант с гантелями."
+      ],
+      "videos": [
+        {
+          "id": "external-wristextension",
+          "url": "https://www.liveleantv.com/how-to-do-seated-dumbbell-reverse-wrist-curls/",
+          "author": "Brad Gouthro / Live Lean TV",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-reverse-wrist-curls/",
+          "sourceURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-reverse-wrist-curls/",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-reverse-wrist-curls/",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-reverse-wrist-curls/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000003",
+        "name": "Жим от груди в хаммере",
+        "muscle": "Грудь",
+        "illustration": "bench",
+        "cue": "Удерживай спину и таз на опоре и выжимай рукояти вперёд без толчка корпусом."
+      },
+      "aliases": [
+        "Жим от груди"
+      ],
+      "primaryMuscles": [
+        "chest"
+      ],
+      "secondaryMuscles": [
+        "front_delts",
+        "triceps"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Настрой сиденье рычажного тренажёра так, чтобы рукояти находились примерно на уровне середины груди.",
+        "Удерживай спину и таз на опоре и выжимай рукояти вперёд без толчка корпусом.",
+        "Подконтрольно верни рычаги в исходное положение. Видеопример — Hammer Strength."
+      ],
+      "videos": [
+        {
+          "id": "external-hammerchestpress",
+          "url": "https://www.youtube.com/shorts/Nbh72taMf4w",
+          "author": "Life Fitness Australia",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.youtube.com/shorts/Nbh72taMf4w",
+          "sourceURL": "https://www.youtube.com/shorts/Nbh72taMf4w",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.youtube.com/shorts/Nbh72taMf4w",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.youtube.com/shorts/Nbh72taMf4w"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000004",
+        "name": "Разгибание трицепса из-за головы на блоке",
+        "muscle": "Трицепс",
+        "illustration": "triceps",
+        "cue": "Разгибай локти, сохраняя плечи по возможности неподвижно и не помогая поясницей."
+      },
+      "aliases": [
+        "Трицепс из-за головы на блоке"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "cable"
+      ],
+      "instructions": [
+        "Возьми канат или рукоять блока, расположи руки над головой и устойчиво зафиксируй корпус.",
+        "Разгибай локти, сохраняя плечи по возможности неподвижно и не помогая поясницей.",
+        "Плавно согни локти обратно. Положение блока и корпуса сверяй с выбранным вариантом на видео."
+      ],
+      "videos": [
+        {
+          "id": "external-cableoverheadtricepsextension",
+          "url": "https://www.youtube.com/watch?v=ns-RGsbzqok",
+          "author": "ChadMollickDotCom",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.youtube.com/watch?v=ns-RGsbzqok",
+          "sourceURL": "https://www.youtube.com/watch?v=ns-RGsbzqok",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.youtube.com/watch?v=ns-RGsbzqok",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.youtube.com/watch?v=ns-RGsbzqok"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000005",
+        "name": "Сгибание запястий с гантелями",
+        "muscle": "Предплечья",
+        "illustration": "curl",
+        "cue": "Сгибай запястья, поднимая гантели без движения локтями и плечами."
+      },
+      "aliases": [
+        "Сгибание запястий"
+      ],
+      "primaryMuscles": [
+        "forearms"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "dumbbell",
+        "bench"
+      ],
+      "instructions": [
+        "Сядь и расположи предплечья на опоре ладонями вверх; кисти выходят за край.",
+        "Сгибай запястья, поднимая гантели без движения локтями и плечами.",
+        "Плавно опускай кисти в удобную амплитуду. Ролик показывает вариант с гантелями."
+      ],
+      "videos": [
+        {
+          "id": "external-wristflexion",
+          "url": "https://www.liveleantv.com/how-to-do-seated-dumbbell-wrist-curls/",
+          "author": "Brad Gouthro / Live Lean TV",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-wrist-curls/",
+          "sourceURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-wrist-curls/",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-wrist-curls/",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.liveleantv.com/how-to-do-seated-dumbbell-wrist-curls/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000006",
+        "name": "Гиперэкстензия 45° с нейтральной спиной",
+        "muscle": "Ноги и спина",
+        "illustration": "deadlift",
+        "cue": "Наклоняй корпус за счёт сгибания в тазобедренных суставах, сохраняя нейтральное положение позвоночника."
+      },
+      "aliases": [
+        "Гиперэкстензия"
+      ],
+      "primaryMuscles": [
+        "glutes",
+        "hamstrings"
+      ],
+      "secondaryMuscles": [
+        "lower_back"
+      ],
+      "equipment": [
+        "machine"
+      ],
+      "instructions": [
+        "Настрой опору ниже сгиба таза и устойчиво зафиксируй ноги на скамье для гиперэкстензии.",
+        "Наклоняй корпус за счёт сгибания в тазобедренных суставах, сохраняя нейтральное положение позвоночника.",
+        "Верни корпус до линии ног без переразгибания поясницы.",
+        "Разметка относится к показанному на видео варианту с движением в тазобедренных суставах: ягодицы и задняя поверхность бедра основные, разгибатели спины вспомогательные."
+      ],
+      "videos": [
+        {
+          "id": "external-hyperextension",
+          "url": "https://www.youtube.com/watch?v=G67phY3O-yk",
+          "author": "Straight Up Spine and Posture",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.youtube.com/watch?v=G67phY3O-yk",
+          "sourceURL": "https://www.youtube.com/watch?v=G67phY3O-yk",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.youtube.com/watch?v=G67phY3O-yk",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.youtube.com/watch?v=G67phY3O-yk"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000007",
+        "name": "Шея: сгибание вперёд без отягощения",
+        "muscle": "Шея",
+        "illustration": "neck",
+        "cue": "Плавно наклони голову вперёд и вернись в исходное положение без рывка."
+      },
+      "aliases": [
+        "Шея: сгибание вперёд"
+      ],
+      "primaryMuscles": [
+        "neck"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "instructions": [
+        "Обзор направления движения без отягощения: начни из ровного положения головы и корпуса.",
+        "Плавно наклони голову вперёд и вернись в исходное положение без рывка.",
+        "Ссылка NHS показывает подвижность шеи, а не силовой вариант с ремнём, блином или тренажёром."
+      ],
+      "videos": [
+        {
+          "id": "external-neckflexion",
+          "url": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "author": "South Tees Hospitals NHS Foundation Trust",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000008",
+        "name": "Шея: разгибание назад без отягощения",
+        "muscle": "Шея",
+        "illustration": "neck",
+        "cue": "Плавно направь взгляд вверх в доступной амплитуде и вернись в исходное положение без рывка."
+      },
+      "aliases": [
+        "Шея: разгибание назад"
+      ],
+      "primaryMuscles": [
+        "neck"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "instructions": [
+        "Обзор направления движения без отягощения: удерживай корпус неподвижно и начни из ровного положения головы.",
+        "Плавно направь взгляд вверх в доступной амплитуде и вернись в исходное положение без рывка.",
+        "Ссылка NHS показывает подвижность шеи, а не силовой вариант с ремнём, блином или тренажёром."
+      ],
+      "videos": [
+        {
+          "id": "external-neckextension",
+          "url": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "author": "South Tees Hospitals NHS Foundation Trust",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000009",
+        "name": "Шея: боковое сгибание влево без отягощения",
+        "muscle": "Шея",
+        "illustration": "neck",
+        "cue": "Плавно наклони голову влево, приближая левое ухо к плечу без поворота лица; верни голову в исходное положение."
+      },
+      "aliases": [
+        "Шея: боковое сгибание влево"
+      ],
+      "primaryMuscles": [
+        "neck"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "instructions": [
+        "Обзор направления движения без отягощения: сядь или встань ровно, сохраняя плечи опущенными.",
+        "Плавно наклони голову влево, приближая левое ухо к плечу без поворота лица; верни голову в исходное положение.",
+        "Ссылка NHS показывает подвижность шеи, а не силовой вариант с ремнём, блином или тренажёром."
+      ],
+      "videos": [
+        {
+          "id": "external-necklateralleft",
+          "url": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "author": "South Tees Hospitals NHS Foundation Trust",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/"
+      }
+    },
+    {
+      "exercise": {
+        "id": "4ac2f8a2-c9a0-4b86-9701-000000000010",
+        "name": "Шея: боковое сгибание вправо без отягощения",
+        "muscle": "Шея",
+        "illustration": "neck",
+        "cue": "Плавно наклони голову вправо, приближая правое ухо к плечу без поворота лица; верни голову в исходное положение."
+      },
+      "aliases": [
+        "Шея: боковое сгибание вправо"
+      ],
+      "primaryMuscles": [
+        "neck"
+      ],
+      "secondaryMuscles": [],
+      "equipment": [
+        "bodyweight"
+      ],
+      "instructions": [
+        "Обзор направления движения без отягощения: сядь или встань ровно, сохраняя плечи опущенными.",
+        "Плавно наклони голову вправо, приближая правое ухо к плечу без поворота лица; верни голову в исходное положение.",
+        "Ссылка NHS показывает подвижность шеи, а не силовой вариант с ремнём, блином или тренажёром."
+      ],
+      "videos": [
+        {
+          "id": "external-necklateralright",
+          "url": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "author": "South Tees Hospitals NHS Foundation Trust",
+          "license": "Внешняя ссылка; права на видео у автора",
+          "licenseURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+          "playback": "external"
+        }
+      ],
+      "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/",
+      "attribution": {
+        "author": "Подход — русское описание и разметка",
+        "license": "Собственное описание",
+        "licenseURL": "",
+        "sourceURL": "https://www.southtees.nhs.uk/resources/cervical-spine-active-range-movement/"
+      }
+    }
+  ],
+  "exerciseIDAliases": [
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000500",
+      "exerciseID": "00000000-0000-4000-8000-000000000003"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000501",
+      "exerciseID": "00000000-0000-4000-8000-000000000006"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000502",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000001"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000503",
+      "exerciseID": "dd52fb99-9426-4a78-b446-20a8e3e4ec47"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000504",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000002"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000505",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000003"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000506",
+      "exerciseID": "00000000-0000-4000-8000-000000000005"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000507",
+      "exerciseID": "00000000-0000-4000-8000-000000000011"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000508",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000004"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000509",
+      "exerciseID": "00000000-0000-4000-8000-000000000009"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000510",
+      "exerciseID": "3bc8b411-a28d-4e1c-a6d1-769e18fe9881"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000511",
+      "exerciseID": "f956977e-cc05-4db2-a387-ba6140b1ef34"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000512",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000006"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000513",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000007"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000514",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000008"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000515",
+      "exerciseID": "c0d9fe98-f4fe-49f3-8037-05e1984e7d2d"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000516",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000005"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000517",
+      "exerciseID": "00000000-0000-4000-8000-000000000008"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000518",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000009"
+    },
+    {
+      "id": "a2c8d0e1-26fa-4b0e-8f31-000000000519",
+      "exerciseID": "4ac2f8a2-c9a0-4b86-9701-000000000010"
+    }
+  ]
+}
