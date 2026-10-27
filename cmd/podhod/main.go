@@ -86,17 +86,7 @@ func run() error {
 			slog.Warn("health response failed", "error", err)
 		}
 	})
-	mux.HandleFunc("GET /v1/config", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		configuration := map[string]any{
-			"issuer":   issuer,
-			"clientID": "podhod-ios",
-			"scopes":   append([]string{"openid", "offline_access"}, scopes...),
-		}
-		if err := json.NewEncoder(w).Encode(configuration); err != nil {
-			slog.Warn("config response failed", "error", err)
-		}
-	})
+	mux.HandleFunc("GET /v1/config", httpapi.MobileConfiguration(issuer, scopes))
 	metadata := func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Access-Control-Allow-Origin", "*")

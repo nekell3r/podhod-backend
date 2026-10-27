@@ -63,8 +63,10 @@ realm = {"realm": "podhod", "enabled": True, "displayName": "Подход", "ssl
                            "attributes": {"include.in.token.scope": "true", "display.on.consent.screen": "true"}}
                           for scope in scopes] + [{"name": "profile", "protocol": "openid-connect"}, {"name": "offline_access", "protocol": "openid-connect"}],
          "clients": [client("podhod-ios", "podhod://oauth/callback", True),
+                     client("podhod-android", "dev.podhod.training://oauth/callback", True),
                      client("podhod-chatgpt", "https://chatgpt.com/connector_platform_oauth_redirect", False)],
          "users": [{"id": str(uuid.uuid4()), "username": "owner", "enabled": True,
+                    "clientRoles": {"account": ["manage-account", "view-profile"]},
                     "credentials": [{"type": "password", "value": owner_password, "temporary": False}]}]}
 save("realm.json", json.dumps(realm, ensure_ascii=False))
 (root / ".env").write_text("PUBLIC_BASE_URL=" + args.base + "\n")

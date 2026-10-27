@@ -1,0 +1,21 @@
+# Пользователи и Telegram-вход
+
+API принимает только access token от настроенного Keycloak issuer с audience `podhod-api`. Проверенный `sub` определяет владельца каждой операции. Все ресурсы, request ID и завершённая история адресуются совместно с owner. Подмена owner в JSON или query не предоставляет чужих данных. Изоляция проверяется интеграционными тестами на одноразовой PostgreSQL.
+
+Telegram использует официальный OIDC authorization code flow через Keycloak broker `telegram`. Endpoint, JWKS и issuer закреплены на `https://oauth.telegram.org`, подпись обязательна, PKCE — S256, token authentication — client_secret_basic. Telegram не предоставляет UserInfo endpoint: он отключён. Запрашиваются только `openid profile`, без телефона и разрешения боту писать пользователю. Токены Telegram не сохраняются в Keycloak; мобильные клиенты получают обычные Keycloak tokens.
+
+Провайдеру нужен `requiresShortStateParameter=true`: Telegram отклоняет `state` длиннее 256 символов, а Keycloak по умолчанию добавляет к нему данные клиента. Используй штатную настройку короткого state, сохраняя проверку сессии, подписи и PKCE; не обрезай state в redirect или мобильном клиенте. При уже истёкшей сессии короткий state может привести к странице ошибки Keycloak вместо возврата ошибки в приложение. При проверке проходи также маршрут привязки аккаунта с длинным redirect и проверяй отклонение подменённого state.
+
+Настройка: BotFather → Login Widget → Redirect URIs → Add a Redirect URI с точным `https://api.example.com/auth/realms/podhod/broker/telegram/endpoint` и своим origin. Сохрани URI и оставь Signing Algorithm = RS256. Client ID/Secret хранятся в закрытом JSON mode 600 вне исходников и передаются `deploy/configure_mobile_identity.py --telegram-config <file>` из deployment root. Bot API Token для этого не используется.
+
+При первом Telegram-входе стандартный `first broker login` создаёт нового пользователя. Стабильный внутренний username — `telegram.<Telegram sub>`; авторизация и связи используют subject, а не изменяемое имя Telegram. Парольная саморегистрация остаётся закрытой; это не мешает регистрации через проверенного брокера.
+
+Существующие тренировки привязаны к прежнему Keycloak subject. Для перехода сначала войди по прежнему логину, затем открой «Привязать Telegram к аккаунту» и подтверди связь в Account Console → Linked accounts. Система не объединяет аккаунты автоматически по username или email и не переносит историю в новый subject. Если сначала зарегистрировать новый Telegram-аккаунт, старые данные останутся в прежнем аккаунте; самостоятельное слияние истории не выполняется.
+
+Для Account Console клиенту `account-console` нужны protocol mappers `oidc-sub-mapper` и `oidc-usermodel-client-role-mapper`, передающий только существующие роли клиента `account` в `resource_access.account.roles`. Штатный `audience resolve` сохраняется; `fullScopeAllowed` не расширяется. Эти mappers устанавливает `configure_mobile_identity.py`. Проверяй полноценный вход с обменом кода и чтение Account API, а не только страницу авторизации: отсутствие `sub` или ролей приводит к `401` и странице «Something went wrong» после успешного Telegram-входа.
+
+Импортированный первоначальный `owner` должен иметь стандартные собственные права `account:manage-account` и `account:view-profile`; `prepare.py` включает их в новый realm import. В старой установке проверь эффективные роли `owner` и восстанови только недостающие роли клиента `account` отдельной операцией с резервной копией mappings. Повторно запускать генератор секретов нельзя. Выдача этих собственных прав не связывает Telegram с другим пользователем и не меняет subject или тренировки.
+
+Оба клиента поддерживают несколько локальных аккаунтов с отдельными архивами. Выход открывает гостевой режим, исходный архив сохраняется. Миграция сохраняет резервные копии; повторный вход восстанавливает незавершённую тренировку и отметки протеина. Гостевой архив не подменяет существующий архив аккаунта. Время под другим аккаунтом не приписывается прежнему упражнению.
+
+Документация провайдеров: [Telegram OIDC](https://core.telegram.org/bots/telegram-login), [Keycloak identity brokering](https://www.keycloak.org/docs/latest/server_admin/index.html#_identity_broker).

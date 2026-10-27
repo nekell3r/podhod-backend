@@ -3,3 +3,15 @@ work
 .env*
 secrets
 *.test
+.local
+.build
+.build-cache
+.cache
+build
+backups
+access.json
+realm.json
+*.pem
+*.key
+*.jks
+*.keystore

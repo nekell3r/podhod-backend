@@ -6,7 +6,7 @@ JSON fields use camelCase. All date-only keys are `YYYY-MM-DD`; week starts must
 
 | Method/path | Body / response |
 |---|---|
-| `GET /v1/config` | Public `{issuer,clientID,scopes}` |
+| `GET /v1/config?platform=ios\|android` | Public `{issuer,clientID,scopes}`; omitted platform preserves iOS |
 | `GET /v1/profile` | `{id,timezone}` from verified identity |
 | `GET /v1/template` | `{revision,days,plannedMuscleVolume}` with seven weekday entries |
 | `PUT /v1/template` | `{expectedRevision,requestID,days}` → template |
@@ -68,7 +68,7 @@ Calendar edits do not rewrite active or completed workout snapshots. Skipping an
 
 `WorkoutSession.timing` is optional. Missing timing in legacy active workouts and history remains unknown; the server does not reconstruct exercise or rest durations from configured rest settings. New timing has `{version:1,trackedFrom,intervals:[...]}`. Each interval contains a UUID `id`, `kind` (`exercise`, `rest`, `other`), `startedAt`, optional `endedAt`, and a session-owned `exerciseID` for exercise/rest. Rest intervals additionally require `restKind` (`betweenSets` or `betweenExercises`) and their captured `restDeadline`.
 
-The iPhone is the measurement authority. MCP skip/unskip/rest commands preserve timing fields unchanged, even if the phone is offline or an open rest deadline has expired. A cloud command remains `pending_sync`; the phone settles its own old context before applying that command. The server must not fabricate exercise transitions using its receipt time.
+The active phone (iOS or Android) is the measurement authority. MCP skip/unskip/rest commands preserve timing fields unchanged, even if the phone is offline or an open rest deadline has expired. A cloud command remains `pending_sync`; the phone settles its own old context before applying that command. The server must not fabricate exercise transitions using its receipt time.
 
 The validator accepts gaps, explicit empty interval arrays and zero-length closed intervals. Intervals must be ordered, unique, nonoverlapping, no earlier than `trackedFrom`, and within the session's bounds. Only the final interval of an active session may remain open. Finished history requires all intervals closed. Recorded rest cannot extend past its captured deadline; the deadline itself may extend past a manually finished session. There are no persisted duration counters to double-count. Legacy clients cannot remove already recorded timing from the same active session: such a write returns HTTP 409 `upgrade_required`. Clearing active state and immutable-history behavior remain unchanged.
 

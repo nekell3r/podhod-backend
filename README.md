@@ -2,7 +2,7 @@
 
 Общий сервер приложения «Подход»: программы тренировок, календарные недели, активная тренировка, история, протеин и каталог упражнений. Один Go-процесс обслуживает REST API и MCP; состояние хранится в PostgreSQL, входом управляет Keycloak.
 
-Клиенты: [iOS](https://github.com/nekell3r/podhod-ios), [Android](https://github.com/nekell3r/podhod-android). Android-клиент пока не реализован.
+Клиенты: [iOS](https://github.com/nekell3r/podhod-ios) и [Android](https://github.com/nekell3r/podhod-android).
 
 ## Проверка
 
@@ -30,7 +30,9 @@ PostgreSQL-тесты включаются с отдельной тестово�
 - Состояние разделено по пользователю. Изменения защищены revision/CAS и request ID; история завершённых тренировок неизменна.
 - Датированные недели и шаблон независимы от начатых и завершённых тренировок.
 
-Существующая конфигурация `/v1/config` описывает клиент `podhod-ios` и callback `podhod://oauth/callback`. Для Android потребуется отдельная регистрация public OAuth-клиента и его redirect URI; секрет OAuth в мобильное приложение не помещается.
+`/v1/config` по умолчанию описывает `podhod-ios` и callback `podhod://oauth/callback`. `/v1/config?platform=android` возвращает public client `podhod-android`, callback `dev.podhod.training://oauth/callback`. Оба используют PKCE S256; секрет OAuth в мобильное приложение не помещается. Генератор realm включает оба клиента. Для действующей установки `deploy/configure_mobile_identity.py` настраивает Android и, при наличии закрытого Web Login config, Telegram OIDC.
+
+Пользователи разделяются по проверенному Keycloak subject: ресурсы, revision/CAS, request ID, история и аудит имеют owner. Telegram-брокер создаёт отдельные аккаунты при первом входе; существующий пользователь привязывает Telegram через Keycloak Account Console, сохраняя прежний subject. Ни username, ни параметр запроса не выбирают владельца данных. Подробности — [docs/IDENTITY.md](docs/IDENTITY.md).
 
 ## Каталог упражнений
 
