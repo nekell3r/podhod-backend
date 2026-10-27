@@ -8,6 +8,17 @@ import urllib.parse
 import urllib.request
 
 
+def mobile_profile_mappers():
+    return [
+        {"name": "account-profile-audience", "protocol": "openid-connect", "protocolMapper": "oidc-audience-mapper",
+         "config": {"included.custom.audience": "account", "id.token.claim": "false", "access.token.claim": "true"}},
+        {"name": "account-profile-role", "protocol": "openid-connect", "protocolMapper": "oidc-usermodel-client-role-mapper",
+         "config": {"usermodel.clientRoleMapping.clientId": "account", "claim.name": "resource_access.account.roles",
+                    "multivalued": "true", "jsonType.label": "String", "access.token.claim": "true",
+                    "introspection.token.claim": "true", "id.token.claim": "false", "userinfo.token.claim": "false"}},
+    ]
+
+
 def android_client():
     return {
         "clientId": "podhod-android", "enabled": True, "protocol": "openid-connect",
@@ -22,7 +33,7 @@ def android_client():
              "config": {"included.custom.audience": "podhod-api", "id.token.claim": "false", "access.token.claim": "true"}},
             {"name": "subject", "protocol": "openid-connect", "protocolMapper": "oidc-sub-mapper",
              "config": {"access.token.claim": "true", "introspection.token.claim": "true"}},
-        ],
+        ] + mobile_profile_mappers(),
     }
 
 
@@ -94,6 +105,35 @@ def configure_account_console(call):
                  {**previous, **mapper, "config": {**previous.get("config", {}), **mapper["config"]}})
 
 
+def configure_mobile_profiles(call):
+    account = call("/clients?clientId=account")
+    if len(account) != 1:
+        raise ValueError("Built-in account client identity is missing or ambiguous")
+    role = call("/clients/" + account[0]["id"] + "/roles/view-profile")
+    for client_name in ["podhod-ios", "podhod-android"]:
+        clients = call("/clients?clientId=" + client_name)
+        if len(clients) != 1 or clients[0].get("fullScopeAllowed") is not False:
+            raise ValueError("Mobile profile requires an existing client with restricted role scope")
+        root = "/clients/" + clients[0]["id"]
+        role_path = root + "/scope-mappings/clients/" + account[0]["id"]
+        current_roles = call(role_path)
+        if any(item["name"] != "view-profile" for item in current_roles):
+            raise ValueError("Mobile account role scope is broader than read-only profile access")
+        if not current_roles:
+            call(role_path, "POST", [role])
+        path = root + "/protocol-mappers/models"
+        current = call(path)
+        for mapper in mobile_profile_mappers():
+            previous = next((item for item in current if item["name"] == mapper["name"]), None)
+            if previous is None:
+                call(path, "POST", mapper)
+            elif previous["protocolMapper"] != mapper["protocolMapper"]:
+                raise ValueError("Mobile profile mapper name belongs to a different mapper type")
+            elif any(previous.get("config", {}).get(key) != value for key, value in mapper["config"].items()):
+                call(path + "/" + previous["id"], "PUT",
+                     {**previous, **mapper, "config": {**previous.get("config", {}), **mapper["config"]}})
+
+
 def configure_telegram(call, settings):
     provider = telegram_provider(settings)
     providers = call("/identity-provider/instances")
@@ -142,6 +182,7 @@ def main():
 
         configure_android(call)
         configure_account_console(call)
+        configure_mobile_profiles(call)
         if settings is not None:
             configure_telegram(call, settings)
     except urllib.error.HTTPError as error:

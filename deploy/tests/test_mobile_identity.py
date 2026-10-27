@@ -9,6 +9,42 @@ spec.loader.exec_module(mobile)
 
 
 class MobileIdentityTest(unittest.TestCase):
+    def test_mobile_profiles_only_receive_read_only_account_role_scope(self):
+        changes = []
+        def call(path, method="GET", value=None):
+            if method == "GET":
+                if path == "/clients?clientId=account": return [{"id": "account"}]
+                if path.endswith("/roles/view-profile"): return {"id": "view", "name": "view-profile"}
+                if path.startswith("/clients?clientId="): return [{"id": path.split("=")[1], "fullScopeAllowed": False}]
+                return []
+            changes.append((path, method, value))
+        mobile.configure_mobile_profiles(call)
+        assignments = [value for path, _, value in changes if "/scope-mappings/" in path]
+        self.assertEqual([[{"id": "view", "name": "view-profile"}]] * 2, assignments)
+        self.assertTrue(all(path.startswith(("/clients/podhod-ios/", "/clients/podhod-android/")) for path, _, _ in changes))
+        self.assertTrue(all(method == "POST" for _, method, _ in changes))
+
+    def test_mobile_profiles_reject_unrestricted_clients(self):
+        changes = []
+        def call(path, method="GET", value=None):
+            if method != "GET": changes.append(path)
+            if path == "/clients?clientId=account": return [{"id": "account"}]
+            if path.endswith("/roles/view-profile"): return {"id": "view", "name": "view-profile"}
+            return [{"id": "mobile", "fullScopeAllowed": True}]
+        with self.assertRaises(ValueError): mobile.configure_mobile_profiles(call)
+        self.assertEqual([], changes)
+
+    def test_mobile_profiles_reject_existing_write_role_scope(self):
+        changes = []
+        def call(path, method="GET", value=None):
+            if method != "GET": changes.append(path)
+            if path == "/clients?clientId=account": return [{"id": "account"}]
+            if path.endswith("/roles/view-profile"): return {"id": "view", "name": "view-profile"}
+            if path.startswith("/clients?clientId="): return [{"id": "mobile", "fullScopeAllowed": False}]
+            return [{"name": "manage-account"}]
+        with self.assertRaises(ValueError): mobile.configure_mobile_profiles(call)
+        self.assertEqual([], changes)
+
     def test_android_client_has_own_redirect_subject_and_audience(self):
         client = mobile.android_client()
         self.assertTrue(client["publicClient"])
