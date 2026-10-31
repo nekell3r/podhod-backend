@@ -1,0 +1,114 @@
+name: Deploy Podhod API
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: podhod-production
+  cancel-in-progress: false
+
+jobs:
+  verify-build-deploy:
+    if: github.repository == 'nekell3r/podhod-backend' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    services:
+      postgres:
+        image: postgres:17-bookworm@sha256:858bb5e98eed02eb8cafbcdc007f9a65d1b613972028944a8ec2133ccaf80d27
+        env:
+          POSTGRES_USER: podhodtest
+          POSTGRES_PASSWORD: podhodtest
+          POSTGRES_DB: podhodtest
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U podhodtest -d podhodtest"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      TEST_DATABASE_URL: postgres://podhodtest:podhodtest@127.0.0.1:5432/podhodtest?sslmode=disable
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: '1.25.x'
+          cache-dependency-path: go.sum
+      - name: Verify deployment archive and rollback behavior
+        run: python3 -m unittest discover -s deploy/tests -v
+      - name: Verify API and MCP
+        run: |
+          go test -race ./...
+          go vet ./...
+          go test -race -tags=integration ./internal/storage
+      - name: Prepare restricted SSH and check deployment receipt
+        id: deployed
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.PODHOD_DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.PODHOD_DEPLOY_KNOWN_HOSTS }}
+          DEPLOY_HOST: ${{ vars.PODHOD_DEPLOY_HOST }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_SSH_KEY" && test -n "$DEPLOY_KNOWN_HOSTS" && test -n "$DEPLOY_HOST"
+          [[ "$DEPLOY_HOST" =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]]
+          umask 077
+          mkdir -m 700 "$RUNNER_TEMP/podhod-deploy-ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$RUNNER_TEMP/podhod-deploy-ssh/key"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$RUNNER_TEMP/podhod-deploy-ssh/known_hosts"
+          ssh -T -i "$RUNNER_TEMP/podhod-deploy-ssh/key" -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/podhod-deploy-ssh/known_hosts" \
+            -o ConnectTimeout=15 "root@$DEPLOY_HOST" status > "$RUNNER_TEMP/podhod-deployed.json"
+          python3 - <<'PYTHON' >> "$GITHUB_OUTPUT"
+          import json, os
+          from pathlib import Path
+          state = json.loads((Path(os.environ['RUNNER_TEMP']) / 'podhod-deployed.json').read_text())
+          same_commit = state.get('commit') == os.environ['GITHUB_SHA']
+          if not same_commit and state.get('run_number', 0) >= int(os.environ['GITHUB_RUN_NUMBER']):
+              raise SystemExit('A newer main workflow is already deployed; stale deployment refused')
+          print('already=' + ('true' if same_commit else 'false'))
+          PYTHON
+      - name: Build tested Linux API executable
+        if: steps.deployed.outputs.already != 'true'
+        env:
+          GOOS: linux
+          GOARCH: amd64
+          CGO_ENABLED: '0'
+        run: |
+          mkdir -p "$RUNNER_TEMP/podhod-release"
+          go build -trimpath -ldflags='-s -w' -o "$RUNNER_TEMP/podhod-release/podhod" ./cmd/podhod
+          python3 deploy/release.py bundle --repository . --binaries "$RUNNER_TEMP/podhod-release" \
+            --output "$RUNNER_TEMP/podhod-release.tar.gz" --commit "$GITHUB_SHA" --run-number "$GITHUB_RUN_NUMBER"
+      - name: Deploy over the restricted SSH transport
+        if: steps.deployed.outputs.already != 'true'
+        env:
+          DEPLOY_HOST: ${{ vars.PODHOD_DEPLOY_HOST }}
+        run: |
+          set -euo pipefail
+          ssh -T -i "$RUNNER_TEMP/podhod-deploy-ssh/key" -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/podhod-deploy-ssh/known_hosts" \
+            -o ConnectTimeout=15 -o ServerAliveInterval=30 -o ServerAliveCountMax=4 \
+            "root@$DEPLOY_HOST" < "$RUNNER_TEMP/podhod-release.tar.gz"
+      - name: Verify deployment receipt
+        env:
+          DEPLOY_HOST: ${{ vars.PODHOD_DEPLOY_HOST }}
+        run: |
+          set -euo pipefail
+          ssh -T -i "$RUNNER_TEMP/podhod-deploy-ssh/key" -o IdentitiesOnly=yes -o BatchMode=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$RUNNER_TEMP/podhod-deploy-ssh/known_hosts" \
+            -o ConnectTimeout=15 "root@$DEPLOY_HOST" status > "$RUNNER_TEMP/podhod-deployed.json"
+          python3 - <<'PYTHON'
+          import json, os
+          from pathlib import Path
+          state = json.loads((Path(os.environ['RUNNER_TEMP']) / 'podhod-deployed.json').read_text())
+          if state.get('commit') != os.environ['GITHUB_SHA']:
+              raise SystemExit('The server did not confirm this deployment')
+          print('API deployment verified')
+          PYTHON
+      - name: Remove deployment credentials from the runner
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/podhod-deploy-ssh"

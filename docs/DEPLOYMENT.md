@@ -42,3 +42,18 @@ Telegram Web Login подключается командой `python3 app/deploy
 Адаптируй домен и пути TLS-сертификатов в `deploy/nginx.conf`, затем установи конфигурацию в собственный Nginx и проверь её командой `nginx -t`. Пример закрывает публичный доступ к Keycloak admin/master, проксирует REST/MCP, сохраняет proxy headers и отключает буферизацию MCP. Контейнерные порты API и Keycloak привязаны только к loopback; PostgreSQL не публикуется наружу.
 
 `deploy/backup.sh` создаёт закрытые дампы обеих БД в `/opt/podhod/backups` и проверяет архивы. Запуск и расписание резервного копирования настраивает оператор. Нужна отдельная копия за пределами сервера; скрипт сам её не создаёт. В `releases` допустимы только файлы приложения, предназначенные для скачивания, без сертификатов, профилей, дампов или настроек.
+
+
+## Автоматический деплой из main
+
+`.github/workflows/deploy-main.yml` запускается для `nekell3r/podhod-backend/main`: Python-тесты деплоя, Go race/vet, интеграционные тесты на отдельной PostgreSQL, сборка Linux amd64 API и доставка ограниченным SSH-ключом. CI не получает настройки production-БД, Keycloak или OAuth. Проверки не запускаются на рабочей БД.
+
+Приёмник `deploy/release.py` устанавливается root-owned как `/usr/local/libexec/podhod-deploy.py`. В `/etc/podhod-deploy.json` (root, mode 600) находятся `root`, `approved_database_sha256` и `runtime_base` — точный локальный image ID проверенного API-образа. Fingerprint — SHA-256 `internal/storage/postgres.go`, где находится инициализация схемы; изменения этого файла, включая не связанные со схемой, требуют отдельной проверки и адресного обновления разрешённого fingerprint. Не принимай новый hash автоматически. Перед изменением схемы нужны репетиция на отдельной восстановленной БД и план восстановления.
+
+Репозиторий использует переменную `PODHOD_DEPLOY_HOST` и secrets `PODHOD_DEPLOY_SSH_KEY`, `PODHOD_DEPLOY_KNOWN_HOSTS`. Ключ отдельный от iOS и администратора. Его запись: `restrict,command="/usr/bin/python3 /usr/local/libexec/podhod-deploy.py receive"`. Проверенный host key берётся через действующий административный канал. `StrictHostKeyChecking` не отключается. Приёмник разрешает только `status` и архив на stdin; архив не содержит Dockerfile, Compose, серверных скриптов или произвольных путей.
+
+Сервер проверяет ограниченный архив с manifest и одним ELF-файлом, SHA-256 и одобренный fingerprint. Собирает небольшой runtime overlay из установленного одобренного image ID, затем останавливает только `api`, создаёт и проверяет закрытые backup БД `podhod` и `keycloak`, атомарно обновляет image override и запускает только API с `--no-deps`. Keycloak, БД, nginx, секреты и Feather не перенастраиваются. Проверки: health, конфигурация обоих мобильных клиентов и отказ анонимному доступу API/MCP; браузерный OAuth и операции аккаунта этим не подтверждаются.
+
+Текущее состояние: `/opt/podhod/deploy/current.json`; активные образы: `/opt/podhod/deploy/compose.images.json`. Прямые административные Compose-команды после включения CI должны учитывать этот override: `docker compose -f compose.yaml -f deploy/compose.images.json ...`. Backup остаются в закрытом `/opt/podhod/backups/`, автоматически не удаляются. При ошибке старый точный image ID восстанавливается, данные БД сохраняются; это откат образа, а не базы. Ошибка восстановления требует административного вмешательства. Повтор уже выпущенного commit не передеплоивает его, устаревший workflow отклоняется.
+
+Серверный приёмник и его конфигурация обновляются только через административный канал после проверки. Переустановка приёмника не входит в payload CI. После первого main-push проверь workflow, receipt и реальный работающий image revision; один успешный push не доказывает деплой.
