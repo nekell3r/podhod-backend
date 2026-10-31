@@ -41,6 +41,8 @@ jobs:
           cache-dependency-path: go.sum
       - name: Verify deployment archive and rollback behavior
         run: python3 -m unittest discover -s deploy/tests -v
+      - name: Verify curated nutrition data
+        run: python3 -m unittest discover -s catalog -v
       - name: Verify API and MCP
         run: |
           go test -race ./...

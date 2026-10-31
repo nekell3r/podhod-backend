@@ -1,0 +1,86 @@
+{
+  "author": "Подход",
+  "origin": "original",
+  "recipes": [
+    {
+      "id":"banana-oatmeal","name":"Овсяная каша с бананом","category":"breakfast","minutes":15,"servings":2,"preparedWeightGrams":430,
+      "ingredients":[{"foodID":"usda-2346396","grams":60},{"foodID":"usda-746778","grams":200},{"foodID":"usda-174158","grams":100},{"foodID":"usda-1105314","grams":100}],
+      "steps":["Соедини сухие хлопья, молоко и воду в сотейнике.","Доведи до слабого кипения и вари, помешивая, до мягкости хлопьев. Время уточни на упаковке.","Добавь нарезанный банан. Взвесь готовую кашу без посуды и при необходимости уточни готовую массу в расчёте."],"allergens":["Молоко","Овёс: проверь маркировку глютена"]
+    },
+    {
+      "id":"apple-walnut-oatmeal","name":"Овсянка с яблоком и орехами","category":"breakfast","minutes":15,"servings":2,"preparedWeightGrams":420,
+      "ingredients":[{"foodID":"usda-2346396","grams":60},{"foodID":"usda-174158","grams":250},{"foodID":"usda-1750341","grams":120},{"foodID":"usda-2346394","grams":15}],
+      "steps":["Нарежь яблоко без сердцевины; масса указана для съедобной части с кожурой.","Свари хлопья в воде до мягкости, добавив яблоко в последние минуты.","Вмешай измельчённый грецкий орех и взвесь готовую кашу."],"allergens":["Грецкий орех","Овёс: проверь маркировку глютена"]
+    },
+    {
+      "id":"banana-almond-yogurt","name":"Йогурт с бананом и миндалём","category":"snack","minutes":5,"servings":1,"preparedWeightGrams":315,
+      "ingredients":[{"foodID":"usda-330137","grams":200},{"foodID":"usda-1105314","grams":100},{"foodID":"usda-2346393","grams":15}],
+      "steps":["Отмерь йогурт без добавок. Для другого продукта используй его фактическую этикетку в своей записи.","Очисти банан, взвесь мякоть и нарежь.","Добавь банан и измельчённый миндаль к йогурту."],"allergens":["Молоко","Миндаль"]
+    },
+    {
+      "id":"apple-oat-yogurt","name":"Йогурт с яблоком и овсянкой","category":"breakfast","minutes":10,"servings":1,"preparedWeightGrams":330,
+      "ingredients":[{"foodID":"usda-330137","grams":180},{"foodID":"usda-1750341","grams":120},{"foodID":"usda-2346396","grams":30}],
+      "steps":["Натри яблоко с кожурой, удалив сердцевину.","Перемешай с йогуртом и хлопьями. Используй хлопья, которые производитель разрешает есть без варки.","Дай хлопьям размягчиться несколько минут и перемешай ещё раз."],"allergens":["Молоко","Овёс: проверь маркировку глютена"]
+    },
+    {
+      "id":"chicken-buckwheat","name":"Гречка с курицей и морковью","category":"main","minutes":40,"servings":3,"preparedWeightGrams":1000,
+      "ingredients":[{"foodID":"usda-2512378","grams":160},{"foodID":"usda-2646170","grams":300},{"foodID":"usda-2258586","grams":150},{"foodID":"usda-790646","grams":80},{"foodID":"usda-171413","grams":10},{"foodID":"usda-174158","grams":400},{"foodID":"usda-173468","grams":3}],
+      "steps":["Нарежь лук, морковь и сырую грудку. Взвешивай мясо без кожи и костей; используй отдельные принадлежности для сырой курицы.","Разогрей масло в глубокой посуде, слегка прогрей овощи, добавь курицу, гречку, воду и соль. Туши под крышкой до готовности крупы; не сливай жидкость и не добавляй неучтённое масло.","Проверь термометром минимум 74 °C в середине наиболее толстого кусочка курицы. Перемешай и взвесь всё готовое блюдо без посуды."],"allergens":[],"safetyURL":"https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id":"chicken-rice-broccoli","name":"Рис с курицей и брокколи","category":"main","minutes":40,"servings":3,"preparedWeightGrams":1000,
+      "ingredients":[{"foodID":"usda-2512381","grams":160},{"foodID":"usda-2646170","grams":300},{"foodID":"usda-747447","grams":250},{"foodID":"usda-171413","grams":10},{"foodID":"usda-174158","grams":400},{"foodID":"usda-173468","grams":3}],
+      "steps":["Промой рис. Нарежь сырую грудку и раздели брокколи на небольшие соцветия; сырое мясо обрабатывай отдельно от готовых продуктов.","В глубокой посуде прогрей курицу в отмеренном масле, добавь рис, воду и соль. Готовь под крышкой, затем добавь брокколи и доведи до готовности, сохраняя жидкость в блюде.","Температура в середине наиболее толстого кусочка курицы должна достичь 74 °C. Взвесь готовое блюдо: фактическая масса зависит от испарения воды."],"allergens":[],"safetyURL":"https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id":"vegetable-buckwheat","name":"Гречка с морковью и луком","category":"main","minutes":30,"servings":2,"preparedWeightGrams":700,
+      "ingredients":[{"foodID":"usda-2512378","grams":120},{"foodID":"usda-2258586","grams":180},{"foodID":"usda-790646","grams":80},{"foodID":"usda-171413","grams":10},{"foodID":"usda-174158","grams":350},{"foodID":"usda-173468","grams":2}],
+      "steps":["Нарежь морковь и лук, промой крупу.","Прогрей овощи в отмеренном масле, добавь гречку, воду и соль. Готовь под крышкой до мягкости, не сливая жидкость.","Перемешай и взвесь готовое блюдо без посуды."],"allergens":[]
+    },
+    {
+      "id":"broccoli-omelet","name":"Омлет с брокколи","category":"breakfast","minutes":20,"servings":2,"preparedWeightGrams":370,
+      "ingredients":[{"foodID":"usda-748967","grams":150},{"foodID":"usda-747447","grams":180},{"foodID":"usda-746778","grams":60},{"foodID":"usda-171413","grams":5},{"foodID":"usda-173468","grams":1}],
+      "steps":["Мелко нарежь брокколи. Взвесь содержимое яиц без скорлупы и смешай с молоком и солью.","Смажь небольшую сковороду отмеренным маслом, прогрей брокколи и залей яичной смесью. Готовь под крышкой до схватывания.","Проверь не менее 71 °C в центре омлета, затем взвесь готовое блюдо."],"allergens":["Яйца","Молоко"],"safetyURL":"https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id":"tomato-omelet","name":"Омлет с томатами","category":"breakfast","minutes":15,"servings":1,"preparedWeightGrams":245,
+      "ingredients":[{"foodID":"usda-748967","grams":100},{"foodID":"usda-321360","grams":120},{"foodID":"usda-746778","grams":40},{"foodID":"usda-171413","grams":5},{"foodID":"usda-173468","grams":1}],
+      "steps":["Нарежь томаты. Смешай яйца без скорлупы, молоко и соль.","Прогрей томаты с отмеренным маслом и залей яичной смесью. Готовь под крышкой, не оставляя жидких участков.","Температура в центре должна достичь 71 °C. Взвесь омлет перед расчётом граммовой порции."],"allergens":["Яйца","Молоко"],"safetyURL":"https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id":"tuna-cucumber-salad","name":"Салат с тунцом и огурцом","category":"salad","minutes":10,"servings":2,"preparedWeightGrams":491,
+      "ingredients":[{"foodID":"usda-334194","grams":150},{"foodID":"usda-2346406","grams":180},{"foodID":"usda-321360","grams":150},{"foodID":"usda-171413","grams":10},{"foodID":"usda-173468","grams":1}],
+      "steps":["Слей жидкость из тунца и взвесь только съедобную часть.","Вымой и нарежь огурец и томаты.","Перемешай овощи с тунцом, отмеренным маслом и солью. Масса готового салата равна массе внесённых ингредиентов."],"allergens":["Рыба"]
+    },
+    {
+      "id":"tomato-cucumber-yogurt","name":"Овощной салат с йогуртом","category":"salad","minutes":10,"servings":2,"preparedWeightGrams":431,
+      "ingredients":[{"foodID":"usda-2346406","grams":180},{"foodID":"usda-321360","grams":150},{"foodID":"usda-330137","grams":100},{"foodID":"usda-173468","grams":1}],
+      "steps":["Вымой овощи и взвесь съедобную часть.","Нарежь огурец и томаты, смешай йогурт с солью.","Заправь салат непосредственно перед подачей; не сливай сок, если используешь исходный расчёт."],"allergens":["Молоко"]
+    },
+    {
+      "id":"carrot-apple-walnut","name":"Морковный салат с яблоком","category":"salad","minutes":10,"servings":2,"preparedWeightGrams":420,
+      "ingredients":[{"foodID":"usda-2258586","grams":150},{"foodID":"usda-1750341","grams":150},{"foodID":"usda-2346394","grams":20},{"foodID":"usda-330137","grams":100}],
+      "steps":["Очисти морковь; у яблока удали сердцевину, оставив кожуру.","Натри морковь и яблоко, измельчи грецкий орех.","Смешай с йогуртом и подавай без добавления неучтённого сахара или масла."],"allergens":["Молоко","Грецкий орех"]
+    },
+    {
+      "id":"cottage-apple-almond","name":"Зернёный сыр с яблоком и миндалём","category":"snack","minutes":5,"servings":1,"preparedWeightGrams":330,
+      "ingredients":[{"foodID":"usda-328841","grams":200},{"foodID":"usda-1750341","grams":120},{"foodID":"usda-2346393","grams":10}],
+      "steps":["Отмерь зернёный сыр cottage cheese 2%. Обычный творог имеет другой состав — для него нужна своя запись.","Нарежь яблоко с кожурой, удалив сердцевину.","Добавь яблоко и измельчённый миндаль к сыру."],"allergens":["Молоко","Миндаль"]
+    },
+    {
+      "id":"banana-peanut-yogurt","name":"Банановый йогурт с арахисовой пастой","category":"snack","minutes":5,"servings":1,"preparedWeightGrams":270,
+      "ingredients":[{"foodID":"usda-330137","grams":150},{"foodID":"usda-1105314","grams":100},{"foodID":"usda-2262072","grams":20}],
+      "steps":["Взвесь банан без кожуры и разомни вилкой.","Смешай йогурт с арахисовой пастой. Для своей марки пасты сверяй состав по этикетке.","Добавь банан и перемешай до нужной текстуры."],"allergens":["Молоко","Арахис"]
+    },
+    {
+      "id":"baked-potato-broccoli","name":"Запечённый картофель с брокколи","category":"main","minutes":45,"servings":2,"preparedWeightGrams":590,
+      "ingredients":[{"foodID":"usda-2346401","grams":400},{"foodID":"usda-747447","grams":250},{"foodID":"usda-171413","grams":10},{"foodID":"usda-173468","grams":2}],
+      "steps":["Очисти картофель, нарежь небольшими дольками. Раздели брокколи на соцветия.","Перемешай картофель с частью отмеренного масла и запекай при 200 °C до почти мягкого состояния. Добавь брокколи, оставшееся масло и соль и доведи овощи до готовности.","Собери всё приготовленное, включая масло с противня, и взвесь. Готовая масса — ориентир: она зависит от размера кусочков и испарения воды."],"allergens":[]
+    },
+    {
+      "id":"chicken-tomato-salad","name":"Салат с готовой курицей","category":"salad","minutes":10,"servings":2,"preparedWeightGrams":540,
+      "ingredients":[{"foodID":"usda-331960","grams":200},{"foodID":"usda-2346406","grams":150},{"foodID":"usda-321360","grams":150},{"foodID":"usda-330137","grams":40}],
+      "steps":["Возьми уже приготовленную охлаждённую тушёную грудку без кожи и костей. Здесь указана масса готового мяса; сырая грудка не подходит для этого исходного расчёта.","Вымой и нарежь огурец и томаты, нарежь курицу.","Перемешай с йогуртом без добавок и подавай сразу."],"allergens":["Молоко"]
+    }
+  ]
+}

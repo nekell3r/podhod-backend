@@ -1,0 +1,1528 @@
+{
+  "formatVersion": 1,
+  "version": "2026.10.31.1",
+  "foods": [
+    {
+      "id": "usda-2646170",
+      "name": "Куриная грудка без кожи и костей",
+      "preparation": "Сырая",
+      "category": "protein",
+      "per100Grams": {
+        "energyKcal": 112,
+        "proteinGrams": 22.5,
+        "fatGrams": 1.93,
+        "carbohydrateGrams": 0.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2646170,
+        "description": "Chicken, breast, boneless, skinless, raw",
+        "publicationDate": "10/26/2023",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 106,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 112,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-331960",
+      "name": "Куриная грудка без кожи и костей",
+      "preparation": "Тушёная, готовая",
+      "category": "protein",
+      "per100Grams": {
+        "energyKcal": 166,
+        "proteinGrams": 32.1,
+        "fatGrams": 3.24,
+        "carbohydrateGrams": 0.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 331960,
+        "description": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised",
+        "publicationDate": "4/1/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 166,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-748967",
+      "name": "Куриное яйцо, целое",
+      "preparation": "Сырое, без скорлупы; USDA Grade A Large",
+      "category": "protein",
+      "per100Grams": {
+        "energyKcal": 148,
+        "proteinGrams": 12.4,
+        "fatGrams": 9.96,
+        "carbohydrateGrams": 0.96
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 748967,
+        "description": "Eggs, Grade A, Large, egg whole",
+        "publicationDate": "12/16/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 148,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-334194",
+      "name": "Тунец light в собственном соку",
+      "preparation": "Консервированный, жидкость слита",
+      "category": "protein",
+      "per100Grams": {
+        "energyKcal": 90.0,
+        "proteinGrams": 19.0,
+        "fatGrams": 0.94,
+        "carbohydrateGrams": 0.08
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 334194,
+        "description": "Fish, tuna, light, canned in water, drained solids",
+        "publicationDate": "4/1/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 90.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-330137",
+      "name": "Греческий йогурт без добавок",
+      "preparation": "Обезжиренный",
+      "category": "dairy",
+      "per100Grams": {
+        "energyKcal": 61.0,
+        "proteinGrams": 10.3,
+        "fatGrams": 0.37,
+        "carbohydrateGrams": 3.64
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 330137,
+        "description": "Yogurt, Greek, plain, nonfat",
+        "publicationDate": "4/1/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 61.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-328841",
+      "name": "Зернёный сыр cottage cheese",
+      "preparation": "2% молочного жира, готовый",
+      "category": "dairy",
+      "per100Grams": {
+        "energyKcal": 84.0,
+        "proteinGrams": 11.0,
+        "fatGrams": 2.3,
+        "carbohydrateGrams": 4.31
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 328841,
+        "description": "Cheese, cottage, lowfat, 2% milkfat",
+        "publicationDate": "4/1/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 84.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-746778",
+      "name": "Молоко 2% с витаминами A и D",
+      "preparation": "Жидкое; продукт USDA",
+      "category": "dairy",
+      "per100Grams": {
+        "energyKcal": 50.0,
+        "proteinGrams": 3.36,
+        "fatGrams": 1.9,
+        "carbohydrateGrams": 4.9
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 746778,
+        "description": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+        "publicationDate": "12/16/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 50.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2346396",
+      "name": "Овсяные хлопья из цельного зерна",
+      "preparation": "Сухие, длительной варки",
+      "category": "grains",
+      "per100Grams": {
+        "energyKcal": 379,
+        "proteinGrams": 13.5,
+        "fatGrams": 5.89,
+        "carbohydrateGrams": 68.7
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2346396,
+        "description": "Oats, whole grain, rolled, old fashioned",
+        "publicationDate": "10/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 382,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 379,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2512381",
+      "name": "Белый длиннозёрный рис",
+      "preparation": "Сухой, необогащённый",
+      "category": "grains",
+      "per100Grams": {
+        "energyKcal": 370,
+        "proteinGrams": 7.04,
+        "fatGrams": 1.03,
+        "carbohydrateGrams": 80.3
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2512381,
+        "description": "Rice, white, long grain, unenriched, raw",
+        "publicationDate": "4/20/2023",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 359,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 370,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2512378",
+      "name": "Цельнозерновая гречка",
+      "preparation": "Сухая",
+      "category": "grains",
+      "per100Grams": {
+        "energyKcal": 332,
+        "proteinGrams": 11.1,
+        "fatGrams": 3.04,
+        "carbohydrateGrams": 71.1
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2512378,
+        "description": "Buckwheat, whole grain",
+        "publicationDate": "4/20/2023",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 356,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 332,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2346401",
+      "name": "Картофель russet",
+      "preparation": "Сырой, без кожуры",
+      "category": "vegetables",
+      "per100Grams": {
+        "energyKcal": 81.0,
+        "proteinGrams": 2.27,
+        "fatGrams": 0.36,
+        "carbohydrateGrams": 17.8
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2346401,
+        "description": "Potatoes, russet, without skin, raw",
+        "publicationDate": "10/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 83.4,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 81.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2346406",
+      "name": "Огурец",
+      "preparation": "Сырой, с кожурой",
+      "category": "vegetables",
+      "per100Grams": {
+        "energyKcal": 13.9,
+        "proteinGrams": 0.625,
+        "fatGrams": 0.178,
+        "carbohydrateGrams": 2.95
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2346406,
+        "description": "Cucumber, with peel, raw",
+        "publicationDate": "10/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 15.9,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 13.9,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-321360",
+      "name": "Томаты grape",
+      "preparation": "Сырые",
+      "category": "vegetables",
+      "per100Grams": {
+        "energyKcal": 27.0,
+        "proteinGrams": 0.83,
+        "fatGrams": 0.63,
+        "carbohydrateGrams": 5.51
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 321360,
+        "description": "Tomatoes, grape, raw",
+        "publicationDate": "4/1/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 27.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2258586",
+      "name": "Морковь",
+      "preparation": "Сырая, зрелая",
+      "category": "vegetables",
+      "per100Grams": {
+        "energyKcal": 45.0,
+        "proteinGrams": 0.941,
+        "fatGrams": 0.351,
+        "carbohydrateGrams": 10.3
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2258586,
+        "description": "Carrots, mature, raw",
+        "publicationDate": "4/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 48.0,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 45.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-747447",
+      "name": "Брокколи",
+      "preparation": "Сырая",
+      "category": "vegetables",
+      "per100Grams": {
+        "energyKcal": 31.0,
+        "proteinGrams": 2.57,
+        "fatGrams": 0.34,
+        "carbohydrateGrams": 6.27
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 747447,
+        "description": "Broccoli, raw",
+        "publicationDate": "12/16/2019",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 31.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-790646",
+      "name": "Жёлтый репчатый лук",
+      "preparation": "Сырой",
+      "category": "vegetables",
+      "per100Grams": {
+        "energyKcal": 38.0,
+        "proteinGrams": 0.83,
+        "fatGrams": 0.05,
+        "carbohydrateGrams": 8.61
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 790646,
+        "description": "Onions, yellow, raw",
+        "publicationDate": "4/1/2020",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 38.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-1105314",
+      "name": "Банан",
+      "preparation": "Спелый или слегка недозрелый, без кожуры",
+      "category": "fruit",
+      "per100Grams": {
+        "energyKcal": 97.0,
+        "proteinGrams": 0.74,
+        "fatGrams": 0.29,
+        "carbohydrateGrams": 23.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 1105314,
+        "description": "Bananas, ripe and slightly ripe, raw",
+        "publicationDate": "4/1/2020",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 97.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-1750341",
+      "name": "Яблоко Gala",
+      "preparation": "Сырое, с кожурой, без сердцевины",
+      "category": "fruit",
+      "per100Grams": {
+        "energyKcal": 54.9,
+        "proteinGrams": 0.133,
+        "fatGrams": 0.15,
+        "carbohydrateGrams": 14.8
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 1750341,
+        "description": "Apples, gala, with skin, raw",
+        "publicationDate": "10/30/2020",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 61.0,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 54.9,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2346394",
+      "name": "Грецкий орех",
+      "preparation": "Сырые половинки ядра",
+      "category": "nuts",
+      "per100Grams": {
+        "energyKcal": 679,
+        "proteinGrams": 14.6,
+        "fatGrams": 69.7,
+        "carbohydrateGrams": 10.9
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2346394,
+        "description": "Nuts, walnuts, English, halves, raw",
+        "publicationDate": "10/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 730,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 679,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2346393",
+      "name": "Миндаль",
+      "preparation": "Сырой, целый",
+      "category": "nuts",
+      "per100Grams": {
+        "energyKcal": 584,
+        "proteinGrams": 21.5,
+        "fatGrams": 51.1,
+        "carbohydrateGrams": 20.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2346393,
+        "description": "Nuts, almonds, whole, raw",
+        "publicationDate": "10/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 626,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 584,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-2262072",
+      "name": "Арахисовая паста",
+      "preparation": "Однородная; продукт USDA",
+      "category": "nuts",
+      "per100Grams": {
+        "energyKcal": 589,
+        "proteinGrams": 24.0,
+        "fatGrams": 49.4,
+        "carbohydrateGrams": 22.7
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "Foundation Foods",
+        "release": "2026-10",
+        "archiveSHA256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+        "fdcID": 2262072,
+        "description": "Peanut butter, creamy",
+        "publicationDate": "4/28/2022",
+        "nutrientIDs": {
+          "energyKcal": 2048,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 2047,
+            "amount": 632,
+            "unit": "kcal"
+          },
+          {
+            "nutrientID": 2048,
+            "amount": 589,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-171413",
+      "name": "Оливковое масло",
+      "preparation": "Для салата или приготовления; SR Legacy",
+      "category": "pantry",
+      "per100Grams": {
+        "energyKcal": 884.0,
+        "proteinGrams": 0.0,
+        "fatGrams": 100.0,
+        "carbohydrateGrams": 0.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "SR Legacy",
+        "release": "2018-04",
+        "archiveSHA256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "fdcID": 171413,
+        "description": "Oil, olive, salad or cooking",
+        "publicationDate": "2019-04-01",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 884.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-173468",
+      "name": "Поваренная соль",
+      "preparation": "SR Legacy",
+      "category": "pantry",
+      "per100Grams": {
+        "energyKcal": 0.0,
+        "proteinGrams": 0.0,
+        "fatGrams": 0.0,
+        "carbohydrateGrams": 0.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "SR Legacy",
+        "release": "2018-04",
+        "archiveSHA256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "fdcID": 173468,
+        "description": "Salt, table",
+        "publicationDate": "2019-04-01",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 0.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usda-174158",
+      "name": "Питьевая бутилированная вода",
+      "preparation": "Без добавок; SR Legacy",
+      "category": "pantry",
+      "per100Grams": {
+        "energyKcal": 0.0,
+        "proteinGrams": 0.0,
+        "fatGrams": 0.0,
+        "carbohydrateGrams": 0.0
+      },
+      "source": {
+        "publisher": "USDA FoodData Central",
+        "license": "CC0-1.0",
+        "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "dataset": "SR Legacy",
+        "release": "2018-04",
+        "archiveSHA256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+        "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+        "fdcID": 174158,
+        "description": "Water, bottled, generic",
+        "publicationDate": "2019-04-01",
+        "nutrientIDs": {
+          "energyKcal": 1008,
+          "proteinGrams": 1003,
+          "fatGrams": 1004,
+          "carbohydrateGrams": 1005
+        },
+        "energyValues": [
+          {
+            "nutrientID": 1008,
+            "amount": 0.0,
+            "unit": "kcal"
+          }
+        ]
+      }
+    }
+  ],
+  "recipes": [
+    {
+      "id": "banana-oatmeal",
+      "name": "Овсяная каша с бананом",
+      "category": "breakfast",
+      "minutes": 15,
+      "servings": 2,
+      "preparedWeightGrams": 430,
+      "ingredients": [
+        {
+          "foodID": "usda-2346396",
+          "grams": 60
+        },
+        {
+          "foodID": "usda-746778",
+          "grams": 200
+        },
+        {
+          "foodID": "usda-174158",
+          "grams": 100
+        },
+        {
+          "foodID": "usda-1105314",
+          "grams": 100
+        }
+      ],
+      "steps": [
+        "Соедини сухие хлопья, молоко и воду в сотейнике.",
+        "Доведи до слабого кипения и вари, помешивая, до мягкости хлопьев. Время уточни на упаковке.",
+        "Добавь нарезанный банан. Взвесь готовую кашу без посуды и при необходимости уточни готовую массу в расчёте."
+      ],
+      "allergens": [
+        "Молоко",
+        "Овёс: проверь маркировку глютена"
+      ]
+    },
+    {
+      "id": "apple-walnut-oatmeal",
+      "name": "Овсянка с яблоком и орехами",
+      "category": "breakfast",
+      "minutes": 15,
+      "servings": 2,
+      "preparedWeightGrams": 420,
+      "ingredients": [
+        {
+          "foodID": "usda-2346396",
+          "grams": 60
+        },
+        {
+          "foodID": "usda-174158",
+          "grams": 250
+        },
+        {
+          "foodID": "usda-1750341",
+          "grams": 120
+        },
+        {
+          "foodID": "usda-2346394",
+          "grams": 15
+        }
+      ],
+      "steps": [
+        "Нарежь яблоко без сердцевины; масса указана для съедобной части с кожурой.",
+        "Свари хлопья в воде до мягкости, добавив яблоко в последние минуты.",
+        "Вмешай измельчённый грецкий орех и взвесь готовую кашу."
+      ],
+      "allergens": [
+        "Грецкий орех",
+        "Овёс: проверь маркировку глютена"
+      ]
+    },
+    {
+      "id": "banana-almond-yogurt",
+      "name": "Йогурт с бананом и миндалём",
+      "category": "snack",
+      "minutes": 5,
+      "servings": 1,
+      "preparedWeightGrams": 315,
+      "ingredients": [
+        {
+          "foodID": "usda-330137",
+          "grams": 200
+        },
+        {
+          "foodID": "usda-1105314",
+          "grams": 100
+        },
+        {
+          "foodID": "usda-2346393",
+          "grams": 15
+        }
+      ],
+      "steps": [
+        "Отмерь йогурт без добавок. Для другого продукта используй его фактическую этикетку в своей записи.",
+        "Очисти банан, взвесь мякоть и нарежь.",
+        "Добавь банан и измельчённый миндаль к йогурту."
+      ],
+      "allergens": [
+        "Молоко",
+        "Миндаль"
+      ]
+    },
+    {
+      "id": "apple-oat-yogurt",
+      "name": "Йогурт с яблоком и овсянкой",
+      "category": "breakfast",
+      "minutes": 10,
+      "servings": 1,
+      "preparedWeightGrams": 330,
+      "ingredients": [
+        {
+          "foodID": "usda-330137",
+          "grams": 180
+        },
+        {
+          "foodID": "usda-1750341",
+          "grams": 120
+        },
+        {
+          "foodID": "usda-2346396",
+          "grams": 30
+        }
+      ],
+      "steps": [
+        "Натри яблоко с кожурой, удалив сердцевину.",
+        "Перемешай с йогуртом и хлопьями. Используй хлопья, которые производитель разрешает есть без варки.",
+        "Дай хлопьям размягчиться несколько минут и перемешай ещё раз."
+      ],
+      "allergens": [
+        "Молоко",
+        "Овёс: проверь маркировку глютена"
+      ]
+    },
+    {
+      "id": "chicken-buckwheat",
+      "name": "Гречка с курицей и морковью",
+      "category": "main",
+      "minutes": 40,
+      "servings": 3,
+      "preparedWeightGrams": 1000,
+      "ingredients": [
+        {
+          "foodID": "usda-2512378",
+          "grams": 160
+        },
+        {
+          "foodID": "usda-2646170",
+          "grams": 300
+        },
+        {
+          "foodID": "usda-2258586",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-790646",
+          "grams": 80
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 10
+        },
+        {
+          "foodID": "usda-174158",
+          "grams": 400
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 3
+        }
+      ],
+      "steps": [
+        "Нарежь лук, морковь и сырую грудку. Взвешивай мясо без кожи и костей; используй отдельные принадлежности для сырой курицы.",
+        "Разогрей масло в глубокой посуде, слегка прогрей овощи, добавь курицу, гречку, воду и соль. Туши под крышкой до готовности крупы; не сливай жидкость и не добавляй неучтённое масло.",
+        "Проверь термометром минимум 74 °C в середине наиболее толстого кусочка курицы. Перемешай и взвесь всё готовое блюдо без посуды."
+      ],
+      "allergens": [],
+      "safetyURL": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id": "chicken-rice-broccoli",
+      "name": "Рис с курицей и брокколи",
+      "category": "main",
+      "minutes": 40,
+      "servings": 3,
+      "preparedWeightGrams": 1000,
+      "ingredients": [
+        {
+          "foodID": "usda-2512381",
+          "grams": 160
+        },
+        {
+          "foodID": "usda-2646170",
+          "grams": 300
+        },
+        {
+          "foodID": "usda-747447",
+          "grams": 250
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 10
+        },
+        {
+          "foodID": "usda-174158",
+          "grams": 400
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 3
+        }
+      ],
+      "steps": [
+        "Промой рис. Нарежь сырую грудку и раздели брокколи на небольшие соцветия; сырое мясо обрабатывай отдельно от готовых продуктов.",
+        "В глубокой посуде прогрей курицу в отмеренном масле, добавь рис, воду и соль. Готовь под крышкой, затем добавь брокколи и доведи до готовности, сохраняя жидкость в блюде.",
+        "Температура в середине наиболее толстого кусочка курицы должна достичь 74 °C. Взвесь готовое блюдо: фактическая масса зависит от испарения воды."
+      ],
+      "allergens": [],
+      "safetyURL": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id": "vegetable-buckwheat",
+      "name": "Гречка с морковью и луком",
+      "category": "main",
+      "minutes": 30,
+      "servings": 2,
+      "preparedWeightGrams": 700,
+      "ingredients": [
+        {
+          "foodID": "usda-2512378",
+          "grams": 120
+        },
+        {
+          "foodID": "usda-2258586",
+          "grams": 180
+        },
+        {
+          "foodID": "usda-790646",
+          "grams": 80
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 10
+        },
+        {
+          "foodID": "usda-174158",
+          "grams": 350
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 2
+        }
+      ],
+      "steps": [
+        "Нарежь морковь и лук, промой крупу.",
+        "Прогрей овощи в отмеренном масле, добавь гречку, воду и соль. Готовь под крышкой до мягкости, не сливая жидкость.",
+        "Перемешай и взвесь готовое блюдо без посуды."
+      ],
+      "allergens": []
+    },
+    {
+      "id": "broccoli-omelet",
+      "name": "Омлет с брокколи",
+      "category": "breakfast",
+      "minutes": 20,
+      "servings": 2,
+      "preparedWeightGrams": 370,
+      "ingredients": [
+        {
+          "foodID": "usda-748967",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-747447",
+          "grams": 180
+        },
+        {
+          "foodID": "usda-746778",
+          "grams": 60
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 5
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 1
+        }
+      ],
+      "steps": [
+        "Мелко нарежь брокколи. Взвесь содержимое яиц без скорлупы и смешай с молоком и солью.",
+        "Смажь небольшую сковороду отмеренным маслом, прогрей брокколи и залей яичной смесью. Готовь под крышкой до схватывания.",
+        "Проверь не менее 71 °C в центре омлета, затем взвесь готовое блюдо."
+      ],
+      "allergens": [
+        "Яйца",
+        "Молоко"
+      ],
+      "safetyURL": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id": "tomato-omelet",
+      "name": "Омлет с томатами",
+      "category": "breakfast",
+      "minutes": 15,
+      "servings": 1,
+      "preparedWeightGrams": 245,
+      "ingredients": [
+        {
+          "foodID": "usda-748967",
+          "grams": 100
+        },
+        {
+          "foodID": "usda-321360",
+          "grams": 120
+        },
+        {
+          "foodID": "usda-746778",
+          "grams": 40
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 5
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 1
+        }
+      ],
+      "steps": [
+        "Нарежь томаты. Смешай яйца без скорлупы, молоко и соль.",
+        "Прогрей томаты с отмеренным маслом и залей яичной смесью. Готовь под крышкой, не оставляя жидких участков.",
+        "Температура в центре должна достичь 71 °C. Взвесь омлет перед расчётом граммовой порции."
+      ],
+      "allergens": [
+        "Яйца",
+        "Молоко"
+      ],
+      "safetyURL": "https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures"
+    },
+    {
+      "id": "tuna-cucumber-salad",
+      "name": "Салат с тунцом и огурцом",
+      "category": "salad",
+      "minutes": 10,
+      "servings": 2,
+      "preparedWeightGrams": 491,
+      "ingredients": [
+        {
+          "foodID": "usda-334194",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-2346406",
+          "grams": 180
+        },
+        {
+          "foodID": "usda-321360",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 10
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 1
+        }
+      ],
+      "steps": [
+        "Слей жидкость из тунца и взвесь только съедобную часть.",
+        "Вымой и нарежь огурец и томаты.",
+        "Перемешай овощи с тунцом, отмеренным маслом и солью. Масса готового салата равна массе внесённых ингредиентов."
+      ],
+      "allergens": [
+        "Рыба"
+      ]
+    },
+    {
+      "id": "tomato-cucumber-yogurt",
+      "name": "Овощной салат с йогуртом",
+      "category": "salad",
+      "minutes": 10,
+      "servings": 2,
+      "preparedWeightGrams": 431,
+      "ingredients": [
+        {
+          "foodID": "usda-2346406",
+          "grams": 180
+        },
+        {
+          "foodID": "usda-321360",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-330137",
+          "grams": 100
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 1
+        }
+      ],
+      "steps": [
+        "Вымой овощи и взвесь съедобную часть.",
+        "Нарежь огурец и томаты, смешай йогурт с солью.",
+        "Заправь салат непосредственно перед подачей; не сливай сок, если используешь исходный расчёт."
+      ],
+      "allergens": [
+        "Молоко"
+      ]
+    },
+    {
+      "id": "carrot-apple-walnut",
+      "name": "Морковный салат с яблоком",
+      "category": "salad",
+      "minutes": 10,
+      "servings": 2,
+      "preparedWeightGrams": 420,
+      "ingredients": [
+        {
+          "foodID": "usda-2258586",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-1750341",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-2346394",
+          "grams": 20
+        },
+        {
+          "foodID": "usda-330137",
+          "grams": 100
+        }
+      ],
+      "steps": [
+        "Очисти морковь; у яблока удали сердцевину, оставив кожуру.",
+        "Натри морковь и яблоко, измельчи грецкий орех.",
+        "Смешай с йогуртом и подавай без добавления неучтённого сахара или масла."
+      ],
+      "allergens": [
+        "Молоко",
+        "Грецкий орех"
+      ]
+    },
+    {
+      "id": "cottage-apple-almond",
+      "name": "Зернёный сыр с яблоком и миндалём",
+      "category": "snack",
+      "minutes": 5,
+      "servings": 1,
+      "preparedWeightGrams": 330,
+      "ingredients": [
+        {
+          "foodID": "usda-328841",
+          "grams": 200
+        },
+        {
+          "foodID": "usda-1750341",
+          "grams": 120
+        },
+        {
+          "foodID": "usda-2346393",
+          "grams": 10
+        }
+      ],
+      "steps": [
+        "Отмерь зернёный сыр cottage cheese 2%. Обычный творог имеет другой состав — для него нужна своя запись.",
+        "Нарежь яблоко с кожурой, удалив сердцевину.",
+        "Добавь яблоко и измельчённый миндаль к сыру."
+      ],
+      "allergens": [
+        "Молоко",
+        "Миндаль"
+      ]
+    },
+    {
+      "id": "banana-peanut-yogurt",
+      "name": "Банановый йогурт с арахисовой пастой",
+      "category": "snack",
+      "minutes": 5,
+      "servings": 1,
+      "preparedWeightGrams": 270,
+      "ingredients": [
+        {
+          "foodID": "usda-330137",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-1105314",
+          "grams": 100
+        },
+        {
+          "foodID": "usda-2262072",
+          "grams": 20
+        }
+      ],
+      "steps": [
+        "Взвесь банан без кожуры и разомни вилкой.",
+        "Смешай йогурт с арахисовой пастой. Для своей марки пасты сверяй состав по этикетке.",
+        "Добавь банан и перемешай до нужной текстуры."
+      ],
+      "allergens": [
+        "Молоко",
+        "Арахис"
+      ]
+    },
+    {
+      "id": "baked-potato-broccoli",
+      "name": "Запечённый картофель с брокколи",
+      "category": "main",
+      "minutes": 45,
+      "servings": 2,
+      "preparedWeightGrams": 590,
+      "ingredients": [
+        {
+          "foodID": "usda-2346401",
+          "grams": 400
+        },
+        {
+          "foodID": "usda-747447",
+          "grams": 250
+        },
+        {
+          "foodID": "usda-171413",
+          "grams": 10
+        },
+        {
+          "foodID": "usda-173468",
+          "grams": 2
+        }
+      ],
+      "steps": [
+        "Очисти картофель, нарежь небольшими дольками. Раздели брокколи на соцветия.",
+        "Перемешай картофель с частью отмеренного масла и запекай при 200 °C до почти мягкого состояния. Добавь брокколи, оставшееся масло и соль и доведи овощи до готовности.",
+        "Собери всё приготовленное, включая масло с противня, и взвесь. Готовая масса — ориентир: она зависит от размера кусочков и испарения воды."
+      ],
+      "allergens": []
+    },
+    {
+      "id": "chicken-tomato-salad",
+      "name": "Салат с готовой курицей",
+      "category": "salad",
+      "minutes": 10,
+      "servings": 2,
+      "preparedWeightGrams": 540,
+      "ingredients": [
+        {
+          "foodID": "usda-331960",
+          "grams": 200
+        },
+        {
+          "foodID": "usda-2346406",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-321360",
+          "grams": 150
+        },
+        {
+          "foodID": "usda-330137",
+          "grams": 40
+        }
+      ],
+      "steps": [
+        "Возьми уже приготовленную охлаждённую тушёную грудку без кожи и костей. Здесь указана масса готового мяса; сырая грудка не подходит для этого исходного расчёта.",
+        "Вымой и нарежь огурец и томаты, нарежь курицу.",
+        "Перемешай с йогуртом без добавок и подавай сразу."
+      ],
+      "allergens": [
+        "Молоко"
+      ]
+    }
+  ],
+  "recipeAttribution": {
+    "author": "Подход",
+    "origin": "original"
+  }
+}
