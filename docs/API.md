@@ -15,11 +15,11 @@ JSON fields use camelCase. All date-only keys are `YYYY-MM-DD`; week starts must
 | `POST /v1/weeks/{weekStart}/move` | `{expectedRevision,requestID,workoutID,plannedDate}` → week |
 | `POST /v1/weeks/{weekStart}/rest` | `{expectedRevision,requestID,workoutID,exerciseID,restSeconds,restAfterExerciseSeconds}` → week |
 | `GET /v1/active` | `{revision,state}`; absent state is `null` |
-| `PUT /v1/active` | `{expectedRevision,requestID,state}` → active record |
+| `PUT /v1/active` | `{expectedRevision,requestID,state,removedSetIDs?}` → active record |
 | `POST /v1/active/rest` | `{expectedRevision,requestID,sessionID,exerciseID,restSeconds,restAfterExerciseSeconds}` → active record |
 | `POST /v1/active/skip` | `{expectedRevision,requestID,sessionID,exerciseID,isSkipped}` → active record |
 | `GET /v1/history` | `{sessions:[]}` |
-| `PUT /v1/history/{sessionID}` | `{requestID,session}` → immutable finished session |
+| `PUT /v1/history/{sessionID}` | `{requestID,session,removedSetIDs?}` → immutable finished session |
 | `GET /v1/protein/{date}` | `{date,revision,morningTakenAt?,eveningTakenAt?}` |
 | `PUT /v1/protein/{date}` | `{expectedRevision,requestID,morningTakenAt?,eveningTakenAt?}` → protein record |
 
@@ -77,6 +77,12 @@ The validator accepts gaps, explicit empty interval arrays and zero-length close
 
 Each `LoggedSet` optionally includes integer `repsInReserve`: `0` means failure, `1`–`4` are remaining repetitions, `5` means five or more, and `-1` explicitly removes an assessment. An absent field or JSON null means a legacy or never-assessed set; it must not be interpreted as zero. Values outside `-1...5` are rejected for completed sets and drafts. Effort does not change volume, repetition validation or timing.
 
-For the same active session, omitting a previously present effort field (including removing its set) returns HTTP 409 `upgrade_required`. A supporting client clears an assessment with `-1`. MCP rest/skip commands preserve the field. History append checks the matching active session under the same owner transaction lock and rejects legacy omission before inserting a finished snapshot. Existing completed history remains immutable, and identical retries remain idempotent. Explicitly clearing active state is still allowed for discard and after a successful history upload.
+For the same active session, omitting a previously present effort field returns HTTP 409 `upgrade_required`. Removing its entire set without an explicit removal intent has the same protection. A supporting client clears an assessment with `-1`. MCP rest/skip commands preserve the field. History append checks the matching active session under the same owner transaction lock and rejects legacy omission before inserting a finished snapshot. Existing completed history remains immutable, and identical retries remain idempotent. Explicitly clearing active state is still allowed for discard and after a successful history upload.
 
 Android has no effort UI in this release. Legacy clients can read the optional field but cannot replace an assessed active session or finish it after discarding the field; use an updated iOS client for that session.
+
+## Explicit unfinished-set removal
+
+Active and history writes optionally carry `removedSetIDs`: at most 600 distinct UUIDs, case-insensitive, absent from the submitted session. A nonempty list requires a non-null active state. The list records the user's explicit removal of unfinished sets; it does not clear assessments on retained sets. The server compares the matching previous active session under its owner lock. A listed set that was unfinished may be absent even if it had an assessment; a listed set already completed on the server returns HTTP 409 `set_removal_conflict`. The write is rejected as a whole. CAS, owner isolation, request-ID replay and history immutability still apply.
+
+IDs unknown to the current server snapshot are accepted because creation and deletion may both happen offline, or the deletion may already have reached active state before history upload. Clients must persist intents atomically with local removals and include them when finishing offline, even after an earlier active upload succeeded. Clear finished-session intents only after confirming the same history snapshot on the server. Do not infer consent from missing sets in older archives. This metadata belongs to write envelopes; active/history responses and stored session snapshots have no new fields. Deploy the supporting backend before releasing the new client. Clients that omit the list retain the existing protection.

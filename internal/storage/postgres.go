@@ -253,9 +253,9 @@ func (p *Postgres) AppendHistory(
 			if err := json.Unmarshal(activePayload, &active); err != nil {
 				return service.WorkoutSession{}, fmt.Errorf("decode active before history append: %w", err)
 			}
-			if active.State != nil && !input.Session.PreservesSetEffort(active.State.Session) {
-				return service.WorkoutSession{}, &service.Error{
-					Code: "upgrade_required", Message: "update the app to preserve repetitions in reserve",
+			if active.State != nil {
+				if err := input.Session.ValidateSetPreservation(active.State.Session, input.RemovedSetIDs); err != nil {
+					return service.WorkoutSession{}, err
 				}
 			}
 		}

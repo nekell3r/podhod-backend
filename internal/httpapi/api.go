@@ -268,7 +268,7 @@ func respond(w http.ResponseWriter, result any, err error) {
 	}
 	status := http.StatusBadRequest
 	switch applicationError.Code {
-	case "revision_conflict", "idempotency_conflict", "history_immutable", "day_occupied", "upgrade_required":
+	case "revision_conflict", "idempotency_conflict", "history_immutable", "day_occupied", "upgrade_required", "set_removal_conflict":
 		status = http.StatusConflict
 	case "not_found":
 		status = http.StatusNotFound

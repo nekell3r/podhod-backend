@@ -162,6 +162,129 @@ func activeSession() service.WorkoutSession {
 	}
 }
 
+func TestExplicitAssessedDraftRemovalThroughHTTPPreservesCASAndReplay(t *testing.T) {
+	t.Parallel()
+	s := databaseService(t)
+	session := activeSession()
+	reserve := 0
+	session.Exercises[0].Sets[1].RepsInReserve = &reserve
+	saved, err := s.ReplaceActive(t.Context(), "owner", service.ActiveWrite{
+		RequestID: requestID(40), State: &service.SessionState{Session: session},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	removedID := session.Exercises[0].Sets[1].ID
+	session.Exercises[0].Sets = session.Exercises[0].Sets[:1]
+	input := service.ActiveWrite{ExpectedRevision: saved.Revision, RequestID: requestID(41),
+		State: &service.SessionState{Session: session}}
+	_, err = s.ReplaceActive(t.Context(), "owner", input)
+	var failure *service.Error
+	if !errors.As(err, &failure) || failure.Code != "upgrade_required" {
+		t.Fatalf("implicit removal did not preserve effort: %v", err)
+	}
+	input.RemovedSetIDs = []string{removedID}
+	body, err := json.Marshal(input)
+	if err != nil {
+		t.Fatal(err)
+	}
+	verify := func(context.Context, string, *http.Request) (*sdkauth.TokenInfo, error) {
+		return &sdkauth.TokenInfo{UserID: "owner", Scopes: []string{"workout:write"}, Expiration: time.Now().Add(time.Minute)}, nil
+	}
+	handler := sdkauth.RequireBearerToken(verify, nil)(httpapi.New(s))
+	for range 2 {
+		recorder := httptest.NewRecorder()
+		request := httptest.NewRequest(http.MethodPut, "/v1/active", bytes.NewReader(body))
+		request.Header.Set("Authorization", "Bearer fixture")
+		request.Header.Set("Content-Type", "application/json")
+		handler.ServeHTTP(recorder, request)
+		if recorder.Code != http.StatusOK {
+			t.Fatalf("explicit removal status=%d body=%s", recorder.Code, recorder.Body.String())
+		}
+	}
+	final, err := s.GetActive(t.Context(), "owner")
+	if err != nil || final.Revision != saved.Revision+1 || len(final.State.Session.Exercises[0].Sets) != 1 {
+		t.Fatalf("removal or replay failed: revision=%d error=%v", final.Revision, err)
+	}
+	if final.State.Session.Exercises[0].Sets[0] != session.Exercises[0].Sets[0] {
+		t.Fatal("completed set changed")
+	}
+	input.RequestID = requestID(42)
+	_, err = s.ReplaceActive(t.Context(), "owner", input)
+	if !errors.As(err, &failure) || failure.Code != "revision_conflict" {
+		t.Fatalf("stale deletion bypassed CAS: %v", err)
+	}
+	foreign, err := s.GetActive(t.Context(), "other-owner")
+	if err != nil || foreign.State != nil {
+		t.Fatal("removal crossed account boundary")
+	}
+}
+
+func TestOfflineRemovalCanFinishBeforeActiveUploadAndCannotRemoveCompletedSet(t *testing.T) {
+	t.Parallel()
+	s := databaseService(t)
+	session := activeSession()
+	reserve := 2
+	session.Exercises[0].Sets[1].RepsInReserve = &reserve
+	_, err := s.ReplaceActive(t.Context(), "owner", service.ActiveWrite{
+		RequestID: requestID(50), State: &service.SessionState{Session: session},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	removedID := session.Exercises[0].Sets[1].ID
+	completed := session
+	completed.Exercises = append([]service.SessionExercise{}, session.Exercises...)
+	completed.Exercises[0].Sets = completed.Exercises[0].Sets[:1]
+	finish := session.StartedAt.Add(time.Minute)
+	completed.FinishedAt = &finish
+	input := service.HistoryWrite{RequestID: requestID(51), Session: completed, RemovedSetIDs: []string{removedID}}
+	legacy := input
+	legacy.RemovedSetIDs = nil
+	_, err = s.AppendHistory(t.Context(), "owner", legacy)
+	var failure *service.Error
+	if !errors.As(err, &failure) || failure.Code != "upgrade_required" {
+		t.Fatalf("history omission bypassed the effort guard: %v", err)
+	}
+	for range 2 {
+		if _, err := s.AppendHistory(t.Context(), "owner", input); err != nil {
+			t.Fatal(err)
+		}
+	}
+	active, err := s.GetActive(t.Context(), "owner")
+	if err != nil || len(active.State.Session.Exercises[0].Sets) != 2 {
+		t.Fatal("history append mutated active snapshot")
+	}
+	history, err := s.ListHistory(t.Context(), "owner")
+	if err != nil || len(history) != 1 || len(history[0].Exercises[0].Sets) != 1 {
+		t.Fatal("explicit offline deletion was not preserved in history")
+	}
+	session.Exercises[0].Sets[1].IsCompleted = true
+	session.Exercises[0].Sets[1].Reps = "8"
+	session.Exercises[0].Sets[1].Weight = "60"
+	_, err = s.ReplaceActive(t.Context(), "raced-owner", service.ActiveWrite{
+		RequestID: requestID(52), State: &service.SessionState{Session: session},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	_, err = s.AppendHistory(t.Context(), "raced-owner", input)
+	if !errors.As(err, &failure) || failure.Code != "set_removal_conflict" {
+		t.Fatalf("offline removal lost a concurrently completed set: %v", err)
+	}
+	activeRemoval := completed
+	activeRemoval.FinishedAt = nil
+	if _, err := s.ReplaceActive(t.Context(), "raced-owner", service.ActiveWrite{
+		RequestID: requestID(53), ExpectedRevision: 1, State: &service.SessionState{Session: activeRemoval}, RemovedSetIDs: []string{removedID},
+	}); err == nil {
+		t.Fatal("active removal lost completed set")
+	}
+	otherHistory, err := s.ListHistory(t.Context(), "raced-owner")
+	if err != nil || len(otherHistory) != 0 {
+		t.Fatal("rejected history was inserted")
+	}
+}
+
 func TestSetEffortSurvivesCommandsAndBlocksLegacyActiveAndHistoryWrites(t *testing.T) {
 	t.Parallel()
 	s := databaseService(t)

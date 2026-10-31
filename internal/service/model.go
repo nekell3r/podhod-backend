@@ -120,6 +120,7 @@ type ActiveWrite struct {
 	ExpectedRevision int64         `json:"expectedRevision"`
 	RequestID        string        `json:"requestID"`
 	State            *SessionState `json:"state"`
+	RemovedSetIDs    []string      `json:"removedSetIDs,omitempty"`
 }
 
 type ActiveRestRequest struct {
@@ -140,8 +141,9 @@ type SkipExerciseRequest struct {
 }
 
 type HistoryWrite struct {
-	RequestID string         `json:"requestID"`
-	Session   WorkoutSession `json:"session"`
+	RequestID     string         `json:"requestID"`
+	Session       WorkoutSession `json:"session"`
+	RemovedSetIDs []string       `json:"removedSetIDs,omitempty"`
 }
 
 type Error struct {

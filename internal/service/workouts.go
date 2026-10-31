@@ -18,14 +18,22 @@ func (s *Service) ReplaceActive(ctx context.Context, owner string, input ActiveW
 	return change(ctx, s, resourceChange[ActiveRecord]{
 		Owner: owner, Key: "active", RequestID: input.RequestID, ExpectedRevision: input.ExpectedRevision,
 		Request: input, Initial: ActiveRecord{}, Transform: func(value *ActiveRecord) error {
+			if input.State == nil && len(input.RemovedSetIDs) > 0 {
+				return invalid("set removals require a session")
+			}
+			if input.State != nil {
+				if err := validateRemovedSetIDs(input.State.Session, input.RemovedSetIDs); err != nil {
+					return err
+				}
+			}
 			if value.State != nil && input.State != nil {
 				sameSession := strings.EqualFold(value.State.Session.ID, input.State.Session.ID)
 				dropsRecordedTiming := value.State.Session.Timing != nil && input.State.Session.Timing == nil
 				if sameSession && dropsRecordedTiming {
 					return &Error{Code: "upgrade_required", Message: "update the app to preserve workout timing"}
 				}
-				if !input.State.Session.PreservesSetEffort(value.State.Session) {
-					return &Error{Code: "upgrade_required", Message: "update the app to preserve repetitions in reserve"}
+				if err := input.State.Session.ValidateSetPreservation(value.State.Session, input.RemovedSetIDs); err != nil {
+					return err
 				}
 			}
 			if input.State != nil {
@@ -158,29 +166,65 @@ func (s *Service) AppendHistory(ctx context.Context, owner string, input History
 	if err := validateSession(input.Session, true); err != nil {
 		return WorkoutSession{}, err
 	}
+	if err := validateRemovedSetIDs(input.Session, input.RemovedSetIDs); err != nil {
+		return WorkoutSession{}, err
+	}
 	return s.repository.AppendHistory(ctx, owner, input)
 }
 
-// PreservesSetEffort rejects clients that omit previously stored effort fields.
-// The explicit value -1 allows a supporting client to clear an assessment.
-func (session WorkoutSession) PreservesSetEffort(previous WorkoutSession) bool {
+// ValidateSetPreservation allows explicit unfinished-set removals while protecting
+// completed sets and effort fields that legacy clients might otherwise omit.
+func (session WorkoutSession) ValidateSetPreservation(previous WorkoutSession, removedSetIDs []string) error {
 	if !strings.EqualFold(session.ID, previous.ID) {
-		return true
+		return nil
 	}
-	assessments := map[string]*int{}
+	removals := map[string]bool{}
+	for _, id := range removedSetIDs {
+		removals[strings.ToLower(id)] = true
+	}
+	sets := map[string]LoggedSet{}
 	for _, exercise := range session.Exercises {
 		for _, set := range exercise.Sets {
-			assessments[strings.ToLower(set.ID)] = set.RepsInReserve
+			sets[strings.ToLower(set.ID)] = set
 		}
 	}
 	for _, exercise := range previous.Exercises {
 		for _, set := range exercise.Sets {
-			if set.RepsInReserve != nil && assessments[strings.ToLower(set.ID)] == nil {
-				return false
+			id := strings.ToLower(set.ID)
+			incoming, retained := sets[id]
+			if removals[id] && !retained {
+				if set.IsCompleted {
+					return &Error{Code: "set_removal_conflict", Message: "a set selected for removal has been completed"}
+				}
+				continue
+			}
+			if set.RepsInReserve != nil && incoming.RepsInReserve == nil {
+				return &Error{Code: "upgrade_required", Message: "update the app to preserve repetitions in reserve"}
 			}
 		}
 	}
-	return true
+	return nil
+}
+
+func validateRemovedSetIDs(session WorkoutSession, removedSetIDs []string) error {
+	if len(removedSetIDs) > 600 {
+		return invalid("too many set removal intents")
+	}
+	retained := map[string]bool{}
+	for _, exercise := range session.Exercises {
+		for _, set := range exercise.Sets {
+			retained[strings.ToLower(set.ID)] = true
+		}
+	}
+	seen := map[string]bool{}
+	for _, id := range removedSetIDs {
+		id = strings.ToLower(id)
+		if !validUUID(id) || seen[id] || retained[id] {
+			return invalid("set removals must be unique UUIDs absent from the submitted session")
+		}
+		seen[id] = true
+	}
+	return nil
 }
 
 func validateSession(session WorkoutSession, finished bool) error {
