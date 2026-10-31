@@ -4,6 +4,10 @@
 
 Клиенты: [iOS](https://github.com/nekell3r/podhod-ios) и [Android](https://github.com/nekell3r/podhod-android).
 
+## План расширения
+
+Серверные зависимости большого обновления iOS, включая программы и питание: [ROADMAP.ru.md](docs/ROADMAP.ru.md).
+
 ## Проверка
 
 Нужен Go 1.25 или новее.
