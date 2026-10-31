@@ -1,11 +1,15 @@
 {
   "formatVersion": 1,
-  "version": "2026.10.31.1",
+  "version": "2026.10.31.2",
   "foods": [
     {
       "id": "usda-2646170",
       "name": "Куриная грудка без кожи и костей",
       "preparation": "Сырая",
+      "aliases": [
+        "курица",
+        "филе"
+      ],
       "category": "protein",
       "per100Grams": {
         "energyKcal": 112,
@@ -48,6 +52,10 @@
       "id": "usda-331960",
       "name": "Куриная грудка без кожи и костей",
       "preparation": "Тушёная, готовая",
+      "aliases": [
+        "курица",
+        "филе"
+      ],
       "category": "protein",
       "per100Grams": {
         "energyKcal": 166,
@@ -85,6 +93,10 @@
       "id": "usda-748967",
       "name": "Куриное яйцо, целое",
       "preparation": "Сырое, без скорлупы; USDA Grade A Large",
+      "aliases": [
+        "яйцо",
+        "яйца"
+      ],
       "category": "protein",
       "per100Grams": {
         "energyKcal": 148,
@@ -122,6 +134,9 @@
       "id": "usda-334194",
       "name": "Тунец light в собственном соку",
       "preparation": "Консервированный, жидкость слита",
+      "aliases": [
+        "тунец"
+      ],
       "category": "protein",
       "per100Grams": {
         "energyKcal": 90.0,
@@ -159,6 +174,9 @@
       "id": "usda-330137",
       "name": "Греческий йогурт без добавок",
       "preparation": "Обезжиренный",
+      "aliases": [
+        "йогурт"
+      ],
       "category": "dairy",
       "per100Grams": {
         "energyKcal": 61.0,
@@ -196,6 +214,9 @@
       "id": "usda-328841",
       "name": "Зернёный сыр cottage cheese",
       "preparation": "2% молочного жира, готовый",
+      "aliases": [
+        "cottage cheese"
+      ],
       "category": "dairy",
       "per100Grams": {
         "energyKcal": 84.0,
@@ -233,6 +254,9 @@
       "id": "usda-746778",
       "name": "Молоко 2% с витаминами A и D",
       "preparation": "Жидкое; продукт USDA",
+      "aliases": [
+        "молоко"
+      ],
       "category": "dairy",
       "per100Grams": {
         "energyKcal": 50.0,
@@ -270,6 +294,10 @@
       "id": "usda-2346396",
       "name": "Овсяные хлопья из цельного зерна",
       "preparation": "Сухие, длительной варки",
+      "aliases": [
+        "овсянка",
+        "овсяные хлопья"
+      ],
       "category": "grains",
       "per100Grams": {
         "energyKcal": 379,
@@ -312,6 +340,9 @@
       "id": "usda-2512381",
       "name": "Белый длиннозёрный рис",
       "preparation": "Сухой, необогащённый",
+      "aliases": [
+        "рис"
+      ],
       "category": "grains",
       "per100Grams": {
         "energyKcal": 370,
@@ -354,6 +385,9 @@
       "id": "usda-2512378",
       "name": "Цельнозерновая гречка",
       "preparation": "Сухая",
+      "aliases": [
+        "гречка"
+      ],
       "category": "grains",
       "per100Grams": {
         "energyKcal": 332,
@@ -396,6 +430,9 @@
       "id": "usda-2346401",
       "name": "Картофель russet",
       "preparation": "Сырой, без кожуры",
+      "aliases": [
+        "картошка"
+      ],
       "category": "vegetables",
       "per100Grams": {
         "energyKcal": 81.0,
@@ -438,6 +475,7 @@
       "id": "usda-2346406",
       "name": "Огурец",
       "preparation": "Сырой, с кожурой",
+      "aliases": [],
       "category": "vegetables",
       "per100Grams": {
         "energyKcal": 13.9,
@@ -480,6 +518,10 @@
       "id": "usda-321360",
       "name": "Томаты grape",
       "preparation": "Сырые",
+      "aliases": [
+        "помидор",
+        "помидоры"
+      ],
       "category": "vegetables",
       "per100Grams": {
         "energyKcal": 27.0,
@@ -517,6 +559,7 @@
       "id": "usda-2258586",
       "name": "Морковь",
       "preparation": "Сырая, зрелая",
+      "aliases": [],
       "category": "vegetables",
       "per100Grams": {
         "energyKcal": 45.0,
@@ -559,6 +602,7 @@
       "id": "usda-747447",
       "name": "Брокколи",
       "preparation": "Сырая",
+      "aliases": [],
       "category": "vegetables",
       "per100Grams": {
         "energyKcal": 31.0,
@@ -596,6 +640,7 @@
       "id": "usda-790646",
       "name": "Жёлтый репчатый лук",
       "preparation": "Сырой",
+      "aliases": [],
       "category": "vegetables",
       "per100Grams": {
         "energyKcal": 38.0,
@@ -633,6 +678,9 @@
       "id": "usda-1105314",
       "name": "Банан",
       "preparation": "Спелый или слегка недозрелый, без кожуры",
+      "aliases": [
+        "бананы"
+      ],
       "category": "fruit",
       "per100Grams": {
         "energyKcal": 97.0,
@@ -670,6 +718,9 @@
       "id": "usda-1750341",
       "name": "Яблоко Gala",
       "preparation": "Сырое, с кожурой, без сердцевины",
+      "aliases": [
+        "яблоки"
+      ],
       "category": "fruit",
       "per100Grams": {
         "energyKcal": 54.9,
@@ -712,6 +763,10 @@
       "id": "usda-2346394",
       "name": "Грецкий орех",
       "preparation": "Сырые половинки ядра",
+      "aliases": [
+        "орехи",
+        "грецкие орехи"
+      ],
       "category": "nuts",
       "per100Grams": {
         "energyKcal": 679,
@@ -754,6 +809,9 @@
       "id": "usda-2346393",
       "name": "Миндаль",
       "preparation": "Сырой, целый",
+      "aliases": [
+        "орехи"
+      ],
       "category": "nuts",
       "per100Grams": {
         "energyKcal": 584,
@@ -796,6 +854,9 @@
       "id": "usda-2262072",
       "name": "Арахисовая паста",
       "preparation": "Однородная; продукт USDA",
+      "aliases": [
+        "арахис"
+      ],
       "category": "nuts",
       "per100Grams": {
         "energyKcal": 589,
@@ -838,6 +899,7 @@
       "id": "usda-171413",
       "name": "Оливковое масло",
       "preparation": "Для салата или приготовления; SR Legacy",
+      "aliases": [],
       "category": "pantry",
       "per100Grams": {
         "energyKcal": 884.0,
@@ -875,6 +937,7 @@
       "id": "usda-173468",
       "name": "Поваренная соль",
       "preparation": "SR Legacy",
+      "aliases": [],
       "category": "pantry",
       "per100Grams": {
         "energyKcal": 0.0,
@@ -912,6 +975,7 @@
       "id": "usda-174158",
       "name": "Питьевая бутилированная вода",
       "preparation": "Без добавок; SR Legacy",
+      "aliases": [],
       "category": "pantry",
       "per100Grams": {
         "energyKcal": 0.0,

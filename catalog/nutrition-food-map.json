@@ -1,33 +1,299 @@
 {
-  "version": "2026.10.31.1",
+  "version": "2026.10.31.2",
   "datasets": {
-    "foundation": {"name": "Foundation Foods", "release": "2026-10", "sha256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579", "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip"},
-    "legacy": {"name": "SR Legacy", "release": "2018-04", "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0", "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"}
+    "foundation": {
+      "name": "Foundation Foods",
+      "release": "2026-10",
+      "sha256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip"
+    },
+    "legacy": {
+      "name": "SR Legacy",
+      "release": "2018-04",
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip"
+    }
   },
   "foods": [
-    {"fdcID":2646170,"dataset":"foundation","energyID":2048,"name":"Куриная грудка без кожи и костей","preparation":"Сырая","category":"protein","description":"Chicken, breast, boneless, skinless, raw"},
-    {"fdcID":331960,"dataset":"foundation","energyID":1008,"name":"Куриная грудка без кожи и костей","preparation":"Тушёная, готовая","category":"protein","description":"Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised"},
-    {"fdcID":748967,"dataset":"foundation","energyID":1008,"name":"Куриное яйцо, целое","preparation":"Сырое, без скорлупы; USDA Grade A Large","category":"protein","description":"Eggs, Grade A, Large, egg whole"},
-    {"fdcID":334194,"dataset":"foundation","energyID":1008,"name":"Тунец light в собственном соку","preparation":"Консервированный, жидкость слита","category":"protein","description":"Fish, tuna, light, canned in water, drained solids"},
-    {"fdcID":330137,"dataset":"foundation","energyID":1008,"name":"Греческий йогурт без добавок","preparation":"Обезжиренный","category":"dairy","description":"Yogurt, Greek, plain, nonfat"},
-    {"fdcID":328841,"dataset":"foundation","energyID":1008,"name":"Зернёный сыр cottage cheese","preparation":"2% молочного жира, готовый","category":"dairy","description":"Cheese, cottage, lowfat, 2% milkfat"},
-    {"fdcID":746778,"dataset":"foundation","energyID":1008,"name":"Молоко 2% с витаминами A и D","preparation":"Жидкое; продукт USDA","category":"dairy","description":"Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D"},
-    {"fdcID":2346396,"dataset":"foundation","energyID":2048,"name":"Овсяные хлопья из цельного зерна","preparation":"Сухие, длительной варки","category":"grains","description":"Oats, whole grain, rolled, old fashioned"},
-    {"fdcID":2512381,"dataset":"foundation","energyID":2048,"name":"Белый длиннозёрный рис","preparation":"Сухой, необогащённый","category":"grains","description":"Rice, white, long grain, unenriched, raw"},
-    {"fdcID":2512378,"dataset":"foundation","energyID":2048,"name":"Цельнозерновая гречка","preparation":"Сухая","category":"grains","description":"Buckwheat, whole grain"},
-    {"fdcID":2346401,"dataset":"foundation","energyID":2048,"name":"Картофель russet","preparation":"Сырой, без кожуры","category":"vegetables","description":"Potatoes, russet, without skin, raw"},
-    {"fdcID":2346406,"dataset":"foundation","energyID":2048,"name":"Огурец","preparation":"Сырой, с кожурой","category":"vegetables","description":"Cucumber, with peel, raw"},
-    {"fdcID":321360,"dataset":"foundation","energyID":1008,"name":"Томаты grape","preparation":"Сырые","category":"vegetables","description":"Tomatoes, grape, raw"},
-    {"fdcID":2258586,"dataset":"foundation","energyID":2048,"name":"Морковь","preparation":"Сырая, зрелая","category":"vegetables","description":"Carrots, mature, raw"},
-    {"fdcID":747447,"dataset":"foundation","energyID":1008,"name":"Брокколи","preparation":"Сырая","category":"vegetables","description":"Broccoli, raw"},
-    {"fdcID":790646,"dataset":"foundation","energyID":1008,"name":"Жёлтый репчатый лук","preparation":"Сырой","category":"vegetables","description":"Onions, yellow, raw"},
-    {"fdcID":1105314,"dataset":"foundation","energyID":1008,"name":"Банан","preparation":"Спелый или слегка недозрелый, без кожуры","category":"fruit","description":"Bananas, ripe and slightly ripe, raw"},
-    {"fdcID":1750341,"dataset":"foundation","energyID":2048,"name":"Яблоко Gala","preparation":"Сырое, с кожурой, без сердцевины","category":"fruit","description":"Apples, gala, with skin, raw"},
-    {"fdcID":2346394,"dataset":"foundation","energyID":2048,"name":"Грецкий орех","preparation":"Сырые половинки ядра","category":"nuts","description":"Nuts, walnuts, English, halves, raw"},
-    {"fdcID":2346393,"dataset":"foundation","energyID":2048,"name":"Миндаль","preparation":"Сырой, целый","category":"nuts","description":"Nuts, almonds, whole, raw"},
-    {"fdcID":2262072,"dataset":"foundation","energyID":2048,"name":"Арахисовая паста","preparation":"Однородная; продукт USDA","category":"nuts","description":"Peanut butter, creamy"},
-    {"fdcID":171413,"dataset":"legacy","energyID":1008,"name":"Оливковое масло","preparation":"Для салата или приготовления; SR Legacy","category":"pantry","description":"Oil, olive, salad or cooking"},
-    {"fdcID":173468,"dataset":"legacy","energyID":1008,"name":"Поваренная соль","preparation":"SR Legacy","category":"pantry","description":"Salt, table"},
-    {"fdcID":174158,"dataset":"legacy","energyID":1008,"name":"Питьевая бутилированная вода","preparation":"Без добавок; SR Legacy","category":"pantry","description":"Water, bottled, generic"}
+    {
+      "fdcID": 2646170,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Куриная грудка без кожи и костей",
+      "preparation": "Сырая",
+      "category": "protein",
+      "description": "Chicken, breast, boneless, skinless, raw",
+      "aliases": [
+        "курица",
+        "филе"
+      ]
+    },
+    {
+      "fdcID": 331960,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Куриная грудка без кожи и костей",
+      "preparation": "Тушёная, готовая",
+      "category": "protein",
+      "description": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised",
+      "aliases": [
+        "курица",
+        "филе"
+      ]
+    },
+    {
+      "fdcID": 748967,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Куриное яйцо, целое",
+      "preparation": "Сырое, без скорлупы; USDA Grade A Large",
+      "category": "protein",
+      "description": "Eggs, Grade A, Large, egg whole",
+      "aliases": [
+        "яйцо",
+        "яйца"
+      ]
+    },
+    {
+      "fdcID": 334194,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Тунец light в собственном соку",
+      "preparation": "Консервированный, жидкость слита",
+      "category": "protein",
+      "description": "Fish, tuna, light, canned in water, drained solids",
+      "aliases": [
+        "тунец"
+      ]
+    },
+    {
+      "fdcID": 330137,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Греческий йогурт без добавок",
+      "preparation": "Обезжиренный",
+      "category": "dairy",
+      "description": "Yogurt, Greek, plain, nonfat",
+      "aliases": [
+        "йогурт"
+      ]
+    },
+    {
+      "fdcID": 328841,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Зернёный сыр cottage cheese",
+      "preparation": "2% молочного жира, готовый",
+      "category": "dairy",
+      "description": "Cheese, cottage, lowfat, 2% milkfat",
+      "aliases": [
+        "cottage cheese"
+      ]
+    },
+    {
+      "fdcID": 746778,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Молоко 2% с витаминами A и D",
+      "preparation": "Жидкое; продукт USDA",
+      "category": "dairy",
+      "description": "Milk, reduced fat, fluid, 2% milkfat, with added vitamin A and vitamin D",
+      "aliases": [
+        "молоко"
+      ]
+    },
+    {
+      "fdcID": 2346396,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Овсяные хлопья из цельного зерна",
+      "preparation": "Сухие, длительной варки",
+      "category": "grains",
+      "description": "Oats, whole grain, rolled, old fashioned",
+      "aliases": [
+        "овсянка",
+        "овсяные хлопья"
+      ]
+    },
+    {
+      "fdcID": 2512381,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Белый длиннозёрный рис",
+      "preparation": "Сухой, необогащённый",
+      "category": "grains",
+      "description": "Rice, white, long grain, unenriched, raw",
+      "aliases": [
+        "рис"
+      ]
+    },
+    {
+      "fdcID": 2512378,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Цельнозерновая гречка",
+      "preparation": "Сухая",
+      "category": "grains",
+      "description": "Buckwheat, whole grain",
+      "aliases": [
+        "гречка"
+      ]
+    },
+    {
+      "fdcID": 2346401,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Картофель russet",
+      "preparation": "Сырой, без кожуры",
+      "category": "vegetables",
+      "description": "Potatoes, russet, without skin, raw",
+      "aliases": [
+        "картошка"
+      ]
+    },
+    {
+      "fdcID": 2346406,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Огурец",
+      "preparation": "Сырой, с кожурой",
+      "category": "vegetables",
+      "description": "Cucumber, with peel, raw",
+      "aliases": []
+    },
+    {
+      "fdcID": 321360,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Томаты grape",
+      "preparation": "Сырые",
+      "category": "vegetables",
+      "description": "Tomatoes, grape, raw",
+      "aliases": [
+        "помидор",
+        "помидоры"
+      ]
+    },
+    {
+      "fdcID": 2258586,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Морковь",
+      "preparation": "Сырая, зрелая",
+      "category": "vegetables",
+      "description": "Carrots, mature, raw",
+      "aliases": []
+    },
+    {
+      "fdcID": 747447,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Брокколи",
+      "preparation": "Сырая",
+      "category": "vegetables",
+      "description": "Broccoli, raw",
+      "aliases": []
+    },
+    {
+      "fdcID": 790646,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Жёлтый репчатый лук",
+      "preparation": "Сырой",
+      "category": "vegetables",
+      "description": "Onions, yellow, raw",
+      "aliases": []
+    },
+    {
+      "fdcID": 1105314,
+      "dataset": "foundation",
+      "energyID": 1008,
+      "name": "Банан",
+      "preparation": "Спелый или слегка недозрелый, без кожуры",
+      "category": "fruit",
+      "description": "Bananas, ripe and slightly ripe, raw",
+      "aliases": [
+        "бананы"
+      ]
+    },
+    {
+      "fdcID": 1750341,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Яблоко Gala",
+      "preparation": "Сырое, с кожурой, без сердцевины",
+      "category": "fruit",
+      "description": "Apples, gala, with skin, raw",
+      "aliases": [
+        "яблоки"
+      ]
+    },
+    {
+      "fdcID": 2346394,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Грецкий орех",
+      "preparation": "Сырые половинки ядра",
+      "category": "nuts",
+      "description": "Nuts, walnuts, English, halves, raw",
+      "aliases": [
+        "орехи",
+        "грецкие орехи"
+      ]
+    },
+    {
+      "fdcID": 2346393,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Миндаль",
+      "preparation": "Сырой, целый",
+      "category": "nuts",
+      "description": "Nuts, almonds, whole, raw",
+      "aliases": [
+        "орехи"
+      ]
+    },
+    {
+      "fdcID": 2262072,
+      "dataset": "foundation",
+      "energyID": 2048,
+      "name": "Арахисовая паста",
+      "preparation": "Однородная; продукт USDA",
+      "category": "nuts",
+      "description": "Peanut butter, creamy",
+      "aliases": [
+        "арахис"
+      ]
+    },
+    {
+      "fdcID": 171413,
+      "dataset": "legacy",
+      "energyID": 1008,
+      "name": "Оливковое масло",
+      "preparation": "Для салата или приготовления; SR Legacy",
+      "category": "pantry",
+      "description": "Oil, olive, salad or cooking",
+      "aliases": []
+    },
+    {
+      "fdcID": 173468,
+      "dataset": "legacy",
+      "energyID": 1008,
+      "name": "Поваренная соль",
+      "preparation": "SR Legacy",
+      "category": "pantry",
+      "description": "Salt, table",
+      "aliases": []
+    },
+    {
+      "fdcID": 174158,
+      "dataset": "legacy",
+      "energyID": 1008,
+      "name": "Питьевая бутилированная вода",
+      "preparation": "Без добавок; SR Legacy",
+      "category": "pantry",
+      "description": "Water, bottled, generic",
+      "aliases": []
+    }
   ]
 }

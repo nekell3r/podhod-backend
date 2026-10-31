@@ -88,6 +88,7 @@ def catalog_food(selection, raw, dataset):
         raise ValueError(f"FDC {selection['fdcID']}: macros exceed 100 g with rounding tolerance")
     return {
         'id': f"usda-{selection['fdcID']}", 'name': selection['name'], 'preparation': selection['preparation'],
+        'aliases': selection.get('aliases', []),
         'category': selection['category'], 'per100Grams': facts,
         'source': {'publisher': 'USDA FoodData Central', 'license': 'CC0-1.0',
                    'licenseURL': 'https://creativecommons.org/publicdomain/zero/1.0/',
