@@ -291,8 +291,9 @@ func change[T any](ctx context.Context, s *Service, input resourceChange[T]) (T,
 	if err != nil {
 		return value, err
 	}
-	if err := json.Unmarshal(resource.Payload, &value); err != nil {
-		return value, fmt.Errorf("decode change result: %w", err)
+	var result T
+	if err := json.Unmarshal(resource.Payload, &result); err != nil {
+		return result, fmt.Errorf("decode change result: %w", err)
 	}
-	return value, nil
+	return result, nil
 }

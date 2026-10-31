@@ -22,6 +22,12 @@ JSON fields use camelCase. All date-only keys are `YYYY-MM-DD`; week starts must
 | `PUT /v1/history/{sessionID}` | `{requestID,session,removedSetIDs?}` → immutable finished session |
 | `GET /v1/protein/{date}` | `{date,revision,morningTakenAt?,eveningTakenAt?}` |
 | `PUT /v1/protein/{date}` | `{expectedRevision,requestID,morningTakenAt?,eveningTakenAt?}` → protein record |
+| `GET /v1/nutrition/catalog` | Public versioned food and recipe catalog, without authentication |
+| `GET /v1/nutrition/days/{date}?timezone=Europe/Moscow` | `{revision,document,totals}`; timezone initializes only an absent day |
+| `PUT /v1/nutrition/days/{date}` | `{expectedRevision,requestID,document}` → day with server-computed totals |
+| `GET/PUT /v1/nutrition/goals` | Versioned goal collection, record/write envelope below |
+| `GET/PUT /v1/nutrition/recipes` | Versioned own-recipe collection, record/write envelope below |
+| `GET/PUT /v1/nutrition/preferences` | Versioned favorite-ID lists, record/write envelope below |
 
 `GET /v1/exercises?query=&muscle=&equipment=&limit=20&offset=0` returns
 `{catalogVersion,total,limit,offset,muscles,equipment,exercises}`. Limit is 1–100;
@@ -86,3 +92,48 @@ Android has no effort UI in this release. Legacy clients can read the optional f
 Active and history writes optionally carry `removedSetIDs`: at most 600 distinct UUIDs, case-insensitive, absent from the submitted session. A nonempty list requires a non-null active state. The list records the user's explicit removal of unfinished sets; it does not clear assessments on retained sets. The server compares the matching previous active session under its owner lock. A listed set that was unfinished may be absent even if it had an assessment; a listed set already completed on the server returns HTTP 409 `set_removal_conflict`. The write is rejected as a whole. CAS, owner isolation, request-ID replay and history immutability still apply.
 
 IDs unknown to the current server snapshot are accepted because creation and deletion may both happen offline, or the deletion may already have reached active state before history upload. Clients must persist intents atomically with local removals and include them when finishing offline, even after an earlier active upload succeeded. Clear finished-session intents only after confirming the same history snapshot on the server. Do not infer consent from missing sets in older archives. This metadata belongs to write envelopes; active/history responses and stored session snapshots have no new fields. Deploy the supporting backend before releasing the new client. Clients that omit the list retain the existing protection.
+
+## Nutrition documents
+
+The public catalog embeds `internal/service/nutrition-catalog.json` unchanged in meaning: `formatVersion`, `version`, `foods`, `recipes`, `recipeAttribution`. It contains no owner data. All private nutrition GETs require `workout:read`, PUTs require `workout:write`; using these existing scopes was explicitly chosen by the user. Owner comes only from the verified bearer subject. Android and OAuth configuration are unchanged. Private JSON responses use `Cache-Control: no-store`.
+
+Each private resource returns `{revision,document}`; day responses also add `totals`. PUT takes `{expectedRevision,requestID,document}`. Initial revision is 0; every document has `version:1`. Future formats return 409 `upgrade_required`. Invalid stored documents return 500 `invalid_resource` and cannot be overwritten. Writes use the existing owner transaction lock, CAS, request-ID replay and audit. Unknown JSON fields, extra JSON objects and bodies above 2 MiB are rejected. Per-item limits do not override the total body limit.
+
+Day example (all four numeric nutrient fields are mandatory; absent/null is not zero):
+
+```json
+{
+  "expectedRevision": 0,
+  "requestID": "00000000-0000-4000-8000-000000000010",
+  "document": {
+    "version": 1,
+    "date": "2026-10-31",
+    "timezone": "Europe/Moscow",
+    "goal": null,
+    "entries": [{
+      "id": "00000000-0000-4000-8000-000000000001",
+      "meal": "breakfast",
+      "grams": 10,
+      "food": {
+        "name": "Оливковое масло",
+        "per100Grams": {"energyKcal": 884, "proteinGrams": 0, "fatGrams": 100, "carbohydrateGrams": 0},
+        "origin": {"kind": "catalogFood", "id": "usda-171413", "catalogVersion": "2026.10.31.2"}
+      }
+    }]
+  }
+}
+```
+
+The returned `totals` has `energyKcal:88.4`, `proteinGrams:0`, `fatGrams:10`, `carbohydrateGrams:0`. It is computed from snapshots, never accepted from the client or recomputed from a newer catalog. Source energy is not replaced with 4/9/4. `origin.kind` is `catalogFood`, `catalogRecipe`, `ownRecipe` or `manual`. Catalog origins require ID and catalog version; foods use canonical positive `usda-{fdcID}`. Own recipes require a UUID and empty catalog version. Manual origins have empty ID/version. Historical catalog IDs/versions are not resolved against current food values, preserving old snapshots.
+
+Days have up to 100 entries and valid dates from 1900 through 9999. The date must match the route. Meals are `breakfast/lunch/dinner/snack`; entry IDs are unique UUIDs. Mass is `(0,100000]` grams of edible food. Per 100 g, energy is 0–1000 kcal and each macro 0–100 g, with macro sum at most 101 g to allow source rounding. All numbers must be finite. `entries:[]` explicitly removes food; null/missing arrays are rejected. A cleared day retains its revision, protecting it from stale restoration. Initial GET timezone defaults to UTC if omitted; querying an existing day never changes its timezone.
+
+A day's optional `goal` is a snapshot `{id,effectiveFrom,timezone,target}`. Target uses the four nutrient field names above, with energy `(0,20000]` kcal and macros 0–3000 g; these are technical input limits, not recommended intakes. The effective date must not be later than the day. After the first write, a day keeps its goal snapshot (including null) and timezone: changes return 409 `nutrition_goal_immutable` or `nutrition_day_immutable`. Entries remain editable with CAS. Editing/removing recipes or global goals never rewrites saved days.
+
+Other document bodies:
+
+- Goals: `{version:1,goals:[]}`, up to 100 `{id,effectiveFrom,timezone,target}` items with unique UUIDs and effective dates.
+- Recipes: `{version:1,recipes:[]}`, up to 100 items. Each has UUID `id`, `name` (1–200 characters), `category` (`breakfast/main/salad/snack`), `minutes` (1–1440), positive `servings` up to 1000, positive `preparedWeightGrams` up to 100000, 1–50 `ingredients` and 1–30 `steps`. An ingredient is `{id,grams,food}` with its own UUID and the snapshot shape above. Steps contain 1–2000 characters. Server validates total/serving/ready-weight calculations; source nutrients remain unchanged when water changes ready weight.
+- Preferences: `{version:1,favoriteRecipeIDs:[],favoriteFoodIDs:[]}`. At most 500 combined IDs, each nonempty and at most 200 characters, without surrounding whitespace. Lists are unique within each kind. Unknown historical/future IDs are retained.
+
+To delete a goal, own recipe or favorite, PUT the explicit new collection with current revision and a fresh request UUID. A retry keeps its exact request ID/body/revision. Replaying an older successful write after deletion returns the original receipt without changing current data; clients must not downgrade local state from that older receipt. Recipe ingredients and diary foods store snapshots; no write infers consumed nutrition from protein-reminder marks. Nutrition uses the existing `training_resources` namespace, requiring no SQL migration.

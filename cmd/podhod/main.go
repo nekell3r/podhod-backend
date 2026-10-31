@@ -87,6 +87,7 @@ func run() error {
 		}
 	})
 	mux.HandleFunc("GET /v1/config", httpapi.MobileConfiguration(issuer, scopes))
+	mux.HandleFunc("GET /v1/nutrition/catalog", httpapi.PublicNutritionCatalog)
 	metadata := func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Access-Control-Allow-Origin", "*")

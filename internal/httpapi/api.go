@@ -16,6 +16,7 @@ import (
 
 func New(s *service.Service) http.Handler {
 	mux := http.NewServeMux()
+	nutritionRoutes(mux, s)
 	mux.HandleFunc("GET /v1/profile", func(w http.ResponseWriter, r *http.Request) {
 		token := sdkauth.TokenInfoFromContext(r.Context())
 		if token == nil || token.UserID == "" {
@@ -268,13 +269,14 @@ func respond(w http.ResponseWriter, result any, err error) {
 	}
 	status := http.StatusBadRequest
 	switch applicationError.Code {
-	case "revision_conflict", "idempotency_conflict", "history_immutable", "day_occupied", "upgrade_required", "set_removal_conflict":
+	case "revision_conflict", "idempotency_conflict", "history_immutable", "day_occupied",
+		"upgrade_required", "set_removal_conflict", "nutrition_goal_immutable", "nutrition_day_immutable":
 		status = http.StatusConflict
 	case "not_found":
 		status = http.StatusNotFound
 	case "unauthorized":
 		status = http.StatusUnauthorized
-	case "internal_error":
+	case "internal_error", "invalid_resource":
 		status = http.StatusInternalServerError
 	}
 	w.WriteHeader(status)
