@@ -241,6 +241,24 @@ func (p *Postgres) AppendHistory(
 		if !errors.Is(err, pgx.ErrNoRows) {
 			return service.WorkoutSession{}, err
 		}
+		var activePayload []byte
+		err := tx.QueryRow(ctx,
+			"SELECT payload FROM training_resources WHERE owner=$1 AND resource_key='active'", owner,
+		).Scan(&activePayload)
+		if err != nil && !errors.Is(err, pgx.ErrNoRows) {
+			return service.WorkoutSession{}, fmt.Errorf("read active before history append: %w", err)
+		}
+		if err == nil {
+			var active service.ActiveRecord
+			if err := json.Unmarshal(activePayload, &active); err != nil {
+				return service.WorkoutSession{}, fmt.Errorf("decode active before history append: %w", err)
+			}
+			if active.State != nil && !input.Session.PreservesSetEffort(active.State.Session) {
+				return service.WorkoutSession{}, &service.Error{
+					Code: "upgrade_required", Message: "update the app to preserve repetitions in reserve",
+				}
+			}
+		}
 		if _, err := tx.Exec(ctx, "INSERT INTO workout_history(owner,session_id,payload,finished_at) VALUES($1,$2,$3,$4)",
 			owner, strings.ToLower(input.Session.ID), encoded, input.Session.FinishedAt); err != nil {
 			return service.WorkoutSession{}, err

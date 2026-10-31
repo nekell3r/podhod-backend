@@ -45,10 +45,11 @@ type TrainingWeek struct {
 }
 
 type LoggedSet struct {
-	ID          string `json:"id"`
-	Reps        string `json:"reps"`
-	Weight      string `json:"weight"`
-	IsCompleted bool   `json:"isCompleted"`
+	ID            string `json:"id"`
+	Reps          string `json:"reps"`
+	Weight        string `json:"weight"`
+	IsCompleted   bool   `json:"isCompleted"`
+	RepsInReserve *int   `json:"repsInReserve,omitempty"`
 }
 
 type SessionExercise struct {

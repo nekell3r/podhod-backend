@@ -24,6 +24,9 @@ func (s *Service) ReplaceActive(ctx context.Context, owner string, input ActiveW
 				if sameSession && dropsRecordedTiming {
 					return &Error{Code: "upgrade_required", Message: "update the app to preserve workout timing"}
 				}
+				if !input.State.Session.PreservesSetEffort(value.State.Session) {
+					return &Error{Code: "upgrade_required", Message: "update the app to preserve repetitions in reserve"}
+				}
 			}
 			if input.State != nil {
 				if err := validateSession(input.State.Session, false); err != nil {
@@ -158,6 +161,28 @@ func (s *Service) AppendHistory(ctx context.Context, owner string, input History
 	return s.repository.AppendHistory(ctx, owner, input)
 }
 
+// PreservesSetEffort rejects clients that omit previously stored effort fields.
+// The explicit value -1 allows a supporting client to clear an assessment.
+func (session WorkoutSession) PreservesSetEffort(previous WorkoutSession) bool {
+	if !strings.EqualFold(session.ID, previous.ID) {
+		return true
+	}
+	assessments := map[string]*int{}
+	for _, exercise := range session.Exercises {
+		for _, set := range exercise.Sets {
+			assessments[strings.ToLower(set.ID)] = set.RepsInReserve
+		}
+	}
+	for _, exercise := range previous.Exercises {
+		for _, set := range exercise.Sets {
+			if set.RepsInReserve != nil && assessments[strings.ToLower(set.ID)] == nil {
+				return false
+			}
+		}
+	}
+	return true
+}
+
 func validateSession(session WorkoutSession, finished bool) error {
 	if !validUUID(session.ID) || session.Weekday < 1 || session.Weekday > 7 {
 		return invalid("invalid session identity or weekday")
@@ -214,6 +239,9 @@ func validateSession(session WorkoutSession, finished bool) error {
 			setIDs[setID] = true
 			if len(set.Reps) > 100 || len(set.Weight) > 100 {
 				return invalid("set drafts are too long")
+			}
+			if set.RepsInReserve != nil && (*set.RepsInReserve < -1 || *set.RepsInReserve > 5) {
+				return invalid("repetitions in reserve must be -1 (not recorded), 0 through 4, or 5 (five or more)")
 			}
 			if !set.IsCompleted {
 				continue

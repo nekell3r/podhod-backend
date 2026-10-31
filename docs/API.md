@@ -72,3 +72,11 @@ The active phone (iOS or Android) is the measurement authority. MCP skip/unskip/
 
 The validator accepts gaps, explicit empty interval arrays and zero-length closed intervals. Intervals must be ordered, unique, nonoverlapping, no earlier than `trackedFrom`, and within the session's bounds. Only the final interval of an active session may remain open. Finished history requires all intervals closed. Recorded rest cannot extend past its captured deadline; the deadline itself may extend past a manually finished session. There are no persisted duration counters to double-count. Legacy clients cannot remove already recorded timing from the same active session: such a write returns HTTP 409 `upgrade_required`. Clearing active state and immutable-history behavior remain unchanged.
 
+
+## Repetitions in reserve
+
+Each `LoggedSet` optionally includes integer `repsInReserve`: `0` means failure, `1`–`4` are remaining repetitions, `5` means five or more, and `-1` explicitly removes an assessment. An absent field or JSON null means a legacy or never-assessed set; it must not be interpreted as zero. Values outside `-1...5` are rejected for completed sets and drafts. Effort does not change volume, repetition validation or timing.
+
+For the same active session, omitting a previously present effort field (including removing its set) returns HTTP 409 `upgrade_required`. A supporting client clears an assessment with `-1`. MCP rest/skip commands preserve the field. History append checks the matching active session under the same owner transaction lock and rejects legacy omission before inserting a finished snapshot. Existing completed history remains immutable, and identical retries remain idempotent. Explicitly clearing active state is still allowed for discard and after a successful history upload.
+
+Android has no effort UI in this release. Legacy clients can read the optional field but cannot replace an assessed active session or finish it after discarding the field; use an updated iOS client for that session.

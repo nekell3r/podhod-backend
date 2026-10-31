@@ -162,6 +162,82 @@ func activeSession() service.WorkoutSession {
 	}
 }
 
+func TestSetEffortSurvivesCommandsAndBlocksLegacyActiveAndHistoryWrites(t *testing.T) {
+	t.Parallel()
+	s := databaseService(t)
+	session := activeSession()
+	reserve := 0
+	session.Exercises[0].Sets[0].RepsInReserve = &reserve
+	saved, err := s.ReplaceActive(t.Context(), "owner", service.ActiveWrite{
+		RequestID: requestID(30), State: &service.SessionState{Session: session},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	changed, err := s.SetActiveRest(t.Context(), "owner", service.ActiveRestRequest{
+		RequestID: requestID(31), ExpectedRevision: saved.Revision, SessionID: session.ID,
+		ExerciseID: session.Exercises[0].ID, RestSeconds: 120, RestAfterExerciseSeconds: 180,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	skipped, err := s.SkipExercise(t.Context(), "owner", service.SkipExerciseRequest{
+		RequestID: requestID(32), ExpectedRevision: changed.Revision, SessionID: session.ID,
+		ExerciseID: session.Exercises[0].ID, IsSkipped: true,
+	})
+	if err != nil || skipped.State.Session.Exercises[0].Sets[0].RepsInReserve == nil {
+		t.Fatalf("effort lost by server command: %v", err)
+	}
+	legacy := activeSession()
+	legacy.StartedAt = session.StartedAt
+	_, err = s.ReplaceActive(t.Context(), "owner", service.ActiveWrite{
+		RequestID: requestID(33), ExpectedRevision: skipped.Revision, State: &service.SessionState{Session: legacy},
+	})
+	var failure *service.Error
+	if !errors.As(err, &failure) || failure.Code != "upgrade_required" {
+		t.Fatalf("legacy write should require upgrade: %v", err)
+	}
+	finish := session.StartedAt.Add(time.Minute)
+	legacy.FinishedAt = &finish
+	_, err = s.AppendHistory(t.Context(), "owner", service.HistoryWrite{RequestID: requestID(34), Session: legacy})
+	if !errors.As(err, &failure) || failure.Code != "upgrade_required" {
+		t.Fatalf("legacy history should require upgrade: %v", err)
+	}
+	history, err := s.ListHistory(t.Context(), "owner")
+	if err != nil || len(history) != 0 {
+		t.Fatalf("rejected history was persisted: %v", err)
+	}
+	final, err := s.GetActive(t.Context(), "owner")
+	if err != nil || final.Revision != skipped.Revision {
+		t.Fatalf("rejected write changed active: %v", err)
+	}
+	cleared := -1
+	final.State.Session.Exercises[0].Sets[0].RepsInReserve = &cleared
+	updated, err := s.ReplaceActive(t.Context(), "owner", service.ActiveWrite{
+		RequestID: requestID(35), ExpectedRevision: final.Revision, State: final.State,
+	})
+	if err != nil {
+		t.Fatalf("explicit assessment clearing rejected: %v", err)
+	}
+	completed := updated.State.Session
+	completed.FinishedAt = &finish
+	input := service.HistoryWrite{RequestID: requestID(36), Session: completed}
+	for range 2 {
+		if _, err := s.AppendHistory(t.Context(), "owner", input); err != nil {
+			t.Fatal(err)
+		}
+	}
+	history, err = s.ListHistory(t.Context(), "owner")
+	if err != nil || len(history) != 1 || *history[0].Exercises[0].Sets[0].RepsInReserve != -1 {
+		t.Fatalf("history effort did not round trip: %v", err)
+	}
+	completed.Exercises[0].Sets[0].RepsInReserve = nil
+	_, err = s.AppendHistory(t.Context(), "owner", service.HistoryWrite{RequestID: requestID(37), Session: completed})
+	if !errors.As(err, &failure) || failure.Code != "history_immutable" {
+		t.Fatalf("history effort was mutable: %v", err)
+	}
+}
+
 func TestSkipPreservesSetsAndRejectsWrongSession(t *testing.T) {
 	t.Parallel()
 	s := databaseService(t)
