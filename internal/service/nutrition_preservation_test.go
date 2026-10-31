@@ -8,15 +8,15 @@ import (
 	"testing"
 )
 
-type storedNutritionFixture struct {
+type storedDocumentFixture struct {
 	resource Resource
 }
 
-func (r *storedNutritionFixture) Get(context.Context, string, string) (Resource, error) {
+func (r *storedDocumentFixture) Get(context.Context, string, string) (Resource, error) {
 	return r.resource, nil
 }
 
-func (r *storedNutritionFixture) Update(
+func (r *storedDocumentFixture) Update(
 	_ context.Context,
 	_ Commit,
 	transform func(Resource) (Resource, error),
@@ -28,17 +28,17 @@ func (r *storedNutritionFixture) Update(
 	return result, err
 }
 
-func (r *storedNutritionFixture) History(context.Context, string) ([]WorkoutSession, error) {
+func (r *storedDocumentFixture) History(context.Context, string) ([]WorkoutSession, error) {
 	return []WorkoutSession{}, errors.New("unexpected workout history call")
 }
 
-func (r *storedNutritionFixture) AppendHistory(context.Context, string, HistoryWrite) (WorkoutSession, error) {
+func (r *storedDocumentFixture) AppendHistory(context.Context, string, HistoryWrite) (WorkoutSession, error) {
 	return WorkoutSession{}, errors.New("unexpected workout history call")
 }
 
 func TestNutritionWriteResultDoesNotAliasCallerOrStoredSnapshots(t *testing.T) {
 	t.Parallel()
-	repo := &storedNutritionFixture{}
+	repo := &storedDocumentFixture{}
 	s := New(repo)
 	input := NutritionDayWrite{
 		RequestID: "00000000-0000-4000-8000-000000000010", Document: nutritionDayFixture(),
@@ -61,7 +61,7 @@ func TestNutritionWriteResultDoesNotAliasCallerOrStoredSnapshots(t *testing.T) {
 
 func TestNutritionRecordedDayKeepsTimezoneAndGoal(t *testing.T) {
 	t.Parallel()
-	repo := &storedNutritionFixture{}
+	repo := &storedDocumentFixture{}
 	s := New(repo)
 	input := NutritionDayWrite{
 		RequestID: "00000000-0000-4000-8000-000000000010", Document: nutritionDayFixture(),
@@ -152,7 +152,7 @@ func TestNutritionUnknownOrCorruptStoredDocumentsAreNeverReplaced(t *testing.T) 
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
-			repo := &storedNutritionFixture{resource: Resource{Revision: 4, Payload: json.RawMessage(tc.body)}}
+			repo := &storedDocumentFixture{resource: Resource{Revision: 4, Payload: json.RawMessage(tc.body)}}
 			before := Resource{Revision: 4, Payload: append(json.RawMessage{}, repo.resource.Payload...)}
 			s := New(repo)
 			if tc.read(s) == nil || tc.write(s) == nil {

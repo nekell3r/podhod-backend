@@ -10,6 +10,8 @@ JSON fields use camelCase. All date-only keys are `YYYY-MM-DD`; week starts must
 | `GET /v1/profile` | `{id,timezone}` from verified identity |
 | `GET /v1/template` | `{revision,days,plannedMuscleVolume}` with seven weekday entries |
 | `PUT /v1/template` | `{expectedRevision,requestID,days}` → template |
+| `GET /v1/cycle` | `{revision,document:{version:1,plan:null\|{id,startWeek,timezone,repeats,weeks}}}` |
+| `PUT /v1/cycle` | `{expectedRevision,requestID,document}` → cycle record |
 | `GET /v1/weeks/{weekStart}?timezone=Europe/Moscow` | `{weekStart,timezone,revision,workouts,plannedMuscleVolume}` |
 | `PUT /v1/weeks/{weekStart}` | `{expectedRevision,requestID,timezone,workouts}` → week |
 | `POST /v1/weeks/{weekStart}/move` | `{expectedRevision,requestID,workoutID,plannedDate}` → week |
@@ -92,6 +94,20 @@ Android has no effort UI in this release. Legacy clients can read the optional f
 Active and history writes optionally carry `removedSetIDs`: at most 600 distinct UUIDs, case-insensitive, absent from the submitted session. A nonempty list requires a non-null active state. The list records the user's explicit removal of unfinished sets; it does not clear assessments on retained sets. The server compares the matching previous active session under its owner lock. A listed set that was unfinished may be absent even if it had an assessment; a listed set already completed on the server returns HTTP 409 `set_removal_conflict`. The write is rejected as a whole. CAS, owner isolation, request-ID replay and history immutability still apply.
 
 IDs unknown to the current server snapshot are accepted because creation and deletion may both happen offline, or the deletion may already have reached active state before history upload. Clients must persist intents atomically with local removals and include them when finishing offline, even after an earlier active upload succeeded. Clear finished-session intents only after confirming the same history snapshot on the server. Do not infer consent from missing sets in older archives. This metadata belongs to write envelopes; active/history responses and stored session snapshots have no new fields. Deploy the supporting backend before releasing the new client. Clients that omit the list retain the existing protection.
+
+## Training cycle and superset structure
+
+`GET/PUT /v1/cycle` use `schedule:read/write` respectively and the existing owner/CAS/request-ID protocol. An absent cycle returns revision 0 and `{version:1,plan:null}`. A plan has UUID `id`, Monday `startWeek`, explicit IANA `timezone`, boolean `repeats` and 2–12 weeks `{id,days}` with seven weekdays each. Dates, including the last week, stay within 1900–9999. PUT `{version:1,plan:null}` explicitly removes it without resetting revision. Cycle edits never change template, calendar weeks, active state or immutable history. The resource uses existing JSON storage; no SQL change.
+
+Template and week records/write envelopes, and each `WorkoutSession`, optionally contain `structureVersion:1`. Missing/0 preserves legacy serialization and request hashes. `TrainingDay`, `ScheduledWorkout` and `WorkoutSession` may contain `context:{variant,loadType,difficulty,cycle?}`. Variant is empty or `A/B/C`, load type `regular/heavy/light/deload`, difficulty `unspecified/easy/moderate/hard`. The optional cycle reference is `{cycleID,weekID,weekNumber}` (UUIDs, number 1–12) and is allowed only in materialized calendar workouts/sessions, not in template or cycle source days. References remain valid snapshots when the current cycle changes or is removed; they are not joined against the latest plan. Actual effort/timing is never inferred from these planned labels.
+
+Planned days/workouts may have `supersets:[{id,exerciseIDs,restSeconds}]`: up to 25 groups of 2–4 ordered `PlannedExercise.id` members belonging to that day, each card in at most one group, equal member set counts and round rest 0–600 seconds. Existing exercise rest values remain available for standalone sets.
+
+Sessions may have `supersets:[{id,exerciseIDs,restSeconds,isClosed,rounds}]`: up to 50 records of groups with 2–4 ordered `SessionExercise.id` members and rest 0–600. Rounds are `{id,ordinal,setIDs}`: 1–600 rounds per group, unique UUIDs, strictly increasing ordinals 1–600 and one nullable UUID slot per member. Non-null references must exist and be unique across all groups/rounds. A round uses distinct physical exercise cards. Unfinished sets must belong to the current member at their slot; completed links may refer to an earlier retained replacement source. Empty rounds are rejected. Cards cannot belong to multiple open groups. A closed group retains only completed links; underlying unfinished sets/drafts are preserved outside the group.
+
+Once a record/session uses structure version 1 it cannot downgrade to 0, even after explicitly clearing metadata; old clients attempting a full replacement receive 409 `upgrade_required`. A future version receives the same error, invalid stored structure returns 500 `invalid_resource` and is not overwritten. Narrow rest/move/skip commands preserve structure. Skip closes a group if fewer than two unskipped members remain, retaining completed links and removing only pending links/empty rounds. Unskip does not reopen it. Completed links must retain physical source card/exercise, group, round UUID, ordinal and slot, otherwise 409 `superset_conflict`; the same guard runs when appending history against matching active state inside the owner transaction. Explicit active-state discard remains available. Legacy sessions without metadata still serialize without any new keys. Android code and OAuth configuration are unchanged. Deploy the backend before the new client.
+
+Full model, replacement/closure rules and validation scope: [training cycle contract](TRAINING-CYCLES-CONTRACT.ru.md).
 
 ## Nutrition documents
 

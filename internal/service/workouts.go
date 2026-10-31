@@ -11,13 +11,24 @@ import (
 func (s *Service) GetActive(ctx context.Context, owner string) (ActiveRecord, error) {
 	result := ActiveRecord{}
 	err := s.read(ctx, owner, "active", &result)
-	return result, err
+	if err != nil {
+		return ActiveRecord{}, err
+	}
+	if result.State != nil {
+		return result, invalidStoredStructure(validateSessionStructure(result.State.Session))
+	}
+	return result, nil
 }
 
 func (s *Service) ReplaceActive(ctx context.Context, owner string, input ActiveWrite) (ActiveRecord, error) {
 	return change(ctx, s, resourceChange[ActiveRecord]{
 		Owner: owner, Key: "active", RequestID: input.RequestID, ExpectedRevision: input.ExpectedRevision,
 		Request: input, Initial: ActiveRecord{}, Transform: func(value *ActiveRecord) error {
+			if value.State != nil {
+				if err := invalidStoredStructure(validateSessionStructure(value.State.Session)); err != nil {
+					return err
+				}
+			}
 			if input.State == nil && len(input.RemovedSetIDs) > 0 {
 				return invalid("set removals require a session")
 			}
@@ -70,6 +81,9 @@ func (s *Service) SetActiveRest(ctx context.Context, owner string, input ActiveR
 			if value.State == nil || !strings.EqualFold(value.State.Session.ID, input.SessionID) {
 				return &Error{Code: "not_found", Message: "active session not found"}
 			}
+			if err := invalidStoredStructure(validateSessionStructure(value.State.Session)); err != nil {
+				return err
+			}
 			if err := validateRest(input.RestSeconds, input.RestAfterExerciseSeconds); err != nil {
 				return err
 			}
@@ -94,6 +108,9 @@ func (s *Service) SkipExercise(ctx context.Context, owner string, input SkipExer
 			if value.State == nil || !strings.EqualFold(value.State.Session.ID, input.SessionID) {
 				return &Error{Code: "not_found", Message: "active session not found"}
 			}
+			if err := invalidStoredStructure(validateSessionStructure(value.State.Session)); err != nil {
+				return err
+			}
 			session := &value.State.Session
 			index := -1
 			for i := range session.Exercises {
@@ -117,6 +134,9 @@ func (s *Service) SkipExercise(ctx context.Context, owner string, input SkipExer
 				return invalid("completed exercise cannot be skipped")
 			}
 			session.Exercises[index].IsSkipped = input.IsSkipped
+			if input.IsSkipped {
+				session.closeSupersetsAfterSkip()
+			}
 			if !input.IsSkipped {
 				session.CurrentExercise = index
 			}
@@ -153,7 +173,16 @@ func (s *Service) ListHistory(ctx context.Context, owner string) ([]WorkoutSessi
 	if strings.TrimSpace(owner) == "" {
 		return nil, &Error{Code: "unauthorized", Message: "authenticated owner is required"}
 	}
-	return s.repository.History(ctx, owner)
+	sessions, err := s.repository.History(ctx, owner)
+	if err != nil {
+		return nil, err
+	}
+	for _, session := range sessions {
+		if err := invalidStoredStructure(validateSessionStructure(session)); err != nil {
+			return nil, err
+		}
+	}
+	return sessions, nil
 }
 
 func (s *Service) AppendHistory(ctx context.Context, owner string, input HistoryWrite) (WorkoutSession, error) {
@@ -173,10 +202,16 @@ func (s *Service) AppendHistory(ctx context.Context, owner string, input History
 }
 
 // ValidateSetPreservation allows explicit unfinished-set removals while protecting
-// completed sets and effort fields that legacy clients might otherwise omit.
+// completed sets, superset links and effort fields that legacy clients might omit.
 func (session WorkoutSession) ValidateSetPreservation(previous WorkoutSession, removedSetIDs []string) error {
 	if !strings.EqualFold(session.ID, previous.ID) {
 		return nil
+	}
+	if err := invalidStoredStructure(validateSessionStructure(previous)); err != nil {
+		return err
+	}
+	if err := session.validateStructurePreservation(previous); err != nil {
+		return err
 	}
 	removals := map[string]bool{}
 	for _, id := range removedSetIDs {
@@ -302,6 +337,9 @@ func validateSession(session WorkoutSession, finished bool) error {
 		}
 	}
 	if err := validateWorkoutTiming(session); err != nil {
+		return err
+	}
+	if err := validateSessionStructure(session); err != nil {
 		return err
 	}
 	if finished && completed == 0 {

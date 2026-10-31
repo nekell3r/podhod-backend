@@ -28,13 +28,26 @@ func emptyTemplate() Template {
 func (s *Service) GetTemplate(ctx context.Context, owner string) (Template, error) {
 	result := emptyTemplate()
 	err := s.read(ctx, owner, "template", &result)
-	return result, err
+	if err != nil {
+		return Template{}, err
+	}
+	return result, invalidStoredStructure(validateTemplateStructure(result))
 }
 
 func (s *Service) ReplaceTemplate(ctx context.Context, owner string, input TemplateWrite) (Template, error) {
 	return change(ctx, s, resourceChange[Template]{
 		Owner: owner, Key: "template", RequestID: input.RequestID, ExpectedRevision: input.ExpectedRevision, Request: input,
 		Initial: emptyTemplate(), Transform: func(value *Template) error {
+			if err := invalidStoredStructure(validateTemplateStructure(*value)); err != nil {
+				return err
+			}
+			if input.StructureVersion < value.StructureVersion {
+				return &Error{Code: "upgrade_required", Message: "update the app to preserve template structure"}
+			}
+			candidate := Template{Days: input.Days, StructureVersion: input.StructureVersion}
+			if err := validateTemplateStructure(candidate); err != nil {
+				return err
+			}
 			if len(input.Days) != 7 {
 				return invalid("template must contain seven weekdays")
 			}
@@ -49,6 +62,7 @@ func (s *Service) ReplaceTemplate(ctx context.Context, owner string, input Templ
 				}
 			}
 			value.Days = input.Days
+			value.StructureVersion = input.StructureVersion
 			return nil
 		},
 	})
@@ -60,7 +74,10 @@ func (s *Service) GetWeek(ctx context.Context, owner, weekStart, timezone string
 	}
 	result := TrainingWeek{WeekStart: weekStart, Timezone: timezone, Workouts: []ScheduledWorkout{}}
 	err := s.read(ctx, owner, "week/"+weekStart, &result)
-	return result, err
+	if err != nil {
+		return TrainingWeek{}, err
+	}
+	return result, invalidStoredStructure(validateWeekStructure(result))
 }
 
 func (s *Service) ReplaceWeek(ctx context.Context, owner, weekStart string, input WeekWrite) (TrainingWeek, error) {
@@ -68,6 +85,16 @@ func (s *Service) ReplaceWeek(ctx context.Context, owner, weekStart string, inpu
 	return change(ctx, s, resourceChange[TrainingWeek]{
 		Owner: owner, Key: "week/" + weekStart, RequestID: input.RequestID, ExpectedRevision: input.ExpectedRevision,
 		Request: input, Initial: initial, Transform: func(value *TrainingWeek) error {
+			if err := invalidStoredStructure(validateWeekStructure(*value)); err != nil {
+				return err
+			}
+			if input.StructureVersion < value.StructureVersion {
+				return &Error{Code: "upgrade_required", Message: "update the app to preserve calendar workout structure"}
+			}
+			candidate := TrainingWeek{Workouts: input.Workouts, StructureVersion: input.StructureVersion}
+			if err := validateWeekStructure(candidate); err != nil {
+				return err
+			}
 			start, err := validateWeek(weekStart, input.Timezone)
 			if err != nil {
 				return err
@@ -100,6 +127,7 @@ func (s *Service) ReplaceWeek(ctx context.Context, owner, weekStart string, inpu
 			value.WeekStart = weekStart
 			value.Timezone = input.Timezone
 			value.Workouts = input.Workouts
+			value.StructureVersion = input.StructureVersion
 			return nil
 		},
 	})
@@ -114,6 +142,9 @@ func (s *Service) MoveWorkout(
 	return change(ctx, s, resourceChange[TrainingWeek]{
 		Owner: owner, Key: "week/" + weekStart, RequestID: input.RequestID, ExpectedRevision: input.ExpectedRevision,
 		Request: input, Initial: initial, Transform: func(value *TrainingWeek) error {
+			if err := invalidStoredStructure(validateWeekStructure(*value)); err != nil {
+				return err
+			}
 			start, err := validateWeek(weekStart, value.Timezone)
 			if err != nil {
 				return err
@@ -149,6 +180,9 @@ func (s *Service) SetScheduledRest(
 	return change(ctx, s, resourceChange[TrainingWeek]{
 		Owner: owner, Key: "week/" + weekStart, RequestID: input.RequestID, ExpectedRevision: input.ExpectedRevision,
 		Request: input, Initial: initial, Transform: func(value *TrainingWeek) error {
+			if err := invalidStoredStructure(validateWeekStructure(*value)); err != nil {
+				return err
+			}
 			if err := validateRest(input.RestSeconds, input.RestAfterExerciseSeconds); err != nil {
 				return err
 			}

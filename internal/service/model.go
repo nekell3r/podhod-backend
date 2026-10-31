@@ -20,28 +20,34 @@ type PlannedExercise struct {
 }
 
 type TrainingDay struct {
-	Weekday   int               `json:"weekday"`
-	Title     string            `json:"title"`
-	Exercises []PlannedExercise `json:"exercises"`
+	Weekday   int                 `json:"weekday"`
+	Title     string              `json:"title"`
+	Exercises []PlannedExercise   `json:"exercises"`
+	Context   *WorkoutPlanContext `json:"context,omitempty"`
+	Supersets []PlannedSuperset   `json:"supersets,omitempty"`
 }
 
 type Template struct {
-	Revision int64         `json:"revision"`
-	Days     []TrainingDay `json:"days"`
+	Revision         int64         `json:"revision"`
+	Days             []TrainingDay `json:"days"`
+	StructureVersion int           `json:"structureVersion,omitempty"`
 }
 
 type ScheduledWorkout struct {
-	ID          string            `json:"id"`
-	PlannedDate string            `json:"plannedDate"`
-	Title       string            `json:"title"`
-	Exercises   []PlannedExercise `json:"exercises"`
+	ID          string              `json:"id"`
+	PlannedDate string              `json:"plannedDate"`
+	Title       string              `json:"title"`
+	Exercises   []PlannedExercise   `json:"exercises"`
+	Context     *WorkoutPlanContext `json:"context,omitempty"`
+	Supersets   []PlannedSuperset   `json:"supersets,omitempty"`
 }
 
 type TrainingWeek struct {
-	WeekStart string             `json:"weekStart"`
-	Timezone  string             `json:"timezone"`
-	Revision  int64              `json:"revision"`
-	Workouts  []ScheduledWorkout `json:"workouts"`
+	WeekStart        string             `json:"weekStart"`
+	Timezone         string             `json:"timezone"`
+	Revision         int64              `json:"revision"`
+	Workouts         []ScheduledWorkout `json:"workouts"`
+	StructureVersion int                `json:"structureVersion,omitempty"`
 }
 
 type LoggedSet struct {
@@ -63,16 +69,19 @@ type SessionExercise struct {
 }
 
 type WorkoutSession struct {
-	ID                 string            `json:"id"`
-	Title              string            `json:"title"`
-	Weekday            int               `json:"weekday"`
-	StartedAt          time.Time         `json:"startedAt"`
-	FinishedAt         *time.Time        `json:"finishedAt,omitempty"`
-	ScheduledWorkoutID *string           `json:"scheduledWorkoutID,omitempty"`
-	PlannedDate        *string           `json:"plannedDate,omitempty"`
-	CurrentExercise    int               `json:"currentExercise"`
-	Exercises          []SessionExercise `json:"exercises"`
-	Timing             *WorkoutTiming    `json:"timing,omitempty"`
+	ID                 string              `json:"id"`
+	Title              string              `json:"title"`
+	Weekday            int                 `json:"weekday"`
+	StartedAt          time.Time           `json:"startedAt"`
+	FinishedAt         *time.Time          `json:"finishedAt,omitempty"`
+	ScheduledWorkoutID *string             `json:"scheduledWorkoutID,omitempty"`
+	PlannedDate        *string             `json:"plannedDate,omitempty"`
+	CurrentExercise    int                 `json:"currentExercise"`
+	Exercises          []SessionExercise   `json:"exercises"`
+	Timing             *WorkoutTiming      `json:"timing,omitempty"`
+	StructureVersion   int                 `json:"structureVersion,omitempty"`
+	Context            *WorkoutPlanContext `json:"context,omitempty"`
+	Supersets          []SessionSuperset   `json:"supersets,omitempty"`
 }
 
 type SessionState struct {
@@ -91,6 +100,7 @@ type TemplateWrite struct {
 	ExpectedRevision int64         `json:"expectedRevision"`
 	RequestID        string        `json:"requestID"`
 	Days             []TrainingDay `json:"days"`
+	StructureVersion int           `json:"structureVersion,omitempty"`
 }
 
 type WeekWrite struct {
@@ -98,6 +108,7 @@ type WeekWrite struct {
 	RequestID        string             `json:"requestID"`
 	Timezone         string             `json:"timezone"`
 	Workouts         []ScheduledWorkout `json:"workouts"`
+	StructureVersion int                `json:"structureVersion,omitempty"`
 }
 
 type MoveWorkoutRequest struct {
