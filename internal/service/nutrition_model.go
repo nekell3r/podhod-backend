@@ -119,6 +119,26 @@ type NutritionRecipesWrite struct {
 	Document         NutritionRecipesDocument `json:"document"`
 }
 
+type CreateNutritionRecipeRequest struct {
+	ExpectedRevision int64              `json:"expectedRevision"`
+	RequestID        string             `json:"requestID"`
+	Recipe           NutritionOwnRecipe `json:"recipe"`
+}
+
+type DeleteNutritionRecipeRequest struct {
+	ExpectedRevision int64  `json:"expectedRevision"`
+	RequestID        string `json:"requestID"`
+	RecipeID         string `json:"recipeID"`
+}
+
+type LogNutritionEntryRequest struct {
+	ExpectedRevision int64               `json:"expectedRevision"`
+	RequestID        string              `json:"requestID"`
+	Timezone         string              `json:"timezone"`
+	InitialGoal      *NutritionGoal      `json:"initialGoal"`
+	Entry            NutritionDiaryEntry `json:"entry"`
+}
+
 type NutritionPreferencesDocument struct {
 	Version           int      `json:"version"`
 	FavoriteRecipeIDs []string `json:"favoriteRecipeIDs"`

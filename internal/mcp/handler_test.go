@@ -151,8 +151,8 @@ func TestToolDiscoveryAndProfile(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(tools.Tools) != 14 {
-		t.Fatalf("tool count = %d, want 14", len(tools.Tools))
+	if len(tools.Tools) != 21 {
+		t.Fatalf("tool count = %d, want 21", len(tools.Tools))
 	}
 	seen := map[string]bool{}
 	for _, tool := range tools.Tools {

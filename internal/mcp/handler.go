@@ -16,7 +16,7 @@ type handler struct {
 
 func NewHandler(svc *service.Service, resourceMetadataURL string) *sdkmcp.StreamableHTTPHandler {
 	h := &handler{service: svc, resourceMetadataURL: resourceMetadataURL}
-	server := sdkmcp.NewServer(&sdkmcp.Implementation{Name: "podhod", Version: "1.1.0"}, nil)
+	server := sdkmcp.NewServer(&sdkmcp.Implementation{Name: "podhod", Version: "1.2.0"}, nil)
 
 	falseHint := false
 	trueHint := true
@@ -178,6 +178,56 @@ func NewHandler(svc *service.Service, resourceMetadataURL string) *sdkmcp.Stream
 			"muscle mappings and video references. playback=external identifies an author watch page, not a native media stream or a redistribution license. Aliased saved UUIDs resolve to canonical entries without changing the saved exercise or its ID. Does not rewrite historical or active exercise snapshots.",
 		Annotations: readHints, Meta: oauthMetadata(ScopeScheduleRead),
 	}, h.getExercise)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "get_nutrition_catalog", Title: "Read food and recipe catalog",
+		Description: "Read the curated foods and recipes with exact IDs, preparation state, per-100-g KBJU, " +
+			"ingredients and source/license metadata. Raw and cooked foods are distinct. Never fill unknown nutrition with zero.",
+		Annotations: readHints, Meta: oauthMetadata(ScopeWorkoutRead),
+	}, h.getNutritionCatalog)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "get_nutrition_recipes", Title: "Read own recipes",
+		Description: "Read the connected account's own recipes and collection revision before creating or deleting a recipe. " +
+			"Does not include the shared catalog; use get_nutrition_catalog for that. Phone-only unsynchronized edits are not visible.",
+		Annotations: readHints, Meta: oauthMetadata(ScopeWorkoutRead),
+	}, h.getNutritionRecipes)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "create_nutrition_recipe", Title: "Create an own recipe",
+		Description: "Add one own recipe, preserving other recipes. Read get_nutrition_recipes first for expected_revision. " +
+			"Supply explicit ingredient KBJU per 100 g, ingredient grams, servings and measured preparedWeightGrams; " +
+			"do not invent missing amounts or nutrition. New recipe and ingredient IDs must be UUIDs. " +
+			"A repeated identical request_id is safe; a duplicate recipe ID is an error. The iPhone receives it on sync.",
+		Annotations: editHints, Meta: oauthMetadata(ScopeWorkoutWrite),
+	}, h.createNutritionRecipe)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "delete_nutrition_recipe", Title: "Delete an own recipe",
+		Description: "Delete exactly the own recipe UUID requested by the user after reading get_nutrition_recipes. " +
+			"Preserves other recipes and all existing diary snapshots, goals and favorites. Cannot delete shared catalog recipes. " +
+			"Requires expected_revision and UUID request_id. The iPhone receives the change on its next successful sync.",
+		Annotations: replaceHints, Meta: oauthMetadata(ScopeWorkoutWrite),
+	}, h.deleteNutritionRecipe)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "get_nutrition_day", Title: "Read food diary day",
+		Description: "Read one YYYY-MM-DD food diary day, saved goal/timezone, totals and revision for the connected account. " +
+			"Does not create a day. Resolve relative dates using the user's IANA timezone. Read before logging food.",
+		Annotations: readHints, Meta: oauthMetadata(ScopeWorkoutRead),
+	}, h.getNutritionDay)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "get_nutrition_goals", Title: "Read nutrition goal history",
+		Description: "Read saved manual nutrition goals. Before the first entry of an unrecorded day, select the goal " +
+			"with the latest effectiveFrom not after the day, or null when none, for log_nutrition_entry.initial_goal. " +
+			"An already recorded day keeps its own saved goal, including no goal.",
+		Annotations: readHints, Meta: oauthMetadata(ScopeWorkoutRead),
+	}, h.getNutritionGoals)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "log_nutrition_entry", Title: "Log food eaten",
+		Description: "Append exactly one eaten food or dish snapshot without replacing other entries. Read get_nutrition_day " +
+			"for expected_revision first. Resolve date, meal and grams with the user; do not guess missing KBJU as zero. " +
+			"Use catalog, own recipe calculations, or explicit label values per 100 g. For revision 0, read get_nutrition_goals " +
+			"and provide initial_goal; existing goal/timezone snapshots are preserved. Requires a new entry UUID and request_id UUID. " +
+			"Reuse the identical request_id on retry, never log again with a new ID after an uncertain response. " +
+			"A conflict requires reading the day again and reconciling; the iPhone receives the result on sync.",
+		Annotations: editHints, Meta: oauthMetadata(ScopeWorkoutWrite),
+	}, h.logNutritionEntry)
 	return sdkmcp.NewStreamableHTTPHandler(func(_ *http.Request) *sdkmcp.Server {
 		return server
 	}, &sdkmcp.StreamableHTTPOptions{Stateless: true, JSONResponse: true})
