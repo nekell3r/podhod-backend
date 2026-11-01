@@ -41,6 +41,7 @@
 | `get_nutrition_catalog` | `workout:read` | Продукты и общие рецепты с КБЖУ, точными ID, состоянием приготовления и источниками |
 | `get_nutrition_recipes` | `workout:read` | Свои рецепты подключённого аккаунта и revision коллекции |
 | `create_nutrition_recipe` | `workout:write` | Добавление одного своего рецепта без изменения остальных |
+| `update_nutrition_recipe` | `workout:write` | Редактирование одного своего рецепта с прежним UUID; записанный дневник сохраняется |
 | `delete_nutrition_recipe` | `workout:write` | Удаление одного своего рецепта по UUID; снимки дневника остаются |
 | `get_nutrition_day` | `workout:read` | Конкретный день, сохранённая цель/timezone, итоги КБЖУ и revision |
 | `get_nutrition_goals` | `workout:read` | История ручных целей для первого снимка дня |
@@ -70,6 +71,8 @@ Identity берётся только из проверенного `auth.TokenIn
 Питание использует прежние `workout:read/write` по выбору пользователя. Новые роли Keycloak, разрешения мобильных клиентов и SQL-схема не требуются. Инструменты не принимают owner/user ID: изменения относятся только к проверенной identity подключения.
 
 Перед созданием или удалением рецепта прочитай `get_nutrition_recipes` и используй revision всей коллекции. Создание принимает один `recipe` по общему camelCase-контракту `NutritionOwnRecipe`: UUID, название, category (`breakfast/main/salad/snack`), minutes, servings, preparedWeightGrams, ingredients и steps. У ингредиента собственный UUID, grams и food snapshot. Нужны фактическая готовая масса и явные КБЖУ на 100 г: отсутствие значения не означает ноль. Общий каталог читается отдельно и не меняется этими командами.
+
+Для редактирования также сначала прочитай `get_nutrition_recipes`. `update_nutrition_recipe` принимает точный `recipe_id`, полный изменённый `recipe`, `expected_revision` коллекции и UUID `request_id`. `recipe.id` должен совпадать с `recipe_id`; UUID и позиция рецепта сохраняются. Передавай и неизменённые поля, сохраняя UUID оставленных ингредиентов. Можно менять название, категорию, время, порции, готовую массу, состав и шаги. Другие рецепты, избранное и прошлые снимки съеденной еды не меняются. Отсутствующий рецепт даёт `not_found`, смена UUID или некорректный состав — `invalid_request`. Редактирование помечено destructive, повтор идентичного запроса безопасен; при конфликте нужно перечитать ресурс. Применение на iPhone остаётся `pending_sync` до синхронизации.
 
 `delete_nutrition_recipe` требует точный `recipe_id` своего рецепта. Удаление помечено destructive; создание и добавление еды — additive. Удаление не меняет другие рецепты, дневник, цели и избранное. Неизвестный UUID даёт `not_found`, занятый UUID при создании — `recipe_exists`.
 

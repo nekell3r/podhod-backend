@@ -111,7 +111,7 @@ Full model, replacement/closure rules and validation scope: [training cycle cont
 
 ## Nutrition documents
 
-The MCP adapter exposes owner-scoped reads for the catalog, own recipes, day and goals, and narrow `create_nutrition_recipe`, `delete_nutrition_recipe`, `log_nutrition_entry` commands. They use the same nutrition resources, validation, CAS/requestID and `workout:read/write` scopes as REST. Recipe deletion preserves saved diary snapshots; logging appends one entry and preserves an existing day's goal/timezone. See [MCP contract](../internal/mcp/README.md#рецепты-и-дневник-питания). No new REST routes or SQL schema are needed.
+The MCP adapter exposes owner-scoped reads for the catalog, own recipes, day and goals, and narrow `create_nutrition_recipe`, `update_nutrition_recipe`, `delete_nutrition_recipe`, `log_nutrition_entry` commands. They use the same nutrition resources, validation, CAS/requestID and `workout:read/write` scopes as REST. Recipe editing retains the recipe UUID and changes only the identified recipe. Editing and deletion preserve saved diary snapshots; logging appends one entry and preserves an existing day's goal/timezone. See [MCP contract](../internal/mcp/README.md#рецепты-и-дневник-питания). No new REST routes or SQL schema are needed.
 
 The public catalog embeds `internal/service/nutrition-catalog.json` unchanged in meaning: `formatVersion`, `version`, `foods`, `recipes`, `recipeAttribution`. It contains no owner data. All private nutrition GETs require `workout:read`, PUTs require `workout:write`; using these existing scopes was explicitly chosen by the user. Owner comes only from the verified bearer subject. Android and OAuth configuration are unchanged. Private JSON responses use `Cache-Control: no-store`.
 

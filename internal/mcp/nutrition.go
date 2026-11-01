@@ -26,6 +26,13 @@ type nutritionRecipeDeleteInput struct {
 	RequestID        string `json:"request_id" jsonschema:"UUID; reuse only for an identical retry."`
 }
 
+type nutritionRecipeUpdateInput struct {
+	RecipeID         string                     `json:"recipe_id" jsonschema:"UUID of the existing own recipe, from get_nutrition_recipes. Must match recipe.id."`
+	Recipe           service.NutritionOwnRecipe `json:"recipe" jsonschema:"Complete edited recipe. Preserve its UUID and retained ingredient UUIDs; include unchanged fields, explicit ingredient KBJU and actual prepared weight."`
+	ExpectedRevision int64                      `json:"expected_revision" jsonschema:"Latest collection revision from get_nutrition_recipes."`
+	RequestID        string                     `json:"request_id" jsonschema:"UUID; reuse only for an identical retry."`
+}
+
 type nutritionEntryInput struct {
 	Date             string                      `json:"date" jsonschema:"Calendar date YYYY-MM-DD, resolved with the user."`
 	Timezone         string                      `json:"timezone" jsonschema:"IANA timezone; keep the recorded day's timezone."`
@@ -90,6 +97,26 @@ func (h *handler) createNutritionRecipe(
 	})
 	if err != nil {
 		result, detail := serviceFailure(ctx, "create_nutrition_recipe", err)
+		return result, nutritionRecipesResult{Error: detail}, nil
+	}
+	return nil, nutritionRecipesResult{Recipes: &record, DeliveryStatus: "pending_sync", Notice: pendingSyncNotice}, nil
+}
+
+func (h *handler) updateNutritionRecipe(
+	ctx context.Context,
+	req *sdkmcp.CallToolRequest,
+	input nutritionRecipeUpdateInput,
+) (*sdkmcp.CallToolResult, nutritionRecipesResult, error) {
+	owner, denied := authorizeTool(req, ScopeWorkoutWrite, h.resourceMetadataURL)
+	if denied != nil {
+		return denied, nutritionRecipesResult{}, nil
+	}
+	record, err := h.service.UpdateNutritionRecipe(ctx, owner, service.UpdateNutritionRecipeRequest{
+		ExpectedRevision: input.ExpectedRevision, RequestID: input.RequestID,
+		RecipeID: input.RecipeID, Recipe: input.Recipe,
+	})
+	if err != nil {
+		result, detail := serviceFailure(ctx, "update_nutrition_recipe", err)
 		return result, nutritionRecipesResult{Error: detail}, nil
 	}
 	return nil, nutritionRecipesResult{Recipes: &record, DeliveryStatus: "pending_sync", Notice: pendingSyncNotice}, nil

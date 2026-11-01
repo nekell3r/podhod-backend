@@ -131,6 +131,13 @@ type DeleteNutritionRecipeRequest struct {
 	RecipeID         string `json:"recipeID"`
 }
 
+type UpdateNutritionRecipeRequest struct {
+	ExpectedRevision int64              `json:"expectedRevision"`
+	RequestID        string             `json:"requestID"`
+	RecipeID         string             `json:"recipeID"`
+	Recipe           NutritionOwnRecipe `json:"recipe"`
+}
+
 type LogNutritionEntryRequest struct {
 	ExpectedRevision int64               `json:"expectedRevision"`
 	RequestID        string              `json:"requestID"`

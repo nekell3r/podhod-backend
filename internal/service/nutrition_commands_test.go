@@ -120,6 +120,22 @@ func TestNutritionCommandsProtectFutureAndCorruptStorage(t *testing.T) {
 				})
 				return err
 			}},
+		{name: "future recipe update", body: `{"revision":4,"document":{"version":2,"future":"keep"}}`,
+			run: func(s *Service) error {
+				_, err := s.UpdateNutritionRecipe(t.Context(), "owner", UpdateNutritionRecipeRequest{
+					ExpectedRevision: 4, RequestID: "00000000-0000-4000-8000-000000000010",
+					RecipeID: nutritionRecipeFixture().ID, Recipe: nutritionRecipeFixture(),
+				})
+				return err
+			}},
+		{name: "corrupt recipe update", body: `{"revision":4,"document":{"version":1}}`,
+			run: func(s *Service) error {
+				_, err := s.UpdateNutritionRecipe(t.Context(), "owner", UpdateNutritionRecipeRequest{
+					ExpectedRevision: 4, RequestID: "00000000-0000-4000-8000-000000000010",
+					RecipeID: nutritionRecipeFixture().ID, Recipe: nutritionRecipeFixture(),
+				})
+				return err
+			}},
 		{name: "future diary append", body: `{"revision":4,"document":{"version":2,"future":"keep"}}`,
 			run: func(s *Service) error {
 				_, err := s.LogNutritionEntry(t.Context(), "owner", "2026-10-31", LogNutritionEntryRequest{

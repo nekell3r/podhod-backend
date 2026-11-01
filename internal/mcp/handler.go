@@ -16,7 +16,7 @@ type handler struct {
 
 func NewHandler(svc *service.Service, resourceMetadataURL string) *sdkmcp.StreamableHTTPHandler {
 	h := &handler{service: svc, resourceMetadataURL: resourceMetadataURL}
-	server := sdkmcp.NewServer(&sdkmcp.Implementation{Name: "podhod", Version: "1.2.0"}, nil)
+	server := sdkmcp.NewServer(&sdkmcp.Implementation{Name: "podhod", Version: "1.2.1"}, nil)
 
 	falseHint := false
 	trueHint := true
@@ -186,7 +186,7 @@ func NewHandler(svc *service.Service, resourceMetadataURL string) *sdkmcp.Stream
 	}, h.getNutritionCatalog)
 	sdkmcp.AddTool(server, &sdkmcp.Tool{
 		Name: "get_nutrition_recipes", Title: "Read own recipes",
-		Description: "Read the connected account's own recipes and collection revision before creating or deleting a recipe. " +
+		Description: "Read the connected account's own recipes and collection revision before creating, editing or deleting a recipe. " +
 			"Does not include the shared catalog; use get_nutrition_catalog for that. Phone-only unsynchronized edits are not visible.",
 		Annotations: readHints, Meta: oauthMetadata(ScopeWorkoutRead),
 	}, h.getNutritionRecipes)
@@ -198,6 +198,17 @@ func NewHandler(svc *service.Service, resourceMetadataURL string) *sdkmcp.Stream
 			"A repeated identical request_id is safe; a duplicate recipe ID is an error. The iPhone receives it on sync.",
 		Annotations: editHints, Meta: oauthMetadata(ScopeWorkoutWrite),
 	}, h.createNutritionRecipe)
+	sdkmcp.AddTool(server, &sdkmcp.Tool{
+		Name: "update_nutrition_recipe", Title: "Edit an own recipe",
+		Description: "Edit exactly one existing own recipe after reading get_nutrition_recipes. Send its recipe_id, " +
+			"the complete edited recipe, expected_revision of the collection and UUID request_id. Preserve recipe UUID " +
+			"and retained ingredient UUIDs; include unchanged fields. Names, category, time, servings, ingredients, " +
+			"preparedWeightGrams and steps may change. Explicit KBJU and actual ready weight are required; do not invent missing values. " +
+			"Other recipes, favorites and existing diary snapshots are preserved. A missing recipe is an error, never an implicit create. " +
+			"Retry an uncertain response with identical arguments and request_id; reconcile revision conflicts before a new action. " +
+			"The iPhone receives the change on its next successful sync.",
+		Annotations: replaceHints, Meta: oauthMetadata(ScopeWorkoutWrite),
+	}, h.updateNutritionRecipe)
 	sdkmcp.AddTool(server, &sdkmcp.Tool{
 		Name: "delete_nutrition_recipe", Title: "Delete an own recipe",
 		Description: "Delete exactly the own recipe UUID requested by the user after reading get_nutrition_recipes. " +

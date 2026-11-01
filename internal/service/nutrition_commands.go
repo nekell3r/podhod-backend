@@ -31,6 +31,40 @@ func (s *Service) CreateNutritionRecipe(
 	})
 }
 
+func (s *Service) UpdateNutritionRecipe(
+	ctx context.Context,
+	owner string,
+	input UpdateNutritionRecipeRequest,
+) (NutritionRecipesRecord, error) {
+	return change(ctx, s, resourceChange[NutritionRecipesRecord]{
+		Owner: owner, Key: "nutrition/recipes", RequestID: input.RequestID,
+		ExpectedRevision: input.ExpectedRevision, Request: input,
+		Transform: func(value *NutritionRecipesRecord) error {
+			if input.ExpectedRevision == 0 {
+				value.Document = NutritionRecipesDocument{Version: 1, Recipes: []NutritionOwnRecipe{}}
+			}
+			if err := invalidStoredNutrition(value.Document.validate()); err != nil {
+				return err
+			}
+			if !validUUID(input.RecipeID) || !strings.EqualFold(input.RecipeID, input.Recipe.ID) {
+				return invalid("recipe id must be a UUID matching the unchanged recipe UUID")
+			}
+			if err := input.Recipe.validate(); err != nil {
+				return err
+			}
+			for i, recipe := range value.Document.Recipes {
+				if strings.EqualFold(recipe.ID, input.RecipeID) {
+					replacement := input.Recipe
+					replacement.ID = recipe.ID
+					value.Document.Recipes[i] = replacement
+					return value.Document.validate()
+				}
+			}
+			return &Error{Code: "not_found", Message: "own recipe not found"}
+		},
+	})
+}
+
 func (s *Service) DeleteNutritionRecipe(
 	ctx context.Context,
 	owner string,

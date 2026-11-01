@@ -134,6 +134,93 @@ func TestNutritionMCPRecipeAndDiaryLifecycle(t *testing.T) {
 	}
 }
 
+func TestNutritionMCPUpdatesOneRecipeWithoutRewritingDiary(t *testing.T) {
+	t.Parallel()
+	repo := newMemoryRepository()
+	svc := service.New(repo)
+	original := nutritionRecipe()
+	other := nutritionRecipe()
+	other.ID = "70000000-0000-4000-8000-000000000006"
+	if _, err := svc.ReplaceNutritionRecipes(t.Context(), "owner", service.NutritionRecipesWrite{
+		RequestID: sessionID, Document: service.NutritionRecipesDocument{Version: 1, Recipes: []service.NutritionOwnRecipe{original, other}},
+	}); err != nil {
+		t.Fatal(err)
+	}
+	client := connect(t, svc, identity{owner: "owner", scopes: []string{mcptransport.ScopeWorkoutRead, mcptransport.ScopeWorkoutWrite}})
+	loggedResult := callTool(t, client, "log_nutrition_entry", nutritionLogInput())
+	if loggedResult.IsError {
+		t.Fatalf("seed diary: %+v", loggedResult)
+	}
+	logged := decodeResult[nutritionDayResponse](t, loggedResult)
+	edited := nutritionRecipe()
+	edited.Name = "Updated recipe"
+	edited.Minutes = 20
+	edited.Category = "main"
+	edited.Servings = 1
+	edited.PreparedWeightGrams = 100
+	edited.Ingredients[0].Grams = 100
+	edited.Steps = []string{"Changed step", "Serve"}
+	input := map[string]any{"recipe_id": original.ID, "recipe": edited, "expected_revision": 1,
+		"request_id": "70000000-0000-4000-8000-000000000011"}
+	result := callTool(t, client, "update_nutrition_recipe", input)
+	updated := decodeResult[nutritionRecipesResponse](t, result)
+	if result.IsError || updated.Recipes.Revision != 2 || updated.DeliveryStatus != "pending_sync" ||
+		!reflect.DeepEqual(updated.Recipes.Document.Recipes, []service.NutritionOwnRecipe{edited, other}) {
+		t.Fatalf("update changed the wrong recipe or lost fields: %+v %+v", result, updated)
+	}
+	retry := callTool(t, client, "update_nutrition_recipe", input)
+	if retry.IsError || !reflect.DeepEqual(updated, decodeResult[nutritionRecipesResponse](t, retry)) || repo.writeCount() != 3 {
+		t.Fatalf("update retry was not idempotent: %+v", retry)
+	}
+	edited.Name = "Changed retry"
+	input["recipe"] = edited
+	reused := callTool(t, client, "update_nutrition_recipe", input)
+	if !reused.IsError || decodeResult[nutritionRecipesResponse](t, reused).Error.Code != "idempotency_conflict" {
+		t.Fatalf("changed retry reused request ID: %+v", reused)
+	}
+	input["request_id"] = "70000000-0000-4000-8000-000000000012"
+	stale := callTool(t, client, "update_nutrition_recipe", input)
+	detail := decodeResult[nutritionRecipesResponse](t, stale).Error
+	if !stale.IsError || detail == nil || detail.Code != "revision_conflict" || detail.CurrentRevision == nil || *detail.CurrentRevision != 2 {
+		t.Fatalf("stale edit overwrote a newer recipe: %+v", stale)
+	}
+	input["expected_revision"] = 2
+	for _, tc := range []struct {
+		name     string
+		recipeID string
+		recipe   service.NutritionOwnRecipe
+		code     string
+	}{
+		{name: "changed UUID", recipeID: other.ID, recipe: edited, code: "invalid_request"},
+		{name: "missing recipe", recipeID: "70000000-0000-4000-8000-000000000099",
+			recipe: func() service.NutritionOwnRecipe {
+				r := edited
+				r.ID = "70000000-0000-4000-8000-000000000099"
+				return r
+			}(), code: "not_found"},
+		{name: "invalid ready mass", recipeID: edited.ID,
+			recipe: func() service.NutritionOwnRecipe { r := edited; r.PreparedWeightGrams = 0; return r }(), code: "invalid_request"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			input["recipe_id"], input["recipe"] = tc.recipeID, tc.recipe
+			failure := callTool(t, client, "update_nutrition_recipe", input)
+			if !failure.IsError || decodeResult[nutritionRecipesResponse](t, failure).Error.Code != tc.code {
+				t.Fatalf("invalid edit accepted: %+v", failure)
+			}
+		})
+	}
+	foreign := connect(t, svc, identity{owner: "someone-else", scopes: []string{mcptransport.ScopeWorkoutWrite}})
+	input["recipe_id"], input["recipe"], input["expected_revision"] = original.ID, edited, 0
+	denied := callTool(t, foreign, "update_nutrition_recipe", input)
+	if !denied.IsError || decodeResult[nutritionRecipesResponse](t, denied).Error.Code != "not_found" {
+		t.Fatalf("another account edited the recipe: %+v", denied)
+	}
+	day, err := svc.GetNutritionDay(t.Context(), "owner", "2026-11-01", "Europe/Moscow")
+	if err != nil || !reflect.DeepEqual(day, logged.Day) || repo.writeCount() != 3 {
+		t.Fatalf("recipe editing changed diary or rejected edits wrote data: %+v %v", day, err)
+	}
+}
+
 func TestNutritionMCPScopesAndAnnotations(t *testing.T) {
 	t.Parallel()
 	for _, tc := range []struct {
@@ -151,6 +238,8 @@ func TestNutritionMCPScopesAndAnnotations(t *testing.T) {
 			input: map[string]any{"recipe": nutritionRecipe(), "expected_revision": 0, "request_id": sessionID}},
 		{name: "delete_nutrition_recipe", scope: mcptransport.ScopeWorkoutWrite, write: true,
 			input: map[string]any{"recipe_id": nutritionRecipe().ID, "expected_revision": 0, "request_id": sessionID}},
+		{name: "update_nutrition_recipe", scope: mcptransport.ScopeWorkoutWrite, write: true,
+			input: map[string]any{"recipe_id": nutritionRecipe().ID, "recipe": nutritionRecipe(), "expected_revision": 0, "request_id": sessionID}},
 		{name: "log_nutrition_entry", scope: mcptransport.ScopeWorkoutWrite, write: true, input: nutritionLogInput()},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
@@ -177,7 +266,7 @@ func TestNutritionMCPScopesAndAnnotations(t *testing.T) {
 				if tool.Annotations.ReadOnlyHint == tc.write || (tc.write && !tool.Annotations.IdempotentHint) {
 					t.Fatalf("incorrect annotations: %+v", tool.Annotations)
 				}
-				if *tool.Annotations.DestructiveHint != (tc.name == "delete_nutrition_recipe") {
+				if *tool.Annotations.DestructiveHint != (tc.name == "delete_nutrition_recipe" || tc.name == "update_nutrition_recipe") {
 					t.Fatal("incorrect destructive annotation")
 				}
 			}
